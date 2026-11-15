@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" class="detail-clocks-scene" viewBox="0 0 760 460" data-mobile-viewbox="0 0 360 704" role="img" aria-labelledby="dt-title dt-desc">
+  <title id="dt-title">Three clocks, not repeated robot executions</title>
+  <desc id="dt-desc">Before rollout, four chronological segments preload reference memory. Within a policy decision, five Euler evaluations predict thirty actions with zero memory writes. Each completed control transition writes progress once. New chunks are retained every four control steps, with up to four aligned retained chunks ensembled.</desc>
+  <style>.detail-clocks-scene text{font-family:Source,'Avenir Next',sans-serif;fill:#49332F;font-size:16px}.detail-clocks-scene .dt-small{font-size:12px;fill:#806860}.dt-title{font-weight:650}.detail-clocks-scene .dt-number,.detail-clocks-scene .dt-number text{font-size:14px;font-weight:650;text-anchor:middle}</style>
+  <g transform="translate(20 28)" data-mobile-transform="translate(20 28)">
+    <rect width="720" height="114" data-mobile-width="320" data-mobile-height="174" rx="16" fill="#F0E8F2" stroke="#D7C5DD"/>
+    <text x="20" y="30" class="dt-title">01 / Before rollout</text><text x="20" y="55" class="dt-small" data-mobile-y="156">preload reference once</text>
+    <g transform="translate(237 30)" data-mobile-transform="translate(20 56)"><rect width="46" height="36" rx="7" fill="#BCA5C3"/><text x="23" y="24" class="dt-number">S1</text></g>
+    <g transform="translate(299 30)" data-mobile-transform="translate(98 56)"><rect width="46" height="36" rx="7" fill="#BCA5C3"/><text x="23" y="24" class="dt-number">S2</text></g>
+    <g transform="translate(361 30)" data-mobile-transform="translate(176 56)"><rect width="46" height="36" rx="7" fill="#BCA5C3"/><text x="23" y="24" class="dt-number">S3</text></g>
+    <g transform="translate(423 30)" data-mobile-transform="translate(254 56)"><rect width="46" height="36" rx="7" fill="#BCA5C3"/><text x="23" y="24" class="dt-number">S4</text></g>
+    <g transform="translate(517 29)" data-mobile-transform="translate(178 125)"><rect width="179" height="39" data-mobile-width="123" rx="19" fill="#E4D7EA"/><text x="89" y="25" data-mobile-x="61" text-anchor="middle" class="dt-small">REFERENCE FIXED</text></g>
+    <text x="237" y="94" data-mobile-x="20" data-mobile-y="115" class="dt-small">4 chronological segment writes</text>
+  </g>
+  <g transform="translate(20 165)" data-mobile-transform="translate(20 225)">
+    <rect width="720" height="114" data-mobile-width="320" data-mobile-height="184" rx="16" fill="#FFF5D8" stroke="#E8D498"/>
+    <text x="20" y="30" class="dt-title">02 / One action sample</text><text x="20" y="55" data-mobile-y="157" class="dt-small">not five robot executions</text>
+    <g fill="#FFD968"><circle cx="255" cy="48" data-mobile-cx="36" data-mobile-cy="75" r="16"/><circle cx="310" cy="48" data-mobile-cx="98" data-mobile-cy="75" r="16"/><circle cx="365" cy="48" data-mobile-cx="160" data-mobile-cy="75" r="16"/><circle cx="420" cy="48" data-mobile-cx="222" data-mobile-cy="75" r="16"/><circle cx="475" cy="48" data-mobile-cx="284" data-mobile-cy="75" r="16"/></g>
+    <g class="dt-number"><text x="255" y="53" data-mobile-x="36" data-mobile-y="80">1</text><text x="310" y="53" data-mobile-x="98" data-mobile-y="80">2</text><text x="365" y="53" data-mobile-x="160" data-mobile-y="80">3</text><text x="420" y="53" data-mobile-x="222" data-mobile-y="80">4</text><text x="475" y="53" data-mobile-x="284" data-mobile-y="80">5</text></g>
+    <text x="237" y="94" data-mobile-x="20" data-mobile-y="117" class="dt-small">5 Euler evaluations / 0 writes</text>
+    <text x="541" y="44" data-mobile-x="200" data-mobile-y="157" class="dt-title">30 actions</text><text x="541" y="68" data-mobile-x="200" data-mobile-y="176" class="dt-small">predicted chunk</text>
+  </g>
+  <g transform="translate(20 302)" data-mobile-transform="translate(20 432)">
+    <rect width="720" height="130" data-mobile-width="320" data-mobile-height="244" rx="16" fill="#FBE8EF" stroke="#E6B2C4"/>
+    <text x="20" y="30" class="dt-title">03 / Real control steps</text><text x="20" y="55" data-mobile-y="144" class="dt-small">completed transition = one write</text>
+    <path d="M242 47H674" data-mobile-d="M34 79H286" stroke="#D5A7B5" stroke-width="2"/>
+    <g data-transition="1" transform="translate(242 47)" data-mobile-transform="translate(34 79)"><circle r="15" fill="#FBE8EF" stroke="#CA839B"/><text y="5" class="dt-number">1</text></g>
+    <g data-transition="2" transform="translate(304 47)" data-mobile-transform="translate(70 79)"><circle r="15" fill="#FBE8EF" stroke="#CA839B"/><text y="5" class="dt-number">2</text></g>
+    <g data-transition="3" transform="translate(366 47)" data-mobile-transform="translate(106 79)"><circle r="15" fill="#FBE8EF" stroke="#CA839B"/><text y="5" class="dt-number">3</text></g>
+    <g data-transition="4" transform="translate(428 47)" data-mobile-transform="translate(142 79)"><circle r="15" fill="#FBE8EF" stroke="#CA839B"/><text y="5" class="dt-number">4</text></g>
+    <g data-transition="5" transform="translate(490 47)" data-mobile-transform="translate(178 79)"><circle r="15" fill="#FBE8EF" stroke="#CA839B"/><text y="5" class="dt-number">5</text></g>
+    <g data-transition="6" transform="translate(552 47)" data-mobile-transform="translate(214 79)"><circle r="15" fill="#FBE8EF" stroke="#CA839B"/><text y="5" class="dt-number">6</text></g>
+    <g data-transition="7" transform="translate(614 47)" data-mobile-transform="translate(250 79)"><circle r="15" fill="#FBE8EF" stroke="#CA839B"/><text y="5" class="dt-number">7</text></g>
+    <g data-transition="8" transform="translate(676 47)" data-mobile-transform="translate(286 79)"><circle r="15" fill="#FBE8EF" stroke="#CA839B"/><text y="5" class="dt-number">8</text></g>
+    <text x="237" y="94" data-mobile-x="20" data-mobile-y="181" class="dt-small">Retain a new chunk every 4 control steps.</text>
+    <text x="237" y="115" data-mobile-x="20" data-mobile-y="205" class="dt-small">Ensemble up to 4 retained, aligned chunks.</text>
+  </g>
+</svg>

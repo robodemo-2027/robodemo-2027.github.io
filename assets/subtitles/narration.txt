@@ -1,0 +1,15 @@
+1. A demonstration shows how a task should unfold. A short instruction may leave the layout, the grasp, and the order of operations underspecified.
+
+2. Text plans and predicted futures are useful forms of guidance. But generating futures can add cost, and a static reference cannot reveal what the robot actually completed.
+
+3. RoboDemo accepts human demonstrations, or retrieves compatible robot videos from its training bank. Retrieval uses the initial scene and instruction, never future query frames.
+
+4. Sparse semantic frames and dense motion clips are encoded together. Each chronological segment writes a small fast-weight memory. This is not fine-tuning the whole policy.
+
+5. Demonstration memory stays protected. Separate progress memory receives the new observation, robot state, and preceding executed action, only after each real transition completes.
+
+6. Each action block reads intent, then progress refines the action representation, without rewriting reference memory. During denoising, both memories are read only.
+
+7. These are real references and recorded simulated executions, not generated robot footage. The website preserves counterexamples and failed endings.
+
+8. With human references, RoboDemo reaches eighty four point six percent first success on Full Fifty: sixteen hundred ninety two of two thousand trials. Retrieved-reference control remains unreported.

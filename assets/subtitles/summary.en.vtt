@@ -1,0 +1,197 @@
+WEBVTT
+
+1
+00:00:00.240 --> 00:00:05.073
+Can a demonstration guide a robot through a long-horizon task?
+
+2
+00:00:05.373 --> 00:00:09.320
+RoboDemo separates two things worth remembering.
+
+3
+00:00:09.620 --> 00:00:13.304
+The intent in the demonstration, and the progress actually made.
+
+4
+00:00:14.115 --> 00:00:19.260
+An instruction may leave the grasp, motion, and order underspecified.
+
+5
+00:00:19.560 --> 00:00:24.937
+A reference shows a procedure, not the robot's completed progress.
+
+6
+00:00:25.237 --> 00:00:30.198
+We need both a reference and memory that updates with interaction.
+
+7
+00:00:31.032 --> 00:00:33.779
+A human demonstration can be supplied directly.
+
+8
+00:00:34.079 --> 00:00:39.121
+Or retrieve a robot demonstration using the initial image and instruction.
+
+9
+00:00:39.421 --> 00:00:42.352
+Retrieval never uses future frames of the current query trajectory.
+
+10
+00:00:42.652 --> 00:00:47.184
+Retrieved-reference policy-control results have not been reported.
+
+11
+00:00:48.032 --> 00:00:53.133
+The current design uses one reference segment, not multiple segments.
+
+12
+00:00:53.433 --> 00:00:57.222
+Two complementary sets of frames come from that same segment.
+
+13
+00:00:57.522 --> 00:01:01.936
+Sparse semantic frames capture objects, scene context, and meaning.
+
+14
+00:01:02.236 --> 00:01:06.215
+A dense consecutive slice preserves local changes in motion.
+
+15
+00:01:07.032 --> 00:01:10.064
+Semantic frames enter the Qwen3-VL vision tower.
+
+16
+00:01:10.364 --> 00:01:14.397
+The consecutive action slice enters the V-JEPA2 encoder.
+
+17
+00:01:14.697 --> 00:01:19.902
+Both encoders are frozen; images become groups of tokens.
+
+18
+00:01:20.202 --> 00:01:26.585
+Separate Q-formers pool them: a semantic base plus gated motion residual.
+
+19
+00:01:27.407 --> 00:01:31.202
+This context is not simply stored in a video cache.
+
+20
+00:01:31.502 --> 00:01:37.877
+Context K and V update a small fast-weight learner through an inner objective.
+
+21
+00:01:38.177 --> 00:01:42.268
+Action-side Q queries the memory; it does not write.
+
+22
+00:01:42.568 --> 00:01:47.036
+The fast state changes, not the entire policy network.
+
+23
+00:01:47.865 --> 00:01:52.908
+Purple reference memory is preloaded, then remains fixed throughout rollout.
+
+24
+00:01:53.208 --> 00:01:57.461
+Pink progress memory waits for an actual transition to finish.
+
+25
+00:01:57.761 --> 00:02:02.890
+It receives the new observation, robot state, and preceding executed action.
+
+26
+00:02:03.190 --> 00:02:08.847
+Progress keeps updating without overwriting the reference intent.
+
+27
+00:02:09.657 --> 00:02:12.993
+Each action block first reads the demonstration intent.
+
+28
+00:02:13.293 --> 00:02:18.376
+Progress then refines that reference-conditioned action representation.
+
+29
+00:02:18.676 --> 00:02:22.414
+The action representation changes, not the reference memory.
+
+30
+00:02:22.714 --> 00:02:28.584
+Both states are read-only during denoising; an unwritten state adds zero delta.
+
+31
+00:02:29.407 --> 00:02:33.607
+At the historical 240k checkpoint with human references,
+
+32
+00:02:33.907 --> 00:02:37.928
+50 tasks across four levels total 2,000 trials.
+
+33
+00:02:38.228 --> 00:02:44.304
+RoboDemo succeeds at least once in 1,692 trials: 84.6%.
+
+34
+00:02:44.604 --> 00:02:49.177
+The aggregate exceeds the listed baselines, not every individual task.
+
+35
+00:02:49.990 --> 00:02:55.585
+These are recorded simulated policy executions, not generated robot footage.
+
+36
+00:02:55.885 --> 00:03:01.927
+Across six selected cases: 6/6 with reference, 0/6 without.
+
+37
+00:03:02.227 --> 00:03:08.117
+This is not a full-benchmark ablation; static and reversed references also succeed.
+
+38
+00:03:08.417 --> 00:03:12.972
+These cases do not establish that full temporal order is necessary.
+
+39
+00:03:15.073 --> 00:03:19.199
+We also compare representations of the same 309 human videos.
+
+40
+00:03:19.499 --> 00:03:23.207
+Appearance control is on the left; fast weights are on the right.
+
+41
+00:03:23.507 --> 00:03:28.761
+Task structure is visible, but clustering is not causal proof of action understanding.
+
+42
+00:03:29.061 --> 00:03:32.140
+Evidence for general human–robot alignment also remains limited.
+
+43
+00:03:32.990 --> 00:03:35.514
+Finally, keep two timelines distinct.
+
+44
+00:03:35.814 --> 00:03:42.041
+The current method uses one segment; the historical checkpoint used four.
+
+45
+00:03:42.341 --> 00:03:46.270
+Historical results do not automatically validate the revised design.
+
+46
+00:03:46.570 --> 00:03:52.201
+84.6% is first success, not success at the fixed 500-step endpoint.
+
+47
+00:03:53.032 --> 00:03:58.046
+RoboDemo is not about blindly replaying a demonstration.
+
+48
+00:03:58.346 --> 00:04:02.693
+Remember what should happen, and what actually happened.
+
+49
+00:04:02.993 --> 00:04:07.677
+Let intent and actual progress guide the next action together.

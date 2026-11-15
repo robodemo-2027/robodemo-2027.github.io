@@ -1,0 +1,73 @@
+WEBVTT
+
+1-1
+00:00:00.100 --> 00:00:04.210 line:88% size:86% align:center
+A demonstration shows how a task should unfold. A short instruction may
+
+1-2
+00:00:04.210 --> 00:00:08.321 line:88% size:86% align:center
+leave the layout, the grasp, and the order of operations underspecified.
+
+2-1
+00:00:11.100 --> 00:00:14.391 line:88% size:86% align:center
+Text plans and predicted futures are useful forms of
+
+2-2
+00:00:14.391 --> 00:00:17.682 line:88% size:86% align:center
+guidance. But generating futures can add cost, and a
+
+2-3
+00:00:17.682 --> 00:00:20.973 line:88% size:86% align:center
+static reference cannot reveal what the robot actually completed.
+
+3-1
+00:00:23.100 --> 00:00:28.464 line:88% size:86% align:center
+RoboDemo accepts human demonstrations, or retrieves compatible robot videos from its training
+
+3-2
+00:00:28.464 --> 00:00:33.828 line:88% size:86% align:center
+bank. Retrieval uses the initial scene and instruction, never future query frames.
+
+4-1
+00:00:34.200 --> 00:00:38.911 line:88% size:86% align:center
+Sparse semantic frames and dense motion clips are encoded together. Each chronological segment
+
+4-2
+00:00:38.911 --> 00:00:43.622 line:88% size:86% align:center
+writes a small fast-weight memory. This is not fine-tuning the whole policy.
+
+5-1
+00:00:44.200 --> 00:00:49.813 line:88% size:86% align:center
+Demonstration memory stays protected. Separate progress memory receives the new observation, robot
+
+5-2
+00:00:49.813 --> 00:00:55.426 line:88% size:86% align:center
+state, and preceding executed action, only after each real transition completes.
+
+6-1
+00:00:56.200 --> 00:01:00.961 line:88% size:86% align:center
+Each action block reads intent, then progress refines the action representation,
+
+6-2
+00:01:00.961 --> 00:01:05.722 line:88% size:86% align:center
+without rewriting reference memory. During denoising, both memories are read only.
+
+7-1
+00:01:06.200 --> 00:01:10.485 line:88% size:86% align:center
+These are real references and recorded simulated executions, not generated
+
+7-2
+00:01:10.485 --> 00:01:14.771 line:88% size:86% align:center
+robot footage. The website preserves counterexamples and failed endings.
+
+8-1
+00:01:15.200 --> 00:01:19.138 line:88% size:86% align:center
+With human references, RoboDemo reaches eighty four point six
+
+8-2
+00:01:19.138 --> 00:01:23.076 line:88% size:86% align:center
+percent first success on Full Fifty: sixteen hundred ninety
+
+8-3
+00:01:23.076 --> 00:01:27.014 line:88% size:86% align:center
+two of two thousand trials. Retrieved-reference control remains unreported.

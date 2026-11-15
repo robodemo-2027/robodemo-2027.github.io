@@ -1,0 +1,23 @@
+.film-heading{display:flex;justify-content:space-between;align-items:flex-end;gap:28px;margin:0 0 22px}
+.film-heading .eyebrow{margin-bottom:9px}
+.film-heading h3{font-size:29px;letter-spacing:-.035em}
+.film-heading>span{font:11px/1.6 var(--mono);color:#D5BFB8;max-width:215px;text-align:right}
+.summary-film .film-screen{position:relative}
+.summary-film.custom-controls .film-caption-text{position:absolute;bottom:0;left:0;width:100%;height:13.333%;min-height:0;border:0;padding:10px 5%;background:transparent;pointer-events:none;font-size:clamp(16px,2.1vw,28px);line-height:1.4}
+.film-seek-row{display:flex;align-items:center;gap:15px;padding:16px 21px 0}
+.film-seek-row input{min-width:0;flex:1;accent-color:#D86689}
+.film-seek-row .mono{color:#DAC8BD;font-variant-numeric:tabular-nums}
+.film-chapter-row{display:flex;align-items:center;justify-content:space-between;gap:20px;border-top:1px solid #75564E;padding:16px 20px}
+.film-chapter-row label{min-width:0;flex:1;max-width:610px}
+.film-chapter-row label>span{flex:none;color:#DAC8BD}
+.film-chapter-row select{min-width:0;flex:1}
+.film-chapter-row a{font-size:13px;color:#FFD968;text-decoration:underline;text-underline-offset:4px}
+.film-downloads{display:flex;flex-wrap:wrap;gap:12px 22px;margin-top:18px}
+.summary-film:fullscreen .film-screen{flex:none;width:min(100%,calc((100vh - 180px)*16/9));margin:auto;min-height:0}
+.summary-film:fullscreen video{height:auto;aspect-ratio:16/9}
+.summary-film:fullscreen .film-caption-text{flex:none}
+.summary-film:fullscreen .film-chapter-row{display:none}
+.summary-film:fullscreen .film-toolbar{justify-content:center}
+.summary-film:fullscreen .film-seek-row{width:min(1100px,100%);margin:auto}
+@media(max-width:800px){.film-heading{align-items:flex-start;flex-direction:column;gap:12px}.film-heading>span{max-width:none;text-align:left}.film-chapter-row{align-items:flex-start;flex-direction:column;gap:13px}.film-chapter-row label{width:100%;max-width:none}}
+@media(max-width:620px){.film-heading h3{font-size:25px}.summary-film.custom-controls .film-caption-text{position:static;min-height:72px;height:auto;padding:12px 18px;font-size:16px;background:#49332F}.film-chapter-row{padding:14px 12px}.film-chapter-row label{font-size:12px}.film-chapter-row select{font-size:11px}.film-chapter-row a{font-size:12px}.film-seek-row{padding:12px 12px 0;gap:8px}.film-seek-row .mono{font-size:10px}.summary-film:fullscreen .film-screen{width:min(100%,calc((100vh - 250px)*16/9))}}

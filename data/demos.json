@@ -1,0 +1,1027 @@
+{
+  "tasks": [
+    {
+      "key": "pour",
+      "en": "Pour between cups",
+      "zh": "双杯倾倒",
+      "short": [
+        "Pour",
+        "倾倒"
+      ],
+      "caption": [
+        "Lift, approach, and tilt. A human motion becomes a coordinated robot action.",
+        "拿起杯子、靠近接收杯并倾倒，将人类动作转化为双臂协同操作。"
+      ],
+      "stages": [
+        [
+          "Reach",
+          "Grasp",
+          "Pour"
+        ],
+        [
+          "接近",
+          "抓取",
+          "倾倒"
+        ]
+      ],
+      "videos": {
+        "human": "assets/media/pour-human.mp4",
+        "with": "assets/media/pour-with.mp4",
+        "without": "assets/media/pour-without.mp4",
+        "scene": "assets/media/pour-scene.mp4"
+      },
+      "posters": {
+        "human": "assets/posters/pour-human.jpg",
+        "with": "assets/posters/pour-with.jpg",
+        "without": "assets/posters/pour-without.jpg",
+        "scene": "assets/posters/pour-scene.jpg"
+      },
+      "humanDuration": 7.1,
+      "firstSuccess": 5.65,
+      "sceneFirstSuccess": 6.6,
+      "duration": 25.05,
+      "horizon": 500,
+      "trial": "L0_TwoRobotPourCup-v1_trial00",
+      "reference": "human_H41:0",
+      "resetSeed": 20264507,
+      "policySeed": 202960070,
+      "language": "Strain the liquid mixture",
+      "withSuccess": true,
+      "withoutSuccess": false,
+      "phasePeaks": {
+        "with": [
+          1,
+          1,
+          1
+        ],
+        "without": [
+          0.40579283237457275,
+          0.40579283237457275,
+          0
+        ]
+      },
+      "fps": 20
+    },
+    {
+      "key": "stir",
+      "en": "Stir with a spoon",
+      "zh": "用勺子搅拌",
+      "short": [
+        "Stir",
+        "搅拌"
+      ],
+      "caption": [
+        "From picking up the spoon to stirring the bowl: a complete tool-use sequence.",
+        "从抓取勺子到靠近碗并搅拌，展示完整的工具使用动作序列。"
+      ],
+      "stages": [
+        [
+          "Reach",
+          "Grasp",
+          "Lift",
+          "Approach",
+          "Stir",
+          "Return"
+        ],
+        [
+          "接近",
+          "抓取",
+          "提起",
+          "靠近碗",
+          "搅拌",
+          "归还"
+        ]
+      ],
+      "videos": {
+        "human": "assets/media/stir-human.mp4",
+        "with": "assets/media/stir-with.mp4",
+        "without": "assets/media/stir-without.mp4",
+        "scene": "assets/media/stir-scene.mp4"
+      },
+      "posters": {
+        "human": "assets/posters/stir-human.jpg",
+        "with": "assets/posters/stir-with.jpg",
+        "without": "assets/posters/stir-without.jpg",
+        "scene": "assets/posters/stir-scene.jpg"
+      },
+      "humanDuration": 4.933333333333334,
+      "firstSuccess": 10.55,
+      "sceneFirstSuccess": 13.05,
+      "duration": 25.05,
+      "horizon": 500,
+      "trial": "L0_TwoRobotStirSpoon-v1_trial00",
+      "reference": "human_H1:5",
+      "resetSeed": 20265707,
+      "policySeed": 203080070,
+      "language": "Use the spoon to mix the soup in the bowl",
+      "withSuccess": true,
+      "withoutSuccess": false,
+      "phasePeaks": {
+        "with": [
+          1,
+          1,
+          1,
+          1,
+          1,
+          1
+        ],
+        "without": [
+          0.3145601749420166,
+          0.3145601749420166,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      "fps": 20
+    },
+    {
+      "key": "fold",
+      "en": "Fold and stow a towel",
+      "zh": "折叠并收纳毛巾",
+      "short": [
+        "Fold & stow",
+        "折叠收纳"
+      ],
+      "caption": [
+        "Without the demonstration, the towel is folded and moved, but final placement is missed.",
+        "无演示时也能折叠和搬运毛巾，但没有完成最后的入篮放置；有演示时完成整个序列。"
+      ],
+      "stages": [
+        [
+          "Reach",
+          "Grasp",
+          "Fold",
+          "Regrasp",
+          "Transport",
+          "Place"
+        ],
+        [
+          "接近",
+          "抓取",
+          "折叠",
+          "再抓取",
+          "搬运",
+          "放置"
+        ]
+      ],
+      "videos": {
+        "human": "assets/media/fold-human.mp4",
+        "with": "assets/media/fold-with.mp4",
+        "without": "assets/media/fold-without.mp4",
+        "scene": "assets/media/fold-scene.mp4"
+      },
+      "posters": {
+        "human": "assets/posters/fold-human.jpg",
+        "with": "assets/posters/fold-with.jpg",
+        "without": "assets/posters/fold-without.jpg",
+        "scene": "assets/posters/fold-scene.jpg"
+      },
+      "humanDuration": 3.8333333333333335,
+      "firstSuccess": 17.3,
+      "sceneFirstSuccess": 17.35,
+      "duration": 25.05,
+      "horizon": 500,
+      "trial": "L0_TwoRobotFoldTowel-v1_trial00",
+      "reference": "human_H49:5",
+      "resetSeed": 20261407,
+      "policySeed": 202650070,
+      "language": "Fold the towel, then stow it inside the basket",
+      "withSuccess": true,
+      "withoutSuccess": false,
+      "phasePeaks": {
+        "with": [
+          1,
+          1,
+          1,
+          1,
+          1,
+          1
+        ],
+        "without": [
+          1,
+          1,
+          1,
+          1,
+          1,
+          0
+        ]
+      },
+      "fps": 20
+    },
+    {
+      "key": "open",
+      "en": "Open a box",
+      "zh": "双臂开盒",
+      "short": [
+        "Open",
+        "开盒"
+      ],
+      "caption": [
+        "A compact bimanual behavior, transferred from human hands to robot grippers.",
+        "将人类双手的开盒动作迁移到机器人夹爪，完成紧凑的双臂协同操作。"
+      ],
+      "stages": [
+        [
+          "Open"
+        ],
+        [
+          "打开"
+        ]
+      ],
+      "videos": {
+        "human": "assets/media/open-human.mp4",
+        "with": "assets/media/open-with.mp4",
+        "without": "assets/media/open-without.mp4",
+        "scene": "assets/media/open-scene.mp4"
+      },
+      "posters": {
+        "human": "assets/posters/open-human.jpg",
+        "with": "assets/posters/open-with.jpg",
+        "without": "assets/posters/open-without.jpg",
+        "scene": "assets/posters/open-scene.jpg"
+      },
+      "humanDuration": 2.566666666666667,
+      "firstSuccess": 3.95,
+      "sceneFirstSuccess": 3.4,
+      "duration": 25.05,
+      "horizon": 500,
+      "trial": "L0_TwoRobotOpenBox-v1_trial00",
+      "reference": "human_H29:9",
+      "resetSeed": 20261807,
+      "policySeed": 202690070,
+      "language": "Unseal the package so it can be sampled",
+      "withSuccess": true,
+      "withoutSuccess": false,
+      "phasePeaks": {
+        "with": [
+          1
+        ],
+        "without": [
+          0.003018780844286084
+        ]
+      },
+      "fps": 20
+    },
+    {
+      "key": "sort",
+      "en": "Sort fruit into baskets",
+      "zh": "将水果分类入篮",
+      "short": [
+        "Sort fruit",
+        "水果分类"
+      ],
+      "caption": [
+        "One object, then the other. The policy follows a multi-object manipulation sequence.",
+        "先操作一个物体，再操作另一个，执行包含多个物体的连续抓取与放置序列。"
+      ],
+      "stages": [
+        [
+          "Reach apple",
+          "Grasp",
+          "Transport",
+          "Place",
+          "Reach banana",
+          "Grasp",
+          "Transport",
+          "Place"
+        ],
+        [
+          "接近苹果",
+          "抓取",
+          "搬运",
+          "放置",
+          "接近香蕉",
+          "抓取",
+          "搬运",
+          "放置"
+        ]
+      ],
+      "videos": {
+        "human": "assets/media/sort-human.mp4",
+        "with": "assets/media/sort-with.mp4",
+        "without": "assets/media/sort-without.mp4",
+        "scene": "assets/media/sort-scene.mp4"
+      },
+      "posters": {
+        "human": "assets/posters/sort-human.jpg",
+        "with": "assets/posters/sort-with.jpg",
+        "without": "assets/posters/sort-without.jpg",
+        "scene": "assets/posters/sort-scene.jpg"
+      },
+      "humanDuration": 2.466666666666667,
+      "firstSuccess": 15.5,
+      "sceneFirstSuccess": 18.45,
+      "duration": 25.05,
+      "horizon": 500,
+      "trial": "L0_TwoRobotPickAppleBananaToBaskets-v1_trial00",
+      "reference": "human_H8:0",
+      "resetSeed": 20262007,
+      "policySeed": 202710070,
+      "language": "Organize the fruits by category, moving the apples and bananas on the table into their matching baskets: red apple into the off-white basket on the left side of the table and banana into the off-white basket on the right side of the table.",
+      "withSuccess": true,
+      "withoutSuccess": false,
+      "phasePeaks": {
+        "with": [
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1
+        ],
+        "without": [
+          0.23404395580291748,
+          0.23404395580291748,
+          0,
+          0,
+          0.11759459972381592,
+          0.11759459972381592,
+          0,
+          0
+        ]
+      },
+      "fps": 20
+    },
+    {
+      "key": "mug",
+      "en": "Place a mug on a rack",
+      "zh": "将杯子挂上杯架",
+      "short": [
+        "Hang a mug",
+        "杯子上架"
+      ],
+      "caption": [
+        "Grasp the handle, transport the mug, and complete a precise placement.",
+        "抓取杯子、搬运并完成精确放置，把演示中的目标动作落实到机器人操作。"
+      ],
+      "stages": [
+        [
+          "Reach",
+          "Grasp",
+          "Transport",
+          "Place"
+        ],
+        [
+          "接近",
+          "抓取",
+          "搬运",
+          "放置"
+        ]
+      ],
+      "videos": {
+        "human": "assets/media/mug-human.mp4",
+        "with": "assets/media/mug-with.mp4",
+        "without": "assets/media/mug-without.mp4",
+        "scene": "assets/media/mug-scene.mp4"
+      },
+      "posters": {
+        "human": "assets/posters/mug-human.jpg",
+        "with": "assets/posters/mug-with.jpg",
+        "without": "assets/posters/mug-without.jpg",
+        "scene": "assets/posters/mug-scene.jpg"
+      },
+      "humanDuration": 1.9333333333333333,
+      "firstSuccess": 7.3,
+      "sceneFirstSuccess": 6.25,
+      "duration": 25.05,
+      "horizon": 500,
+      "trial": "L0_TwoRobotPlaceMugRack-v1_trial00",
+      "reference": "human_H57:2",
+      "resetSeed": 20264007,
+      "policySeed": 202910070,
+      "language": "Suspend the handled water cup from the cup holder",
+      "withSuccess": true,
+      "withoutSuccess": false,
+      "phasePeaks": {
+        "with": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "without": [
+          0.49511462450027466,
+          0,
+          0,
+          0
+        ]
+      },
+      "fps": 20
+    }
+  ],
+  "evidence": {
+    "status": "passed",
+    "checkpointStep": 240000,
+    "checkpointSHA256": "543672c0a2ecd455ba69abe064b59b59e774a88d1282149a83f0103d31d8463f",
+    "selectedCohort": {
+      "count": 6,
+      "withSuccess": 6,
+      "withoutSuccess": 0,
+      "horizon": 500,
+      "sampling": "Six selected task families; trial00 fixed before observing no-demo outcomes. Not an unbiased benchmark ablation."
+    },
+    "full50": {
+      "trials": 2000,
+      "tasks": 50,
+      "levels": 4,
+      "successCount": 1655,
+      "successRate": 82.75,
+      "subSuccessRate": 90.06478382,
+      "endpoint": "Fixed 500 control steps",
+      "population": "Full50 seen-task evaluation",
+      "subSuccessDefinition": "Mean episode, mean phase, raw peak phase reward; not binarized."
+    },
+    "verification": {
+      "initialStateAndRGBIdentical": true,
+      "modelCalls": 3000,
+      "hdTrajectories": 18,
+      "hdStateError": 0,
+      "allSuccessSequencesEqual": true,
+      "sameModelPrefixSmokeActionError": 0,
+      "noPhysicalRobot": true
+    },
+    "cases": [
+      {
+        "key": "pour",
+        "trial_id": "L0_TwoRobotPourCup-v1_trial00",
+        "human_reference": "human_H41:0",
+        "with_demo_success": true,
+        "with_demo_first_success_step": 113,
+        "no_demo_success": false,
+        "no_demo_success_once": false,
+        "no_demo_first_success_step": null,
+        "with_demo_phase_peak_mean": 1,
+        "no_demo_phase_peak_mean": 0.27052855491638184,
+        "applied_action_mean_abs_difference": 0.41871222853660583,
+        "initial_state_and_image_bitwise_equal": true,
+        "normalization_and_temporal4_trace_verified": true,
+        "human_source_frame_sample_indices": [
+          0,
+          53,
+          106,
+          212
+        ],
+        "human_transcode_rgb_mae": [
+          1.221666304976852,
+          1.2181608072916668,
+          1.2553757957175926,
+          1.3148784722222222
+        ]
+      },
+      {
+        "key": "stir",
+        "trial_id": "L0_TwoRobotStirSpoon-v1_trial00",
+        "human_reference": "human_H1:5",
+        "with_demo_success": true,
+        "with_demo_first_success_step": 211,
+        "no_demo_success": false,
+        "no_demo_success_once": false,
+        "no_demo_first_success_step": null,
+        "with_demo_phase_peak_mean": 1,
+        "no_demo_phase_peak_mean": 0.10485339164733887,
+        "applied_action_mean_abs_difference": 0.3906311094760895,
+        "initial_state_and_image_bitwise_equal": true,
+        "normalization_and_temporal4_trace_verified": true,
+        "human_source_frame_sample_indices": [
+          0,
+          37,
+          74,
+          147
+        ],
+        "human_transcode_rgb_mae": [
+          1.1959190538194444,
+          1.1872685185185186,
+          1.2186118344907408,
+          1.2839040798611112
+        ]
+      },
+      {
+        "key": "fold",
+        "trial_id": "L0_TwoRobotFoldTowel-v1_trial00",
+        "human_reference": "human_H49:5",
+        "with_demo_success": true,
+        "with_demo_first_success_step": 346,
+        "no_demo_success": false,
+        "no_demo_success_once": false,
+        "no_demo_first_success_step": null,
+        "with_demo_phase_peak_mean": 1,
+        "no_demo_phase_peak_mean": 0.8333333134651184,
+        "applied_action_mean_abs_difference": 0.4909408390522003,
+        "initial_state_and_image_bitwise_equal": true,
+        "normalization_and_temporal4_trace_verified": true,
+        "human_source_frame_sample_indices": [
+          0,
+          28,
+          57,
+          114
+        ],
+        "human_transcode_rgb_mae": [
+          1.1518033854166667,
+          1.21666015625,
+          1.2125853587962963,
+          1.3309338831018518
+        ]
+      },
+      {
+        "key": "open",
+        "trial_id": "L0_TwoRobotOpenBox-v1_trial00",
+        "human_reference": "human_H29:9",
+        "with_demo_success": true,
+        "with_demo_first_success_step": 79,
+        "no_demo_success": false,
+        "no_demo_success_once": false,
+        "no_demo_first_success_step": null,
+        "with_demo_phase_peak_mean": 1,
+        "no_demo_phase_peak_mean": 0.003018780844286084,
+        "applied_action_mean_abs_difference": 0.36900535225868225,
+        "initial_state_and_image_bitwise_equal": true,
+        "normalization_and_temporal4_trace_verified": true,
+        "human_source_frame_sample_indices": [
+          0,
+          19,
+          38,
+          76
+        ],
+        "human_transcode_rgb_mae": [
+          1.1962669994212962,
+          1.2951066984953703,
+          1.2357201244212963,
+          1.383609302662037
+        ]
+      },
+      {
+        "key": "sort",
+        "trial_id": "L0_TwoRobotPickAppleBananaToBaskets-v1_trial00",
+        "human_reference": "human_H8:0",
+        "with_demo_success": true,
+        "with_demo_first_success_step": 310,
+        "no_demo_success": false,
+        "no_demo_success_once": false,
+        "no_demo_first_success_step": null,
+        "with_demo_phase_peak_mean": 1,
+        "no_demo_phase_peak_mean": 0.08790963888168335,
+        "applied_action_mean_abs_difference": 0.33941107988357544,
+        "initial_state_and_image_bitwise_equal": true,
+        "normalization_and_temporal4_trace_verified": true,
+        "human_source_frame_sample_indices": [
+          0,
+          18,
+          37,
+          73
+        ],
+        "human_transcode_rgb_mae": [
+          1.2282863136574074,
+          1.2820381221064814,
+          1.2807823350694445,
+          1.383185763888889
+        ]
+      },
+      {
+        "key": "mug",
+        "trial_id": "L0_TwoRobotPlaceMugRack-v1_trial00",
+        "human_reference": "human_H57:2",
+        "with_demo_success": true,
+        "with_demo_first_success_step": 146,
+        "no_demo_success": false,
+        "no_demo_success_once": false,
+        "no_demo_first_success_step": null,
+        "with_demo_phase_peak_mean": 1,
+        "no_demo_phase_peak_mean": 0.12377865612506866,
+        "applied_action_mean_abs_difference": 0.3567843735218048,
+        "initial_state_and_image_bitwise_equal": true,
+        "normalization_and_temporal4_trace_verified": true,
+        "human_source_frame_sample_indices": [
+          0,
+          14,
+          29,
+          57
+        ],
+        "human_transcode_rgb_mae": [
+          1.180632957175926,
+          1.2405139612268519,
+          1.2187033420138889,
+          1.2940104166666666
+        ]
+      }
+    ]
+  },
+  "conditions": [
+    {
+      "mode": "static",
+      "key": "pour",
+      "sourceKey": "pour",
+      "sourceReference": "human_H41:0",
+      "targetReference": "human_H41:0",
+      "success": true,
+      "successOnce": true,
+      "firstSuccessStep": 113,
+      "phasePeaks": [
+        1,
+        1,
+        1
+      ],
+      "phaseNames": [
+        "reach_cup2",
+        "grasp_cup2",
+        "pour_approach"
+      ],
+      "horizon": 500,
+      "fps": 20,
+      "frames": 501,
+      "referenceFrames": 213,
+      "referenceFps": 30,
+      "initialStateAndRGBIdentical": true,
+      "hdStateError": 0,
+      "successSequenceSHA256": "9db301a2acf5fc5ebcfd21019d88b06fa8f287b7b63436828105897703637747",
+      "maxActionDifference": 1.5953972339630127,
+      "meanActionDifference": 0.01595548540353775,
+      "inputTranscodeMaxFrameMAE": 1.3068696952160495,
+      "cacheIdentity": "human_H41:0:condition:static:human_H41:0",
+      "temporalFeaturesSHA256": "7e6c908ed938be25e419c42db2ca1c37e3bb2da7e27a639a37294c807fb767a3",
+      "firstSuccess": 5.65,
+      "robotVideo": "assets/media/conditions/static-pour-robot.mp4",
+      "robotPoster": "assets/posters/conditions/static-pour-robot.jpg",
+      "robotSHA256": "8a58deedf2c544a2fa5ae954dda024eff4dfd72b3ed98a0df34a8cb067e45e04",
+      "referenceVideo": "assets/media/conditions/static-pour-reference.mp4",
+      "referencePoster": "assets/posters/conditions/static-pour-reference.jpg",
+      "referenceSHA256": "e7b8507b018feebd64d2a29805f81844063d9d72ba01bbb125f952f112e374da"
+    },
+    {
+      "mode": "static",
+      "key": "stir",
+      "sourceKey": "stir",
+      "sourceReference": "human_H1:5",
+      "targetReference": "human_H1:5",
+      "success": true,
+      "successOnce": true,
+      "firstSuccessStep": 209,
+      "phasePeaks": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "phaseNames": [
+        "reach",
+        "grasp",
+        "lift",
+        "approach_bowl",
+        "stir",
+        "return"
+      ],
+      "horizon": 500,
+      "fps": 20,
+      "frames": 501,
+      "referenceFrames": 148,
+      "referenceFps": 30,
+      "initialStateAndRGBIdentical": true,
+      "hdStateError": 0,
+      "successSequenceSHA256": "4053cfa00f3265cba32e005fda1c57b6d1549b92b6569065dc42ecfce163abd5",
+      "maxActionDifference": 0.05369067192077637,
+      "meanActionDifference": 0.006439172197133303,
+      "inputTranscodeMaxFrameMAE": 1.3096064814814814,
+      "cacheIdentity": "human_H1:5:condition:static:human_H1:5",
+      "temporalFeaturesSHA256": "9b4410e3d76d5ef6d257d7f923f731e1b975f622fbeeba76e13e6bdfc9e1fdf4",
+      "firstSuccess": 10.45,
+      "robotVideo": "assets/media/conditions/static-stir-robot.mp4",
+      "robotPoster": "assets/posters/conditions/static-stir-robot.jpg",
+      "robotSHA256": "60a248ab0812ffacb204ecdfd75cac83440b43b9fb62a6fec88d12ba0ebe96f5",
+      "referenceVideo": "assets/media/conditions/static-stir-reference.mp4",
+      "referencePoster": "assets/posters/conditions/static-stir-reference.jpg",
+      "referenceSHA256": "f82fe0c7380923ae172f2fb2459396a4537bc232bf8e86d381e3ab447d04caf5"
+    },
+    {
+      "mode": "static",
+      "key": "fold",
+      "sourceKey": "fold",
+      "sourceReference": "human_H49:5",
+      "targetReference": "human_H49:5",
+      "success": true,
+      "successOnce": true,
+      "firstSuccessStep": 349,
+      "phasePeaks": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "phaseNames": [
+        "reach_first_fold",
+        "grasp_first_fold",
+        "fold_towel",
+        "reach_second_fold",
+        "transport_towel",
+        "place_towel"
+      ],
+      "horizon": 500,
+      "fps": 20,
+      "frames": 501,
+      "referenceFrames": 115,
+      "referenceFps": 30,
+      "initialStateAndRGBIdentical": true,
+      "hdStateError": 0,
+      "successSequenceSHA256": "4f8cae7ea10cec51f009059563432f67d4dfc864ce9feee4080111a8f02265d1",
+      "maxActionDifference": 1.6183220148086548,
+      "meanActionDifference": 0.012079994194209576,
+      "inputTranscodeMaxFrameMAE": 1.2972567836934157,
+      "cacheIdentity": "human_H49:5:condition:static:human_H49:5",
+      "temporalFeaturesSHA256": "46f9e3199b0ba713a2dd75372b40100bc7e0e27b6a4a30ecdcc8020dd5f64839",
+      "firstSuccess": 17.45,
+      "robotVideo": "assets/media/conditions/static-fold-robot.mp4",
+      "robotPoster": "assets/posters/conditions/static-fold-robot.jpg",
+      "robotSHA256": "a48a24bb38fa0400bb1a0876ce226c18da545ad79d4a5d3114521efc52e380f6",
+      "referenceVideo": "assets/media/conditions/static-fold-reference.mp4",
+      "referencePoster": "assets/posters/conditions/static-fold-reference.jpg",
+      "referenceSHA256": "9e4b26bbe2cc18a2ef5ea571fab34407df86ffec28405099ce743accc460eda5"
+    },
+    {
+      "mode": "reverse",
+      "key": "pour",
+      "sourceKey": "pour",
+      "sourceReference": "human_H41:0",
+      "targetReference": "human_H41:0",
+      "success": true,
+      "successOnce": true,
+      "firstSuccessStep": 113,
+      "phasePeaks": [
+        1,
+        1,
+        1
+      ],
+      "phaseNames": [
+        "reach_cup2",
+        "grasp_cup2",
+        "pour_approach"
+      ],
+      "horizon": 500,
+      "fps": 20,
+      "frames": 501,
+      "referenceFrames": 213,
+      "referenceFps": 30,
+      "initialStateAndRGBIdentical": true,
+      "hdStateError": 0,
+      "successSequenceSHA256": "9db301a2acf5fc5ebcfd21019d88b06fa8f287b7b63436828105897703637747",
+      "maxActionDifference": 1.9622509479522705,
+      "meanActionDifference": 0.010799048468470573,
+      "inputTranscodeMaxFrameMAE": 1.5230758101851851,
+      "cacheIdentity": "human_H41:0:condition:reverse:human_H41:0",
+      "temporalFeaturesSHA256": "0815ebf882d80f4321485a14955693dd7c222884277cd10ccfaf9b4a2c612dc3",
+      "firstSuccess": 5.65,
+      "robotVideo": "assets/media/conditions/reverse-pour-robot.mp4",
+      "robotPoster": "assets/posters/conditions/reverse-pour-robot.jpg",
+      "robotSHA256": "e7f60d0e176767e3938dae4bd2c9dae8f0b093d3f275c20906a6f3dc110bd00a",
+      "referenceVideo": "assets/media/conditions/reverse-pour-reference.mp4",
+      "referencePoster": "assets/posters/conditions/reverse-pour-reference.jpg",
+      "referenceSHA256": "67555d9fe625b18cf4f61db83858e8609bf1a3d995536f1d99c7408fd7dc5918"
+    },
+    {
+      "mode": "reverse",
+      "key": "stir",
+      "sourceKey": "stir",
+      "sourceReference": "human_H1:5",
+      "targetReference": "human_H1:5",
+      "success": true,
+      "successOnce": true,
+      "firstSuccessStep": 212,
+      "phasePeaks": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "phaseNames": [
+        "reach",
+        "grasp",
+        "lift",
+        "approach_bowl",
+        "stir",
+        "return"
+      ],
+      "horizon": 500,
+      "fps": 20,
+      "frames": 501,
+      "referenceFrames": 148,
+      "referenceFps": 30,
+      "initialStateAndRGBIdentical": true,
+      "hdStateError": 0,
+      "successSequenceSHA256": "053473161682431c7a81d74fc49d43ad814e90bbd2b9a903c7843eb7b9dd4542",
+      "maxActionDifference": 0.5362820625305176,
+      "meanActionDifference": 0.005689474754035473,
+      "inputTranscodeMaxFrameMAE": 1.495800379372428,
+      "cacheIdentity": "human_H1:5:condition:reverse:human_H1:5",
+      "temporalFeaturesSHA256": "c55d03512b35c9f67ffb4c5bbc582c139ddfd04db616dffd847e9532c7fa9432",
+      "firstSuccess": 10.6,
+      "robotVideo": "assets/media/conditions/reverse-stir-robot.mp4",
+      "robotPoster": "assets/posters/conditions/reverse-stir-robot.jpg",
+      "robotSHA256": "10ea8c8278b0a54f3bad074fd51edea4e6c00defd45f49b9e3b57e41643a8eaa",
+      "referenceVideo": "assets/media/conditions/reverse-stir-reference.mp4",
+      "referencePoster": "assets/posters/conditions/reverse-stir-reference.jpg",
+      "referenceSHA256": "3979c76ebf8b66e99af642be5a342b6a881ecbe33a77f1ade37c30a8d6a6b083"
+    },
+    {
+      "mode": "reverse",
+      "key": "fold",
+      "sourceKey": "fold",
+      "sourceReference": "human_H49:5",
+      "targetReference": "human_H49:5",
+      "success": true,
+      "successOnce": true,
+      "firstSuccessStep": 346,
+      "phasePeaks": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "phaseNames": [
+        "reach_first_fold",
+        "grasp_first_fold",
+        "fold_towel",
+        "reach_second_fold",
+        "transport_towel",
+        "place_towel"
+      ],
+      "horizon": 500,
+      "fps": 20,
+      "frames": 501,
+      "referenceFrames": 115,
+      "referenceFps": 30,
+      "initialStateAndRGBIdentical": true,
+      "hdStateError": 0,
+      "successSequenceSHA256": "efbd0192433c98d100de29f3445d3bb0be708517f8319bca8a2bf3d524a14cbc",
+      "maxActionDifference": 1.515737533569336,
+      "meanActionDifference": 0.011947390623390675,
+      "inputTranscodeMaxFrameMAE": 1.549294302983539,
+      "cacheIdentity": "human_H49:5:condition:reverse:human_H49:5",
+      "temporalFeaturesSHA256": "b318a00d0e1976dd4b9edca8a538d895071c369a52067eb8c405116d777a18c7",
+      "firstSuccess": 17.3,
+      "robotVideo": "assets/media/conditions/reverse-fold-robot.mp4",
+      "robotPoster": "assets/posters/conditions/reverse-fold-robot.jpg",
+      "robotSHA256": "6dd3a9ce5f5277403bd113902fa177b9026080b337dc5352861eed0262843b51",
+      "referenceVideo": "assets/media/conditions/reverse-fold-reference.mp4",
+      "referencePoster": "assets/posters/conditions/reverse-fold-reference.jpg",
+      "referenceSHA256": "df1d8a0c7b53bf86464e098a5a300aa2bd8c3b8482ededbedf706ef52186e1c0"
+    },
+    {
+      "mode": "mismatch",
+      "key": "pour",
+      "sourceKey": "fold",
+      "sourceReference": "human_H49:5",
+      "targetReference": "human_H41:0",
+      "success": false,
+      "successOnce": false,
+      "firstSuccessStep": null,
+      "phasePeaks": [
+        0.8064689636230469,
+        0.8064689636230469,
+        0
+      ],
+      "phaseNames": [
+        "reach_cup2",
+        "grasp_cup2",
+        "pour_approach"
+      ],
+      "horizon": 500,
+      "fps": 20,
+      "frames": 501,
+      "referenceFrames": 213,
+      "referenceFps": 30,
+      "initialStateAndRGBIdentical": true,
+      "hdStateError": 0,
+      "successSequenceSHA256": "e6304a473c65ecd0ccffbd2f5925a8f51c44b11f59b66cfcc055e4bb911b8fa0",
+      "maxActionDifference": 1.9879992008209229,
+      "meanActionDifference": 0.0429455004632473,
+      "inputTranscodeMaxFrameMAE": 1.5654738940329218,
+      "cacheIdentity": "human_H41:0:condition:mismatch:human_H49:5",
+      "temporalFeaturesSHA256": "ddac04d8b37f399d5be633676abedfc32c12cbce3b4dbe897af282dc453c44ee",
+      "firstSuccess": null,
+      "robotVideo": "assets/media/conditions/mismatch-pour-robot.mp4",
+      "robotPoster": "assets/posters/conditions/mismatch-pour-robot.jpg",
+      "robotSHA256": "098fa6c1a9ed782a2d2a98965b76d62b101cddf0448a08d61e8321f0178fb38a",
+      "referenceVideo": "assets/media/conditions/mismatch-pour-reference.mp4",
+      "referencePoster": "assets/posters/conditions/mismatch-pour-reference.jpg",
+      "referenceSHA256": "65f45e9cdcb2a25a8f79cbd2e67aefcb354d1992ae3222358fdf14d3f0ffd085"
+    },
+    {
+      "mode": "mismatch",
+      "key": "stir",
+      "sourceKey": "pour",
+      "sourceReference": "human_H41:0",
+      "targetReference": "human_H1:5",
+      "success": true,
+      "successOnce": true,
+      "firstSuccessStep": 207,
+      "phasePeaks": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "phaseNames": [
+        "reach",
+        "grasp",
+        "lift",
+        "approach_bowl",
+        "stir",
+        "return"
+      ],
+      "horizon": 500,
+      "fps": 20,
+      "frames": 501,
+      "referenceFrames": 148,
+      "referenceFps": 30,
+      "initialStateAndRGBIdentical": true,
+      "hdStateError": 0,
+      "successSequenceSHA256": "15d82f0a7444eea328bdcca59f62607419c66524c15ceeae4c8c5cd1f8c8b35c",
+      "maxActionDifference": 2,
+      "meanActionDifference": 0.026647284626960754,
+      "inputTranscodeMaxFrameMAE": 1.5464691036522633,
+      "cacheIdentity": "human_H1:5:condition:mismatch:human_H41:0",
+      "temporalFeaturesSHA256": "0229a4353d12942675f676038b7fabd5255734972538784b0ea7d49132ecc066",
+      "firstSuccess": 10.35,
+      "robotVideo": "assets/media/conditions/mismatch-stir-robot.mp4",
+      "robotPoster": "assets/posters/conditions/mismatch-stir-robot.jpg",
+      "robotSHA256": "dc7d54bda87461c25f9d97b3de198f1439b0a171932d9f976f478aa8476efa62",
+      "referenceVideo": "assets/media/conditions/mismatch-stir-reference.mp4",
+      "referencePoster": "assets/posters/conditions/mismatch-stir-reference.jpg",
+      "referenceSHA256": "2006aeb7a5f0d13767187ec6e18c408252c18feddc52a03a6e664f5c49ff5b69"
+    },
+    {
+      "mode": "mismatch",
+      "key": "fold",
+      "sourceKey": "stir",
+      "sourceReference": "human_H1:5",
+      "targetReference": "human_H49:5",
+      "success": false,
+      "successOnce": true,
+      "firstSuccessStep": 365,
+      "phasePeaks": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "phaseNames": [
+        "reach_first_fold",
+        "grasp_first_fold",
+        "fold_towel",
+        "reach_second_fold",
+        "transport_towel",
+        "place_towel"
+      ],
+      "horizon": 500,
+      "fps": 20,
+      "frames": 501,
+      "referenceFrames": 115,
+      "referenceFps": 30,
+      "initialStateAndRGBIdentical": true,
+      "hdStateError": 0,
+      "successSequenceSHA256": "1834fdbfce067c18e8923beb01d7b7b8ed892c2764de71353cb6e65ee34bdce4",
+      "maxActionDifference": 1.9868085384368896,
+      "meanActionDifference": 0.04225502535700798,
+      "inputTranscodeMaxFrameMAE": 1.5364945023148149,
+      "cacheIdentity": "human_H49:5:condition:mismatch:human_H1:5",
+      "temporalFeaturesSHA256": "dc2080332a6b59d8950101689682739258fc81645ece3ec1565f07b191c4cf60",
+      "firstSuccess": 18.25,
+      "robotVideo": "assets/media/conditions/mismatch-fold-robot.mp4",
+      "robotPoster": "assets/posters/conditions/mismatch-fold-robot.jpg",
+      "robotSHA256": "9b18e2c967d1b5c448001e0fa5bc70e76c1af1d53c97afc60c614b86b07f68ca",
+      "referenceVideo": "assets/media/conditions/mismatch-fold-reference.mp4",
+      "referencePoster": "assets/posters/conditions/mismatch-fold-reference.jpg",
+      "referenceSHA256": "733279ff6a65d60b34092e5dc48061e22e1fd740def5dba8e4b787aab7e4b80b"
+    }
+  ],
+  "summary": [
+    {
+      "mode": "static",
+      "successes": 3,
+      "total": 3
+    },
+    {
+      "mode": "reverse",
+      "successes": 3,
+      "total": 3
+    },
+    {
+      "mode": "mismatch",
+      "successes": 1,
+      "total": 3
+    }
+  ]
+}

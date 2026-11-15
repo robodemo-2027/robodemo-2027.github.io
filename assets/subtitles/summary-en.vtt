@@ -1,0 +1,226 @@
+WEBVTT
+
+1
+00:00:00.200 --> 00:00:04.893
+Imagine showing a robot how to do a task,
+just once. What should it remember?
+
+2
+00:00:05.033 --> 00:00:11.220
+The demonstration matters, of course. But so does
+everything that happens after the robot starts moving.
+
+3
+00:00:11.360 --> 00:00:18.037
+That's the idea behind RoboDemo: remember the intended
+procedure, and track the progress actually made.
+
+4
+00:00:18.908 --> 00:00:24.882
+A short instruction might name the goal without explaining
+the grasp, the movement, or the order of the steps.
+
+5
+00:00:25.022 --> 00:00:31.379
+A video fills in some of those details. But here's the
+catch: it can't tell us what the robot has already done.
+
+6
+00:00:31.519 --> 00:00:37.087
+So, rather than treating the reference as a script
+to replay, we give the policy two different memories.
+
+7
+00:00:37.992 --> 00:00:42.813
+First, we need a reference. That can be
+a human demonstration, supplied directly.
+
+8
+00:00:42.953 --> 00:00:49.182
+Or we can search a bank of robot demonstrations,
+using only the initial image and the instruction.
+
+9
+00:00:49.322 --> 00:00:56.789
+The search never sees future frames from the current task.
+And finding a reference isn't the same as proving it works in control.
+
+10
+00:00:56.929 --> 00:01:01.281
+We haven't reported policy results for
+the retrieved-reference configuration yet.
+
+11
+00:01:02.158 --> 00:01:08.985
+Here's how the current design reads a video. We start with
+one reference segment, not a sequence of separate segments.
+
+12
+00:01:09.125 --> 00:01:12.688
+From that same segment, we sample two complementary views.
+
+13
+00:01:12.828 --> 00:01:18.886
+Sparse frames give us semantic context: the objects,
+the scene, and what the operation is about.
+
+14
+00:01:19.026 --> 00:01:24.146
+A dense slice of consecutive frames preserves
+the local movement between those moments.
+
+15
+00:01:25.033 --> 00:01:32.649
+The semantic frames go through the Qwen3-VL vision tower.
+The motion slice goes through the V-JEPA2 encoder.
+
+16
+00:01:32.789 --> 00:01:37.995
+Both encoders stay frozen. Their outputs
+are tokens, shown here as small squares.
+
+17
+00:01:38.135 --> 00:01:42.529
+Separate Q-formers gather those tokens into compact representations.
+
+18
+00:01:42.669 --> 00:01:49.645
+We then use semantics as the base, adding motion through
+a gated residual. That becomes the reference context.
+
+19
+00:01:50.533 --> 00:01:54.885
+Now, how do we remember that context?
+We don't just put the video in a cache.
+
+20
+00:01:55.025 --> 00:02:01.575
+Context produces keys and values, which update a small
+fast-weight learner through an inner learning objective.
+
+21
+00:02:01.715 --> 00:02:06.387
+The action stream supplies queries.
+It reads the memory, but doesn't write to it.
+
+22
+00:02:06.527 --> 00:02:10.815
+So test-time learning changes a small state, not the whole policy network.
+
+23
+00:02:11.700 --> 00:02:15.817
+The purple memory stores the reference before rollout, then stays fixed.
+
+24
+00:02:15.957 --> 00:02:21.120
+The pink memory has a different job.
+It waits until an actual transition has finished.
+
+25
+00:02:21.260 --> 00:02:27.361
+Only then do we write the new observation, the robot
+state, and the action that was really executed.
+
+26
+00:02:27.501 --> 00:02:33.133
+As interaction continues, progress keeps
+changing. The original intent stays protected.
+
+27
+00:02:34.033 --> 00:02:37.041
+When choosing an action, the order of the reads matters.
+
+28
+00:02:37.181 --> 00:02:44.456
+Each action block first reads the reference. Progress then
+refines that reference-conditioned action representation.
+
+29
+00:02:44.596 --> 00:02:49.183
+Notice what changes: the action representation, not the reference memory.
+
+30
+00:02:49.323 --> 00:02:56.747
+During denoising, both memories are read-only. And before a
+memory has been written, its dynamic contribution is zero.
+
+31
+00:02:57.658 --> 00:03:07.216
+What do the experiments show? At the historical 240,000-update
+checkpoint, we evaluated 50 tasks across four difficulty levels.
+
+32
+00:03:07.356 --> 00:03:16.700
+With human references, RoboDemo reached first success
+in 1,692 of 2,000 trials. That's 84.6 percent.
+
+33
+00:03:16.840 --> 00:03:21.661
+The aggregate is higher than the archived DP and ACT baselines shown here.
+
+34
+00:03:21.801 --> 00:03:24.852
+That doesn't mean we're best on every individual task.
+
+35
+00:03:25.742 --> 00:03:31.160
+These are recorded policy executions in
+simulation, not generated robot footage.
+
+36
+00:03:31.300 --> 00:03:37.060
+Across six selected cases, all six succeeded
+with a reference, and none succeeded without one.
+
+37
+00:03:37.200 --> 00:03:42.448
+That's useful evidence of sensitivity to the
+input, but it's not a full-benchmark ablation.
+
+38
+00:03:42.588 --> 00:03:50.354
+Some static and reversed references also succeeded. So these
+examples don't prove that the complete temporal order is essential.
+
+39
+00:03:51.242 --> 00:03:59.028
+We also look at the same 309 human clips in two feature
+spaces: appearance on the left, fast weights on the right.
+
+40
+00:03:59.168 --> 00:04:06.358
+The saved projections show task structure. But a visible
+cluster isn't, by itself, proof of action understanding.
+
+41
+00:04:06.498 --> 00:04:11.959
+And evidence for general alignment between
+human and robot demonstrations is still limited.
+
+42
+00:04:12.867 --> 00:04:21.101
+There's one important distinction to keep in mind. The current
+method uses a single segment. The historical checkpoint used four.
+
+43
+00:04:21.241 --> 00:04:25.828
+Those earlier results don't automatically validate the revised architecture.
+
+44
+00:04:25.968 --> 00:04:33.947
+And 84.6 percent measures whether a trial ever succeeded,
+not whether it was successful at the final, five-hundredth step.
+
+45
+00:04:34.825 --> 00:04:43.017
+The takeaway is simple. A robot shouldn't have to choose between
+following the demonstration and responding to what actually happened.
+
+46
+00:04:43.157 --> 00:04:49.472
+RoboDemo keeps both kinds of context: the intended
+procedure, and the experience of carrying it out.
+
+47
+00:04:49.612 --> 00:04:52.662
+Two memories, read in order, to guide the next action.

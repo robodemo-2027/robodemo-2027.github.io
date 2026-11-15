@@ -1,0 +1,64 @@
+<svg xmlns="http://www.w3.org/2000/svg" class="detail-block-scene" viewBox="0 0 760 400" data-mobile-viewbox="0 0 360 700" role="img" aria-labelledby="db-title db-desc">
+  <title id="db-title">Inside one Action-DiT block: serial memory reads</title>
+  <desc id="db-desc">The action-side representation passes through attention, Retrieval-TTT, Execution-TTT and the feed-forward network, in order. Both independent fast states are read-only. Execution changes the action representation, never the reference weights.</desc>
+  <defs>
+    <marker id="db-arrow" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="5" markerHeight="5" orient="auto"><path d="M0 0L8 4L0 8" fill="#96766A"/></marker>
+    <g id="db-matrix"><rect width="18" height="18" rx="3"/><rect x="24" width="18" height="18" rx="3" opacity=".65"/><rect x="48" width="18" height="18" rx="3" opacity=".85"/><rect x="72" width="18" height="18" rx="3" opacity=".5"/><rect y="24" width="18" height="18" rx="3" opacity=".65"/><rect x="24" y="24" width="18" height="18" rx="3" opacity=".9"/><rect x="48" y="24" width="18" height="18" rx="3" opacity=".5"/><rect x="72" y="24" width="18" height="18" rx="3" opacity=".75"/></g>
+  </defs>
+  <style>.detail-block-scene text{font-family:Source,'Avenir Next',sans-serif;fill:#49332F;font-size:17px}.detail-block-scene .db-small{font-size:12px;fill:#806860}.db-title{font-weight:650}.db-line{fill:none;stroke:#B49B91;stroke-width:2;marker-end:url(#db-arrow)}.db-transit{opacity:0}</style>
+  <text x="22" y="25" class="db-small" letter-spacing="2" data-mobile-x="20">ONE ACTION-DIT BLOCK</text>
+  <g transform="translate(216 48)" data-mobile-transform="translate(16 205)" data-steps="1">
+    <rect width="160" height="150" data-mobile-width="148" rx="16" fill="#F0E8F2" stroke="#C7B1CE"/>
+    <text x="80" y="29" data-mobile-x="74" text-anchor="middle" class="db-title">Retrieval-TTT</text>
+    <text x="80" y="49" data-mobile-x="74" text-anchor="middle" class="db-small">intent fast state</text>
+    <use href="#db-matrix" x="35" y="63" data-mobile-x="29" fill="#A88AB2"/>
+    <path d="M48 122v-4a5 5 0 0 1 10 0v4m-12 0h14v11H46Z" fill="none" stroke="#806A89" stroke-width="1.5"/>
+    <text x="67" y="132" class="db-small">FIXED</text>
+  </g>
+  <g transform="translate(412 48)" data-mobile-transform="translate(16 375)" data-steps="2">
+    <rect width="160" height="150" data-mobile-width="148" rx="16" fill="#FBE8EF" stroke="#E6A9BC"/>
+    <text x="80" y="29" data-mobile-x="74" text-anchor="middle" class="db-title">Execution-TTT</text>
+    <text x="80" y="49" data-mobile-x="74" text-anchor="middle" class="db-small">progress fast state</text>
+    <use href="#db-matrix" x="35" y="63" data-mobile-x="29" fill="#D86689"/>
+    <path d="M48 122v-4a5 5 0 0 1 10 0v4m-12 0h14v11H46Z" fill="none" stroke="#AC5571" stroke-width="1.5"/>
+    <text x="67" y="132" class="db-small">FIXED</text>
+  </g>
+  <path d="M296 199V247" data-mobile-d="M165 278H195" class="db-line" data-steps="1" data-read-route="1"/>
+  <path d="M492 199V247" data-mobile-d="M165 448H195" class="db-line" data-steps="2" data-read-route="2"/>
+  <path d="M181 292H212M377 292H408M573 292H604" data-mobile-d="M270 145V233M270 315V403M270 485V573" class="db-line"/>
+  <path d="M100 331V350H296V331" data-mobile-d="M270 145V233" class="db-line db-transit" data-steps="1"/>
+  <path d="M296 331V350H492V331" data-mobile-d="M270 315V403" class="db-line db-transit" data-steps="2"/>
+  <path d="M492 331V350H674V331" data-mobile-d="M270 485V573" class="db-line db-transit" data-steps="3"/>
+  <g transform="translate(20 250)" data-mobile-transform="translate(196 65)" data-steps="0" data-inspect-stage="0">
+    <rect width="160" height="80" data-mobile-width="148" rx="13" fill="#FFF3CB" stroke="#D5BA75"/>
+    <text x="15" y="21" class="db-small">01</text><text x="80" y="43" data-mobile-x="74" text-anchor="middle" class="db-title">Attention</text>
+    <text x="80" y="64" data-mobile-x="74" text-anchor="middle" class="db-small">current context</text>
+  </g>
+  <g transform="translate(216 250)" data-mobile-transform="translate(196 235)" data-steps="1" data-inspect-stage="1">
+    <rect width="160" height="80" data-mobile-width="148" rx="13" fill="#F0E8F2" stroke="#BCA5C3"/>
+    <text x="15" y="21" class="db-small">02</text><text x="80" y="43" data-mobile-x="74" text-anchor="middle" class="db-title">Retrieval read</text>
+    <text x="80" y="64" data-mobile-x="74" text-anchor="middle" class="db-small">intent-conditioned H</text>
+  </g>
+  <g transform="translate(412 250)" data-mobile-transform="translate(196 405)" data-steps="2" data-inspect-stage="2">
+    <rect width="160" height="80" data-mobile-width="148" rx="13" fill="#FBE8EF" stroke="#D86689"/>
+    <text x="15" y="21" class="db-small">03</text><text x="80" y="43" data-mobile-x="74" text-anchor="middle" class="db-title">Execution read</text>
+    <text x="80" y="64" data-mobile-x="74" text-anchor="middle" class="db-small">progress-refined H</text>
+  </g>
+  <g transform="translate(608 250)" data-mobile-transform="translate(196 575)" data-steps="3" data-inspect-stage="3">
+    <rect width="132" height="80" data-mobile-width="148" rx="13" fill="#FFF3CB" stroke="#D5BA75"/>
+    <text x="15" y="21" class="db-small">04</text><text x="66" y="43" data-mobile-x="74" text-anchor="middle" class="db-title">FFN</text>
+    <text x="66" y="64" data-mobile-x="74" text-anchor="middle" class="db-small">next block</text>
+  </g>
+  <g fill="none" stroke="none">
+    <path data-route="0" d="M22 350H100V331" data-mobile-d="M270 32V64"/>
+    <path data-route="1" d="M100 331V350H296V331" data-mobile-d="M270 146V234"/>
+    <path data-route="2" d="M296 331V350H492V331" data-mobile-d="M270 316V404"/>
+    <path data-route="3" d="M492 331V350H674V331" data-mobile-d="M270 486V574"/>
+  </g>
+  <g data-packet="" transform="translate(22 229)">
+    <rect x="-25" y="-12" width="50" height="24" rx="6" fill="#FFD968" stroke="#B18E39"/>
+    <text data-packet-label="" y="4" text-anchor="middle" style="font-size:11px;font-weight:700">H</text>
+  </g>
+  <g data-read-pulse="" opacity="0"><rect x="-16" y="-11" width="32" height="22" rx="6" fill="#BCA5C3" stroke="#94759F"/><text y="4" text-anchor="middle" style="font-size:11px;font-weight:700">&#x394;R</text></g>
+  <text x="22" y="385" data-mobile-x="20" data-mobile-y="688" class="db-small">Both fast states stay fixed. Only H changes.</text>
+</svg>

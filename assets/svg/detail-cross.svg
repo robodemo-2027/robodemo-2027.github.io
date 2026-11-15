@@ -1,0 +1,67 @@
+<svg xmlns="http://www.w3.org/2000/svg" class="detail-cross-scene" viewBox="0 0 760 450" data-mobile-viewbox="0 0 360 745" role="img" aria-labelledby="dc-title dc-desc">
+  <title id="dc-title">Cross-Memorization: context writes, the action stream reads</title>
+  <desc id="dc-desc">An encoded reference segment or completed interaction supplies context tokens U. Fixed K and V projections feed a self-supervised write into one independent fast-weight state. Action-side queries read a dynamic delta against the initialization, without updating the state. Displayed weights are illustrative, not measured activations.</desc>
+  <defs>
+    <marker id="dc-arrow" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="5" markerHeight="5" orient="auto"><path d="M0 0L8 4L0 8" fill="#96766A"/></marker>
+    <clipPath id="dc-photo"><rect width="154" height="100" rx="10"/></clipPath>
+  </defs>
+  <style>.detail-cross-scene text{font-family:Source,'Avenir Next',sans-serif;fill:#49332F;font-size:17px}.detail-cross-scene .dc-small{font-size:12px;fill:#806860}.dc-title{font-weight:650}.dc-line{fill:none;stroke:#AD948A;stroke-width:2;marker-end:url(#dc-arrow)}.dc-memory{fill:var(--detail-memory,#BCA5C3)}.dc-light{fill:var(--detail-memory-light,#F0E8F2)}</style>
+  <text x="24" y="27" class="dc-small" letter-spacing="2">TWO STREAMS. DIFFERENT JOBS.</text>
+  <g transform="translate(24 62)" data-mobile-transform="translate(20 60)" data-steps="0" data-inspect-stage="0">
+    <image id="dc-source-frame" data-context-image="" href="../method/human-2.jpg" width="154" height="100" preserveAspectRatio="xMidYMid slice" clip-path="url(#dc-photo)"/>
+    <text data-context-label="" x="77" y="124" text-anchor="middle" class="dc-title">Reference segment</text>
+    <text x="77" y="145" text-anchor="middle" class="dc-small">encoded context U</text>
+  </g>
+  <g transform="translate(230 86)" data-mobile-transform="translate(206 82)" data-steps="0">
+    <rect width="122" height="94" rx="13" fill="#FFFCF8" stroke="#DCCBC2"/>
+    <text x="61" y="25" text-anchor="middle" class="dc-small">FIXED PROJECTIONS</text>
+    <rect x="17" y="40" width="35" height="35" rx="7" class="dc-memory"/><rect x="70" y="40" width="35" height="35" rx="7" class="dc-memory" opacity=".6"/>
+    <text x="35" y="63" text-anchor="middle" class="dc-title">K</text><text x="88" y="63" text-anchor="middle" class="dc-title">V</text>
+  </g>
+  <g transform="translate(420 62)" data-mobile-transform="translate(92 248)" data-steps="1,2,3" data-inspect-stage="1">
+    <rect width="170" height="171" rx="17" class="dc-light" stroke="#C8B3CE"/>
+    <text x="85" y="28" text-anchor="middle" class="dc-title">Fast-weight MLP</text>
+    <text x="85" y="48" text-anchor="middle" class="dc-small">W1, b1, W2, b2</text>
+    <g transform="translate(31 66)" class="dc-memory" data-weight-grid="">
+      <rect width="20" height="20" rx="4"/><rect x="28" width="20" height="20" rx="4" opacity=".5"/><rect x="56" width="20" height="20" rx="4" opacity=".8"/><rect x="84" width="20" height="20" rx="4" opacity=".6"/>
+      <rect y="27" width="20" height="20" rx="4" opacity=".55"/><rect x="28" y="27" width="20" height="20" rx="4" opacity=".9"/><rect x="56" y="27" width="20" height="20" rx="4" opacity=".6"/><rect x="84" y="27" width="20" height="20" rx="4"/>
+      <rect y="54" width="20" height="20" rx="4" opacity=".75"/><rect x="28" y="54" width="20" height="20" rx="4" opacity=".6"/><rect x="56" y="54" width="20" height="20" rx="4" opacity=".9"/><rect x="84" y="54" width="20" height="20" rx="4" opacity=".5"/>
+    </g>
+    <text data-state-label="" x="85" y="156" text-anchor="middle" class="dc-small">independent reference state</text>
+  </g>
+  <g transform="translate(621 72)" data-mobile-transform="translate(20 213)">
+    <text x="0" y="18" class="dc-small">INNER LOSS</text>
+    <text x="0" y="41" data-mobile-x="114" data-mobile-y="18" class="dc-title">LN(V &#x2212; K)</text>
+    <text x="0" y="74" class="dc-small" data-mobile-y="222">Only fast weights update.</text>
+  </g>
+  <path d="M180 112H224" data-mobile-d="M176 114H200" class="dc-line" stroke-dasharray="6 5" data-steps="0"/>
+  <path d="M354 134H413" data-mobile-d="M267 178V240H177V245" class="dc-line" stroke-dasharray="6 5" data-steps="1"/>
+  <g transform="translate(24 314)" data-mobile-transform="translate(20 491)" data-steps="2" data-inspect-stage="2">
+    <rect width="176" height="86" data-mobile-width="142" rx="13" fill="#FFF3CB" stroke="#D5BA75"/>
+    <text x="88" y="28" data-mobile-x="71" text-anchor="middle" class="dc-title">Action tokens</text>
+    <g fill="#FFD968" stroke="#D5BA75"><rect x="28" y="45" width="24" height="24" data-mobile-x="15" rx="4"/><rect x="59" y="45" width="24" height="24" data-mobile-x="45" rx="4"/><rect x="90" y="45" width="24" height="24" data-mobile-x="75" rx="4"/><rect x="121" y="45" width="24" height="24" data-mobile-x="105" rx="4"/></g>
+  </g>
+  <g transform="translate(420 300)" data-mobile-transform="translate(206 491)" data-steps="2,3" data-inspect-stage="3">
+    <rect width="170" height="100" data-mobile-width="134" rx="13" fill="#FFFCF8" stroke="#DCCBC2"/>
+    <text x="85" y="28" data-mobile-x="67" text-anchor="middle" class="dc-title">Read only</text>
+    <text x="85" y="53" data-mobile-x="67" text-anchor="middle" class="dc-small">same query, two states</text>
+    <text x="85" y="79" data-mobile-x="67" text-anchor="middle" style="font-size:12px">Read(&#x3C6;) &#x2212; Read(&#x3C6;0)</text>
+  </g>
+  <g transform="translate(629 319)" data-mobile-transform="translate(92 634)" data-steps="3">
+    <rect width="107" height="66" data-mobile-width="170" rx="13" fill="#FFF3CB" stroke="#D5BA75"/>
+    <text x="54" y="29" data-mobile-x="85" text-anchor="middle" class="dc-title">&#x394; read</text>
+    <text x="54" y="49" data-mobile-x="85" text-anchor="middle" class="dc-small">to action stream</text>
+  </g>
+  <path d="M202 352H413" data-mobile-d="M164 536H200" class="dc-line" data-steps="2"/>
+  <text x="256" y="332" data-mobile-x="175" data-mobile-y="477" class="dc-small">WQ &#x2192; Q</text>
+  <path d="M505 235V294" data-mobile-d="M178 421V463H273V485" class="dc-line" data-steps="2"/>
+  <path d="M592 352H623" data-mobile-d="M273 593V612H177V628" class="dc-line" data-steps="3"/>
+  <text x="24" y="436" data-mobile-x="20" data-mobile-y="732" class="dc-small">No action query writes. No video prefix is appended.</text>
+  <g fill="none" stroke="none">
+    <path data-route="0" d="M101 112H230" data-mobile-d="M97 114H206"/>
+    <path data-route="1" d="M352 134H420" data-mobile-d="M267 178V240H177V248"/>
+    <path data-route="2" d="M200 352H420" data-mobile-d="M162 536H206"/>
+    <path data-route="3" d="M590 352H629" data-mobile-d="M273 591V612H177V634"/>
+  </g>
+  <g data-packet="" transform="translate(101 112)"><rect x="-19" y="-19" width="38" height="38" rx="6" fill="#BCA5C3" stroke="#96766A"/><svg data-detail-crop="" x="-19" y="-19" width="38" height="38" viewBox="58 24 38 38" overflow="hidden"><use href="#dc-source-frame"/></svg><text data-packet-label="" y="4" opacity="0" text-anchor="middle" style="font-size:11px;font-weight:700">U</text></g>
+</svg>

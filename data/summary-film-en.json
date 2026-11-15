@@ -1,0 +1,85 @@
+{
+  "title": "RoboDemo | Demonstration Intent and Execution Progress",
+  "duration": 293.3333333333333,
+  "voice": "Local neural English narration",
+  "chapters": [
+    {
+      "id": "intro",
+      "title": "RoboDemo.",
+      "start": 0,
+      "duration": 18.708333333333332
+    },
+    {
+      "id": "problem",
+      "title": "The reference is not the reality.",
+      "start": 18.708333333333332,
+      "duration": 19.083333333333332
+    },
+    {
+      "id": "reference",
+      "title": "Two sources. One intended procedure.",
+      "start": 37.791666666666664,
+      "duration": 24.166666666666668
+    },
+    {
+      "id": "sampling",
+      "title": "One segment. Two ways to look.",
+      "start": 61.95833333333333,
+      "duration": 22.875
+    },
+    {
+      "id": "encoding",
+      "title": "Pixels become memory context.",
+      "start": 84.83333333333333,
+      "duration": 25.5
+    },
+    {
+      "id": "write",
+      "title": "Context writes. Actions read.",
+      "start": 110.33333333333333,
+      "duration": 21.166666666666668
+    },
+    {
+      "id": "memories",
+      "title": "Protect intent. Update progress.",
+      "start": 131.5,
+      "duration": 22.333333333333332
+    },
+    {
+      "id": "reads",
+      "title": "Read both. In a deliberate order.",
+      "start": 153.83333333333334,
+      "duration": 23.625
+    },
+    {
+      "id": "results",
+      "title": "50 tasks. 2,000 trials.",
+      "start": 177.45833333333334,
+      "duration": 28.083333333333332
+    },
+    {
+      "id": "demos",
+      "title": "Inspect what the robot actually did.",
+      "start": 205.54166666666669,
+      "duration": 25.5
+    },
+    {
+      "id": "representations",
+      "title": "Look inside the representation.",
+      "start": 231.04166666666669,
+      "duration": 21.625
+    },
+    {
+      "id": "boundary",
+      "title": "A method claim is not an experiment.",
+      "start": 252.66666666666669,
+      "duration": 21.958333333333332
+    },
+    {
+      "id": "closing",
+      "title": "Two memories. One coherent action.",
+      "start": 274.625,
+      "duration": 18.708333333333332
+    }
+  ]
+}

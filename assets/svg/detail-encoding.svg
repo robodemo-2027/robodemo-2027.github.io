@@ -1,0 +1,80 @@
+<svg xmlns="http://www.w3.org/2000/svg" class="detail-encoding-scene" viewBox="0 0 760 715" data-mobile-viewbox="0 0 360 1020" role="img" aria-labelledby="de-title de-desc">
+  <title id="de-title">One reference segment, two complementary frame samplers</title>
+  <desc id="de-desc">A single reference segment supplies two groups of real frames. Sparse semantic frames from across the segment enter qwen3-vl-vision-tower. A dense slice of consecutive frames from that same segment enters v-jepa2-encoder. Separate Q-formers resample the two token streams before gated fusion. Shown frame counts and sample positions are illustrative, not configured model parameters. The historical 240k protocol is documented separately.</desc>
+  <defs>
+    <marker id="de-arrow" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="5" markerHeight="5" orient="auto"><path d="M0 0L8 4L0 8" fill="#96766A"/></marker>
+    <clipPath id="de-photo" clipPathUnits="objectBoundingBox"><rect width="1" height="1" rx=".08"/></clipPath>
+    <g id="de-token"><rect x="-7" y="-7" width="14" height="14" rx="4"/></g>
+  </defs>
+  <style>.detail-encoding-scene text{font-family:Source,'Avenir Next',sans-serif;fill:#49332F;font-size:17px}.detail-encoding-scene .de-small{font-size:12px;fill:#806860}.detail-encoding-scene .de-tiny{font-size:10px;fill:#806860}.de-title{font-weight:650}.de-line{fill:none;stroke:#B49B91;stroke-width:1.7;marker-end:url(#de-arrow)}.de-sampling-line{stroke-dasharray:4 4}.detail-encoding-scene [data-sample-frame]{transition:opacity .2s}.detail-encoding-scene .de-panel{stroke-width:1}.detail-encoding-scene [data-steps]{opacity:1}</style>
+  <text x="24" y="26" class="de-small" letter-spacing="1.5" data-mobile-x="20">ONE SEGMENT / TWO SAMPLINGS</text>
+  <g data-source-segment="" data-inspect-stage="0" transform="translate(24 44)" data-mobile-transform="translate(20 44)">
+    <rect width="712" height="98" data-mobile-width="320" data-mobile-height="108" rx="14" fill="#F8F1E8" stroke="#DCCBBE"/>
+    <image data-source-preview="" href="../encoding-frames/frame-108.jpg" x="13" y="13" width="105" height="59" data-mobile-width="84" data-mobile-height="48" clip-path="url(#de-photo)" preserveAspectRatio="xMidYMid slice"/>
+    <text x="140" y="30" data-mobile-x="111" class="de-title">Single reference segment</text>
+    <text x="140" y="51" data-mobile-x="111" class="de-small" data-source-caption="">One source. No segment split.</text>
+    <path d="M147 76H685" data-mobile-d="M25 86H295" fill="none" stroke="#CBB7A9" stroke-width="2"/>
+    <g fill="#D8B04C"><circle data-sample-dot="0" cx="147" cy="76" r="5" data-mobile-cx="25" data-mobile-cy="86"/><circle data-sample-dot="1" cx="416" cy="76" r="5" data-mobile-cx="160" data-mobile-cy="86"/><circle data-sample-dot="2" cx="685" cy="76" r="5" data-mobile-cx="295" data-mobile-cy="86"/></g>
+    <rect x="342" y="66" width="42" height="20" data-mobile-x="120" data-mobile-y="76" rx="5" fill="#BCA5C3" fill-opacity=".35" stroke="#A88AB2"/>
+    <path data-dense-window="" d="M349 70V82M355 70V82M361 70V82M367 70V82M373 70V82M379 70V82" data-mobile-d="M127 80V92M133 80V92M139 80V92M145 80V92M151 80V92M157 80V92" stroke="#A88AB2" stroke-width="2"/>
+  </g>
+  <path d="M194 143V167M566 143V167" data-mobile-d="M180 153V182M341 100H351V454H336" class="de-line de-sampling-line" data-steps="0"/>
+  <g transform="translate(24 170)" data-mobile-transform="translate(20 184)">
+    <rect class="de-panel" width="340" height="234" data-mobile-width="320" data-mobile-height="264" rx="14" fill="#FFF8E5" stroke="#E9DAB0"/>
+    <text x="18" y="27" class="de-title">Sparse semantic frames</text>
+    <g transform="translate(14 43)" data-mobile-transform="translate(12 47)" data-sample-frame="semantic" data-sample-index="0"><image id="de-frame-semantic-0" href="../encoding-frames/frame-0.jpg" width="96" height="54" data-mobile-width="90" clip-path="url(#de-photo)" preserveAspectRatio="xMidYMid slice"/><text x="48" y="70" data-mobile-x="45" class="de-tiny" text-anchor="middle">f0</text></g>
+    <g transform="translate(122 43)" data-mobile-transform="translate(115 47)" data-sample-frame="semantic" data-sample-index="1"><image id="de-frame-semantic-1" href="../encoding-frames/frame-108.jpg" width="96" height="54" data-mobile-width="90" clip-path="url(#de-photo)" preserveAspectRatio="xMidYMid slice"/><text x="48" y="70" data-mobile-x="45" class="de-tiny" text-anchor="middle">f108</text></g>
+    <g transform="translate(230 43)" data-mobile-transform="translate(218 47)" data-sample-frame="semantic" data-sample-index="2"><image id="de-frame-semantic-2" href="../encoding-frames/frame-212.jpg" width="96" height="54" data-mobile-width="90" clip-path="url(#de-photo)" preserveAspectRatio="xMidYMid slice"/><text x="48" y="70" data-mobile-x="45" class="de-tiny" text-anchor="middle">f212</text></g>
+  </g>
+  <g transform="translate(396 170)" data-mobile-transform="translate(20 454)">
+    <rect class="de-panel" width="340" height="234" data-mobile-width="320" data-mobile-height="264" rx="14" fill="#F5EFF7" stroke="#DCCBE2"/>
+    <text x="18" y="27" class="de-title">Dense continuous action slice</text>
+    <g transform="translate(14 43)" data-mobile-transform="translate(12 47)" data-dense-strip="">
+      <image data-sample-frame="motion" data-sample-index="0" id="de-frame-motion-0" href="../encoding-frames/frame-90.jpg" width="47" height="54" data-mobile-width="44" clip-path="url(#de-photo)" preserveAspectRatio="xMidYMid slice"/>
+      <image data-sample-frame="motion" data-sample-index="1" id="de-frame-motion-1" href="../encoding-frames/frame-91.jpg" x="53" width="47" height="54" data-mobile-x="50" data-mobile-width="44" clip-path="url(#de-photo)" preserveAspectRatio="xMidYMid slice"/>
+      <image data-sample-frame="motion" data-sample-index="2" id="de-frame-motion-2" href="../encoding-frames/frame-92.jpg" x="106" width="47" height="54" data-mobile-x="100" data-mobile-width="44" clip-path="url(#de-photo)" preserveAspectRatio="xMidYMid slice"/>
+      <image data-sample-frame="motion" data-sample-index="3" id="de-frame-motion-3" href="../encoding-frames/frame-93.jpg" x="159" width="47" height="54" data-mobile-x="150" data-mobile-width="44" clip-path="url(#de-photo)" preserveAspectRatio="xMidYMid slice"/>
+      <image data-sample-frame="motion" data-sample-index="4" id="de-frame-motion-4" href="../encoding-frames/frame-94.jpg" x="212" width="47" height="54" data-mobile-x="200" data-mobile-width="44" clip-path="url(#de-photo)" preserveAspectRatio="xMidYMid slice"/>
+      <image data-sample-frame="motion" data-sample-index="5" id="de-frame-motion-5" href="../encoding-frames/frame-95.jpg" x="265" width="47" height="54" data-mobile-x="250" data-mobile-width="44" clip-path="url(#de-photo)" preserveAspectRatio="xMidYMid slice"/>
+      <text x="0" y="70" class="de-tiny">f90-95 / consecutive / one clip</text>
+    </g>
+  </g>
+  <path d="M194 285V300M566 285V300" data-mobile-d="M180 302V335M180 572V605" class="de-line" data-steps="0"/>
+  <g data-encoder="semantic" transform="translate(60 302)" data-mobile-transform="translate(47 337)" data-inspect-stage="1" data-steps="1"><rect width="268" height="84" data-mobile-width="266" rx="11" fill="#FFE9A4" stroke="#D5BA75"/><rect data-encoder-intake="semantic" x="106" y="7" width="56" height="12" rx="6" data-mobile-x="105" fill="#F6D875" stroke="#C3A04E"/><text x="134" y="49" data-mobile-x="133" text-anchor="middle" class="de-title">Qwen3-VL</text><text x="134" y="69" data-mobile-x="133" text-anchor="middle" class="de-small">qwen3-vl-vision-tower / frozen</text></g>
+  <g data-encoder="motion" transform="translate(432 302)" data-mobile-transform="translate(47 607)" data-inspect-stage="1" data-steps="1"><rect width="268" height="84" data-mobile-width="266" rx="11" fill="#E7D9ED" stroke="#BCA5C3"/><rect data-encoder-intake="motion" x="106" y="7" width="56" height="12" rx="6" data-mobile-x="105" fill="#CDB7D5" stroke="#A58AAF"/><text x="134" y="49" data-mobile-x="133" text-anchor="middle" class="de-title">V-JEPA2</text><text x="134" y="69" data-mobile-x="133" text-anchor="middle" class="de-small">v-jepa2-encoder / frozen</text></g>
+  <path d="M194 387V437M566 387V437" data-mobile-d="M180 422V433H10V777H20M180 692V719H267V734" class="de-line" data-steps="1,2"/>
+  <text x="212" y="417" data-mobile-x="24" data-mobile-y="725" class="de-tiny" fill="#A28245">S / semantic tokens</text>
+  <text x="584" y="417" data-mobile-x="200" data-mobile-y="702" class="de-tiny">M / motion tokens</text>
+  <g transform="translate(84 439)" data-mobile-transform="translate(20 736)" data-inspect-stage="2" data-steps="2">
+    <rect width="220" height="82" data-mobile-width="146" rx="12" fill="#FFFCF8" stroke="#D7BE85"/><text x="110" y="25" data-mobile-x="73" text-anchor="middle" class="de-title">Q-former</text><text x="110" y="44" data-mobile-x="73" text-anchor="middle" class="de-small">semantic registers</text>
+    <g data-register-bank="semantic" transform="translate(68 59)" data-mobile-transform="translate(31 59)" fill="#D7AE49" stroke="#B18E39" stroke-width=".6"><rect width="10" height="10" rx="2"/><rect x="15" width="10" height="10" rx="2"/><rect x="30" width="10" height="10" rx="2"/><rect x="45" width="10" height="10" rx="2"/><rect x="60" width="10" height="10" rx="2"/><rect x="75" width="10" height="10" rx="2"/></g>
+  </g>
+  <g transform="translate(456 439)" data-mobile-transform="translate(194 736)" data-inspect-stage="2" data-steps="2">
+    <rect width="220" height="82" data-mobile-width="146" rx="12" fill="#FFFCF8" stroke="#C9B0D2"/><text x="110" y="25" data-mobile-x="73" text-anchor="middle" class="de-title">Q-former</text><text x="110" y="44" data-mobile-x="73" text-anchor="middle" class="de-small">motion registers</text>
+    <g data-register-bank="motion" transform="translate(68 59)" data-mobile-transform="translate(31 59)" fill="#BCA5C3" stroke="#92759C" stroke-width=".6"><rect width="10" height="10" rx="2"/><rect x="15" width="10" height="10" rx="2"/><rect x="30" width="10" height="10" rx="2"/><rect x="45" width="10" height="10" rx="2"/><rect x="60" width="10" height="10" rx="2"/><rect x="75" width="10" height="10" rx="2"/></g>
+  </g>
+  <path d="M194 522V550H326V576M566 522V550H434V576" data-mobile-d="M93 819V839H130V861M267 819V839H230V861" class="de-line" data-steps="2,3"/>
+  <g data-fusion="" transform="translate(246 578)" data-mobile-transform="translate(62 863)" data-inspect-stage="3" data-steps="3"><rect width="268" height="61" data-mobile-width="236" rx="13" fill="#F2E7DE" stroke="#C9B09D"/><text x="134" y="25" data-mobile-x="118" text-anchor="middle" class="de-title">Gated fusion</text><text x="134" y="45" data-mobile-x="118" text-anchor="middle" class="de-small">semantic base + motion residual</text></g>
+  <path d="M380 640V651H299V665" data-mobile-d="M180 925V946H105V960" class="de-line" data-steps="3"/>
+  <g transform="translate(257 669)" data-mobile-transform="translate(63 965)" data-steps="3"><g data-register-bank="fused" fill="#A88AB2" stroke="#92759C" stroke-width=".6" transform="translate(0 2)"><rect width="10" height="10" rx="2"/><rect x="15" width="10" height="10" rx="2"/><rect x="30" width="10" height="10" rx="2"/><rect x="45" width="10" height="10" rx="2"/><rect x="60" width="10" height="10" rx="2"/><rect x="75" width="10" height="10" rx="2"/></g><text x="99" y="12" class="de-small">U_R to Retrieval-TTT</text></g>
+  <text x="24" y="704" data-mobile-x="20" data-mobile-y="1007" class="de-tiny">Real frames. Token counts and register fill are illustrative.</text>
+  <g fill="none" stroke="none">
+    <path data-sample-route="semantic-0" d="M86 240V290H194V315" data-mobile-d="M77 258V318H180V350"/>
+    <path data-sample-route="semantic-1" d="M194 240V290H194V315" data-mobile-d="M180 258V318H180V350"/>
+    <path data-sample-route="semantic-2" d="M302 240V290H194V315" data-mobile-d="M283 258V318H180V350"/>
+    <path data-sample-route="motion-0" d="M433.5 240V290H566V315" data-mobile-d="M54 528V588H180V620"/>
+    <path data-sample-route="motion-1" d="M486.5 240V290H566V315" data-mobile-d="M104 528V588H180V620"/>
+    <path data-sample-route="motion-2" d="M539.5 240V290H566V315" data-mobile-d="M154 528V588H180V620"/>
+    <path data-sample-route="motion-3" d="M592.5 240V290H566V315" data-mobile-d="M204 528V588H180V620"/>
+    <path data-sample-route="motion-4" d="M645.5 240V290H566V315" data-mobile-d="M254 528V588H180V620"/>
+    <path data-sample-route="motion-5" d="M698.5 240V290H566V315" data-mobile-d="M304 528V588H180V620"/>
+    <path data-route="0" d="M194 244V301" data-mobile-d="M180 285V336"/><path data-route-alt="0" d="M566 244V301" data-mobile-d="M180 555V606"/>
+    <path data-route="1" d="M194 394V433" data-mobile-d="M180 429V433H10V777H13"/><path data-route-alt="1" d="M566 394V433" data-mobile-d="M180 699V719H267V729"/>
+    <path data-route="2" d="M194 532V550H326V570" data-mobile-d="M93 829V839H130V855"/><path data-route-alt="2" d="M566 532V550H434V570" data-mobile-d="M267 829V839H230V855"/>
+    <path data-route="3" d="M380 649V651H299V662" data-mobile-d="M180 934V946H105V958"/><path data-route-alt="3" d="M410 649V651H299V662" data-mobile-d="M200 934V946H105V958"/>
+  </g>
+  <g data-token-stream="semantic" fill="#FFD968" stroke="#B18E39" stroke-width="1" opacity="0" aria-hidden="true"><g><use href="#de-token"/></g><g><use href="#de-token"/></g><g><use href="#de-token"/></g></g>
+  <g data-token-stream="motion" fill="#BCA5C3" stroke="#92759C" stroke-width="1" opacity="0" aria-hidden="true"><g><use href="#de-token"/></g><g><use href="#de-token"/></g><g><use href="#de-token"/></g></g>
+  <g data-packet="semantic" opacity="0" transform="translate(194 244)"><rect x="-10" y="-10" width="20" height="20" rx="5" fill="#FFD968" stroke="#B18E39"/><svg data-encoding-crop="" x="-15" y="-15" width="30" height="30" viewBox="0 0 96 54" preserveAspectRatio="xMidYMid slice" opacity="0" overflow="hidden"><use href="#de-frame-semantic-0"/></svg><text data-encoding-token="" y="4" text-anchor="middle" style="font-size:7px;font-weight:700"></text></g>
+  <g data-packet="motion" opacity="0" transform="translate(566 244)"><rect x="-10" y="-10" width="20" height="20" rx="5" fill="#BCA5C3" stroke="#92759C"/><svg data-encoding-crop="" x="-15" y="-15" width="30" height="30" viewBox="0 0 47 54" preserveAspectRatio="xMidYMid slice" opacity="0" overflow="hidden"><use href="#de-frame-motion-0"/></svg><text data-encoding-token="" y="4" text-anchor="middle" style="font-size:7px;font-weight:700"></text></g>
+</svg>

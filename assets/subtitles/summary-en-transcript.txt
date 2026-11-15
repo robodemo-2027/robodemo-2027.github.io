@@ -1,0 +1,102 @@
+RoboDemo | Demonstration Intent and Execution Progress
+
+Voice: af_heart, locally synthesized neural English; no impersonation.
+
+01 / 00:00:00.000 / RoboDemo.
+Imagine showing a robot how to do a task, just once. What should it remember?
+The demonstration matters, of course. But so does everything that happens after the robot starts moving.
+That's the idea behind RoboDemo: remember the intended procedure, and track the progress actually made.
+
+SOURCE NOTE: Recorded human demonstration + recorded simulation. Editorial timing, not phase alignment.
+
+02 / 00:00:18.708 / The reference is not the reality.
+A short instruction might name the goal without explaining the grasp, the movement, or the order of the steps.
+A video fills in some of those details. But here's the catch: it can't tell us what the robot has already done.
+So, rather than treating the reference as a script to replay, we give the policy two different memories.
+
+SOURCE NOTE: Conceptual explanation. No generated futures, invented robot trajectories, or measured attention.
+
+03 / 00:00:37.792 / Two sources. One intended procedure.
+First, we need a reference. That can be a human demonstration, supplied directly.
+Or we can search a bank of robot demonstrations, using only the initial image and the instruction.
+The search never sees future frames from the current task. And finding a reference isn't the same as proving it works in control.
+We haven't reported policy results for the retrieved-reference configuration yet.
+
+SOURCE NOTE: Alternative inputs, not a matched pair. Robot-bank footage is a dataset demonstration, not a policy rollout.
+
+04 / 00:01:01.958 / One segment. Two ways to look.
+Here's how the current design reads a video. We start with one reference segment, not a sequence of separate segments.
+From that same segment, we sample two complementary views.
+Sparse frames give us semantic context: the objects, the scene, and what the operation is about.
+A dense slice of consecutive frames preserves the local movement between those moments.
+
+SOURCE NOTE: Current single-segment design. Real frames from one clip; displayed sample counts are illustrative.
+
+05 / 00:01:24.833 / Pixels become memory context.
+The semantic frames go through the Qwen3-VL vision tower. The motion slice goes through the V-JEPA2 encoder.
+Both encoders stay frozen. Their outputs are tokens, shown here as small squares.
+Separate Q-formers gather those tokens into compact representations.
+We then use semantics as the base, adding motion through a gated residual. That becomes the reference context.
+
+SOURCE NOTE: Original SVG animation, not recorded activations. Token counts and color intensities are illustrative.
+
+06 / 00:01:50.333 / Context writes. Actions read.
+Now, how do we remember that context? We don't just put the video in a cache.
+Context produces keys and values, which update a small fast-weight learner through an inner learning objective.
+The action stream supplies queries. It reads the memory, but doesn't write to it.
+So test-time learning changes a small state, not the whole policy network.
+
+SOURCE NOTE: Fast-weight MLP illustration. Shared slow projections stay fixed; cells are not measured weights.
+
+07 / 00:02:11.500 / Protect intent. Update progress.
+The purple memory stores the reference before rollout, then stays fixed.
+The pink memory has a different job. It waits until an actual transition has finished.
+Only then do we write the new observation, the robot state, and the action that was really executed.
+As interaction continues, progress keeps changing. The original intent stays protected.
+
+SOURCE NOTE: Illustrative completed transitions. Reference remains purple and fixed; only progress becomes more pink.
+
+08 / 00:02:33.833 / Read both. In a deliberate order.
+When choosing an action, the order of the reads matters.
+Each action block first reads the reference. Progress then refines that reference-conditioned action representation.
+Notice what changes: the action representation, not the reference memory.
+During denoising, both memories are read-only. And before a memory has been written, its dynamic contribution is zero.
+
+SOURCE NOTE: Serial reads, not parallel memory mixing. Both fast states are read-only during action denoising.
+
+09 / 00:02:57.458 / 50 tasks. 2,000 trials.
+What do the experiments show? At the historical 240,000-update checkpoint, we evaluated 50 tasks across four difficulty levels.
+With human references, RoboDemo reached first success in 1,692 of 2,000 trials. That's 84.6 percent.
+The aggregate is higher than the archived DP and ACT baselines shown here.
+That doesn't mean we're best on every individual task.
+
+SOURCE NOTE: First-success truncation of full 500-step recordings. DP and ACT are official archived baselines.
+
+10 / 00:03:25.542 / Inspect what the robot actually did.
+These are recorded policy executions in simulation, not generated robot footage.
+Across six selected cases, all six succeeded with a reference, and none succeeded without one.
+That's useful evidence of sensitivity to the input, but it's not a full-benchmark ablation.
+Some static and reversed references also succeeded. So these examples don't prove that the complete temporal order is essential.
+
+SOURCE NOTE: Selected L0 pour case / steps 0–500 at 20-fps encoding. Playback FPS is not inference speed.
+
+11 / 00:03:51.042 / Look inside the representation.
+We also look at the same 309 human clips in two feature spaces: appearance on the left, fast weights on the right.
+The saved projections show task structure. But a visible cluster isn't, by itself, proof of action understanding.
+And evidence for general alignment between human and robot demonstrations is still limited.
+
+SOURCE NOTE: Saved t-SNE coordinates / perplexity 20. Identical samples and task colors; no points are repositioned.
+
+12 / 00:04:12.667 / A method claim is not an experiment.
+There's one important distinction to keep in mind. The current method uses a single segment. The historical checkpoint used four.
+Those earlier results don't automatically validate the revised architecture.
+And 84.6 percent measures whether a trial ever succeeded, not whether it was successful at the final, five-hundredth step.
+
+SOURCE NOTE: No retroactive claim that the current single-segment architecture produced the historical Full50 result.
+
+13 / 00:04:34.625 / Two memories. One coherent action.
+The takeaway is simple. A robot shouldn't have to choose between following the demonstration and responding to what actually happened.
+RoboDemo keeps both kinds of context: the intended procedure, and the experience of carrying it out.
+Two memories, read in order, to guide the next action.
+
+SOURCE NOTE: Recorded simulation excerpts. Local neural English narration. Original recordings and earlier films preserved.

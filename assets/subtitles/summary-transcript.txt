@@ -1,0 +1,166 @@
+RoboDemo | 理解演示意图，追踪执行进度
+
+Voice: Tingting, locally synthesized Mandarin; no impersonation.
+
+01 / 00:00:00.000 / RoboDemo.
+一段演示，能否教会机器人完成一项长程任务？
+RoboDemo 的核心，是把两件事分开记住。
+演示中的意图，以及执行中的真实进度。
+
+Can a demonstration guide a robot through a long-horizon task?
+RoboDemo separates two things worth remembering.
+The intent in the demonstration, and the progress actually made.
+
+SOURCE NOTE: Recorded human demonstration + recorded simulation. Editorial timing, not phase alignment.
+
+02 / 00:00:13.875 / The reference is not the reality.
+语言指令可能没有说清抓哪里、怎么移动、先后做什么。
+视频展示了过程，却不能说明机器人实际完成了哪一步。
+因此，我们既需要参考，也需要随交互更新的记忆。
+
+An instruction may leave the grasp, motion, and order underspecified.
+A reference shows a procedure, not the robot's completed progress.
+We need both a reference and memory that updates with interaction.
+
+SOURCE NOTE: Conceptual explanation. No generated futures, invented robot trajectories, or measured attention.
+
+03 / 00:00:30.792 / Two sources. One intended procedure.
+参考可以直接来自人类演示。
+也可以用初始图像和指令，从机器人训练库检索。
+检索不读取当前任务的未来帧。
+但检索参考对应的控制结果，目前尚未报告。
+
+A human demonstration can be supplied directly.
+Or retrieve a robot demonstration using the initial image and instruction.
+Retrieval never uses future frames of the current query trajectory.
+Retrieved-reference policy-control results have not been reported.
+
+SOURCE NOTE: Alternative inputs, not a matched pair. Robot-bank footage is a dataset demonstration, not a policy rollout.
+
+04 / 00:00:47.792 / One segment. Two ways to look.
+最新设计只使用一个参考片段，不再划分多个片段。
+我们从同一片段，采样两组互补的画面。
+稀疏语义帧，观察物体、场景和操作含义。
+稠密连续切片，则保留局部动作的变化。
+
+The current design uses one reference segment, not multiple segments.
+Two complementary sets of frames come from that same segment.
+Sparse semantic frames capture objects, scene context, and meaning.
+A dense consecutive slice preserves local changes in motion.
+
+SOURCE NOTE: Current single-segment design. Real frames from one clip; displayed sample counts are illustrative.
+
+05 / 00:01:06.792 / Pixels become memory context.
+语义帧交给 Qwen3-VL 视觉塔。
+连续动作切片交给 V-JEPA2 编码器。
+两路编码器都保持冻结，图像变成一组组 token。
+再由独立 Q-former 汇聚，以语义为基础，加入门控运动残差。
+
+Semantic frames enter the Qwen3-VL vision tower.
+The consecutive action slice enters the V-JEPA2 encoder.
+Both encoders are frozen; images become groups of tokens.
+Separate Q-formers pool them: a semantic base plus gated motion residual.
+
+SOURCE NOTE: Original SVG animation, not recorded activations. Token counts and color intensities are illustrative.
+
+06 / 00:01:27.167 / Context writes. Actions read.
+这些上下文不是简单地放进视频缓存。
+上下文产生 K 和 V，通过内层学习更新小型快速权重。
+动作侧的 Q 只负责查询，不参与写入。
+更新的是这份快速状态，而不是整个策略网络。
+
+This context is not simply stored in a video cache.
+Context K and V update a small fast-weight learner through an inner objective.
+Action-side Q queries the memory; it does not write.
+The fast state changes, not the entire policy network.
+
+SOURCE NOTE: Fast-weight MLP illustration. Shared slow projections stay fixed; cells are not measured weights.
+
+07 / 00:01:47.625 / Protect intent. Update progress.
+紫色的参考记忆，在执行前写入，之后保持固定。
+粉色的进度记忆，则等待一次真实转移完成。
+再接收新观测、机器人状态和上一步真正执行的动作。
+随着交互推进，右侧持续更新，但绝不覆盖左侧意图。
+
+Purple reference memory is preloaded, then remains fixed throughout rollout.
+Pink progress memory waits for an actual transition to finish.
+It receives the new observation, robot state, and preceding executed action.
+Progress keeps updating without overwriting the reference intent.
+
+SOURCE NOTE: Illustrative completed transitions. Reference remains purple and fixed; only progress becomes more pink.
+
+08 / 00:02:09.417 / Read both. In a deliberate order.
+每个动作块，先读取参考意图。
+再让进度记忆，修正已经参考条件化的动作表征。
+被修正的是动作表征，不是参考记忆。
+去噪期间两份记忆都只读；未写入的状态不贡献动态增量。
+
+Each action block first reads the demonstration intent.
+Progress then refines that reference-conditioned action representation.
+The action representation changes, not the reference memory.
+Both states are read-only during denoising; an unwritten state adds zero delta.
+
+SOURCE NOTE: Serial reads, not parallel memory mixing. Both fast states are read-only during action denoising.
+
+09 / 00:02:29.167 / 50 tasks. 2,000 trials.
+在使用人类参考的历史二十四万步检查点上，
+五十项任务、四个难度，共两千次试验。
+RoboDemo 有一千六百九十二次首次成功，成功率百分之八十四点六。
+这高于表中基线，但不意味着每项任务都领先。
+
+At the historical 240k checkpoint with human references,
+50 tasks across four levels total 2,000 trials.
+RoboDemo succeeds at least once in 1,692 trials: 84.6%.
+The aggregate exceeds the listed baselines, not every individual task.
+
+SOURCE NOTE: First-success truncation of full 500-step recordings. DP and ACT are official archived baselines.
+
+10 / 00:02:49.750 / Inspect what the robot actually did.
+这里展示真实记录的策略仿真执行，不是生成的机器人录像。
+六个筛选案例中，有参考全部成功，移除参考全部失败。
+但这不是全基准消融；静态和倒序参考也存在成功反例。
+因此，不能据此宣称完整时间顺序必不可少。
+
+These are recorded simulated policy executions, not generated robot footage.
+Across six selected cases: 6/6 with reference, 0/6 without.
+This is not a full-benchmark ablation; static and reversed references also succeed.
+These cases do not establish that full temporal order is necessary.
+
+SOURCE NOTE: Selected L0 pour case / steps 0–500 at 20-fps encoding. Playback FPS is not inference speed.
+
+11 / 00:03:14.833 / Look inside the representation.
+我们还比较了同一批三百零九段视频的表征。
+左侧是外观控制，右侧是快速权重。
+任务结构可以被观察，但聚类不是动作理解的因果证明。
+跨主体对齐的证据，也仍然有限。
+
+We also compare representations of the same 309 human videos.
+Appearance control is on the left; fast weights are on the right.
+Task structure is visible, but clustering is not causal proof of action understanding.
+Evidence for general human–robot alignment also remains limited.
+
+SOURCE NOTE: Saved t-SNE coordinates / perplexity 20. Identical samples and task colors; no points are repositioned.
+
+12 / 00:03:32.750 / A method claim is not an experiment.
+最后要区分两条时间线。
+当前方法采用单片段双路编码；历史检查点采用四段协议。
+最新设计的成绩，不能直接由旧结果代替。
+百分之八十四点六是首次成功率，也不是五百步终点成功率。
+
+Finally, keep two timelines distinct.
+The current method uses one segment; the historical checkpoint used four.
+Historical results do not automatically validate the revised design.
+84.6% is first success, not success at the fixed 500-step endpoint.
+
+SOURCE NOTE: No retroactive claim that the current single-segment architecture produced the historical Full50 result.
+
+13 / 00:03:52.792 / Two memories. One coherent action.
+RoboDemo 想做的，不是让机器人照着视频盲目重放。
+而是记住应该发生什么，也记住真正发生了什么。
+让参考意图和真实进度，共同指导下一次行动。
+
+RoboDemo is not about blindly replaying a demonstration.
+Remember what should happen, and what actually happened.
+Let intent and actual progress guide the next action together.
+
+SOURCE NOTE: Recorded simulation excerpts. Local synthetic narration. Original recordings and prior overview preserved.

@@ -1,0 +1,18 @@
+{
+  "id": "ig-3806",
+  "task": "PourKettle",
+  "query": {
+    "uid": "L0_TwoRobotPourKettle-v1:6",
+    "instruction": "Grasp the kettle and position it above the cup for pouring."
+  },
+  "reference": {
+    "uid": "L0_TwoRobotPourKettle-v1:36",
+    "instruction": "Grasp the kettle and position it above the cup for pouring."
+  },
+  "score": 1.6762830018997192,
+  "candidates": 199,
+  "mode": "saved_selected6000_top1",
+  "policyRolloutReported": false,
+  "video": "assets/media/retrieval-example.mp4",
+  "poster": "assets/posters/retrieval-example.jpg"
+}
