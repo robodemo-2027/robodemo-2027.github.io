@@ -22,7 +22,7 @@ export function methodSVG(index=0,{mobile=false,source='robot',fraction=1,images
       <g data-patch-grid="${side}" opacity="${(ref?v.tokenizeReference:v.tokenizeProgress)?'.8':'0'}">${[1,2,3].map(i=>`<path d="M${x+w*i/4} ${y}v${h}" stroke="${c}" stroke-width="1.4"/>`).join('')}<path d="M${x} ${y+h/2}h${w}" stroke="${c}" stroke-width="1.4"/></g>
       <rect data-scan="${side}" x="${x}" y="${y}" width="${w}" height="3" fill="${COLORS.action}" opacity="0"/>
       </g>
-      ${text(x,y+h+24,ref?`Segment ${v.referenceFrame+1} / 4`:`Observation after step ${v.observation}`,'small',`id="method-image-label-${side}"`)}
+      ${text(x,y+h+24,ref?`Reference frame ${v.referenceFrame+1} / 4`:`Observation after step ${v.observation}`,'small',`id="method-image-label-${side}"`)}
     </g>`;
   }
   function encoder(side,b){
@@ -40,11 +40,11 @@ export function methodSVG(index=0,{mobile=false,source='robot',fraction=1,images
       ${rect(x+12,y-18,w,h,'#FFFCF8',`rx="12" stroke="${c}" stroke-opacity=".32"`)}
       ${rect(x+6,y-9,w,h,ref?'#F0E8F2':'#FBE8EF',`rx="12" stroke="${c}" stroke-opacity=".45"`)}
       ${rect(x,y,w,h,'#FFFFFF',`rx="12" stroke="${c}" stroke-width="1.6"`)}
-      ${rect(x,y,w,h,c,`rx="12" data-memory-wash="${side}" opacity="${amount>0?.09+.13*amount/(ref?4:8):0}"`)}
+      ${rect(x,y,w,h,c,`rx="12" data-memory-wash="${side}" opacity="${amount>0?.09+.13*amount/(ref?1:8):0}"`)}
       ${text(x+13,y+26,ref?'Retrieval-TTT':'Execution-TTT','memory-title')}
       ${text(x+13,y+45,ref?'INTENT / PROTECTED':'PROGRESS / WRITABLE','eyebrow')}
-      ${Array.from({length:24},(_,i)=>rect(gx+(i%6)*gap,gy+Math.floor(i/6)*gap,cell,cell,ref?'#F3EFF5':'#FBF4F6','rx="4"')+rect(gx+(i%6)*gap,gy+Math.floor(i/6)*gap,cell,cell,c,`rx="4" data-memory-cell="${side}" data-cell="${i}" fill-opacity="${matrixAlpha(amount,ref?4:8,i)}"`)).join('')}
-      ${text(x+13,y+h-18,ref?(v.state.referenceFrozen?'Locked after preload':`${v.state.referenceVersion} / 4 segments written`):`${v.state.executionVersion} completed writes`,'small',`data-count="${side}"`)}
+      ${Array.from({length:24},(_,i)=>rect(gx+(i%6)*gap,gy+Math.floor(i/6)*gap,cell,cell,ref?'#F3EFF5':'#FBF4F6','rx="4"')+rect(gx+(i%6)*gap,gy+Math.floor(i/6)*gap,cell,cell,c,`rx="4" data-memory-cell="${side}" data-cell="${i}" fill-opacity="${matrixAlpha(amount,ref?1:8,i)}"`)).join('')}
+      ${text(x+13,y+h-18,ref?(v.state.referenceFrozen?'Locked after preload':`${v.state.referenceVersion} / 1 preload complete`):`${v.state.executionVersion} completed writes`,'small',`data-count="${side}"`)}
       ${rect(x-3,y-3,w+6,h+6,'none',`rx="15" stroke="${c}" stroke-width="3" data-write-glow="${side}" opacity="0"`)}
     </g>`;
   }
@@ -125,10 +125,10 @@ export function bindMethodMotion(host,{mobile=false,source='robot'}={}){
     }
     for(const side of ['reference','progress']){
       const ref=side==='reference',amount=ref?v.referenceAmount:v.progressAmount,count=ref?v.state.referenceVersion:v.state.executionVersion,active=ref?v.tokenizeReference:v.tokenizeProgress;
-      matrices[side].forEach((n,i)=>n.setAttribute('fill-opacity',matrixAlpha(amount,ref?4:8,i)));
+      matrices[side].forEach((n,i)=>n.setAttribute('fill-opacity',matrixAlpha(amount,ref?1:8,i)));
       host.querySelector(`[data-memory="${side}"]`).dataset.version=count;
-      host.querySelector(`[data-memory-wash="${side}"]`).setAttribute('opacity',amount>0?.09+.13*amount/(ref?4:8):0);
-      host.querySelector(`[data-count="${side}"]`).textContent=ref?(v.state.referenceFrozen?'Locked after preload':`${count} / 4 segments written`):`${count} completed writes`;
+      host.querySelector(`[data-memory-wash="${side}"]`).setAttribute('opacity',amount>0?.09+.13*amount/(ref?1:8):0);
+      host.querySelector(`[data-count="${side}"]`).textContent=ref?(v.state.referenceFrozen?'Locked after preload':`${count} / 1 preload complete`):`${count} completed writes`;
       const grid=grids[side];grid.setAttribute('opacity',active?.7*(1-v.local):0);
       host.querySelector(`[data-write-glow="${side}"]`).setAttribute('opacity',v.active===side?Math.sin(Math.PI*clamp((v.local-.62)/.36))*.5:0);
       const scan=host.querySelector(`[data-scan="${side}"]`),b=ref?l.refImage:l.execImage;
@@ -137,7 +137,7 @@ export function bindMethodMotion(host,{mobile=false,source='robot'}={}){
       if(oldFrames[side]!==frame){
         const url=methodFrameURL(kind,frame);host.querySelector(`#method-image-${side}`).setAttribute('href',url);
         host.querySelectorAll(`[data-patch-image="${side}"]`).forEach(el=>el.setAttribute('href',url));
-        host.querySelector(`#method-image-label-${side}`).textContent=ref?`Segment ${frame+1} / 4`:`Observation after step ${frame}`;
+        host.querySelector(`#method-image-label-${side}`).textContent=ref?`Reference frame ${frame+1} / 4`:`Observation after step ${frame}`;
         oldFrames[side]=frame;
       }
     }

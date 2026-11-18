@@ -1,0 +1,42 @@
+<svg class="retrieval-flow" xmlns="http://www.w3.org/2000/svg" width="1200" height="330" viewBox="0 0 1200 330" role="img" aria-labelledby="retrieval-title retrieval-desc">
+  <title id="retrieval-title">Retrieve a compatible procedure</title>
+  <desc id="retrieval-desc">An initial image and instruction are encoded with frozen Qwen and DINO encoders. Refreward scores eligible robot episodes and passes the top-ranked video to demonstration-intent memory.</desc>
+  <defs>
+    <marker id="retrieval-arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 10 5 0 10Z" fill="#9b7865"/></marker>
+  </defs>
+  <style>.retrieval-flow text{font-family:'Helvetica Neue',sans-serif;fill:#49332f}.retrieval-flow .label{font-size:18px;font-weight:600}.retrieval-flow .sub{font-size:14px;fill:#896f68}.retrieval-flow .small{font-size:12px;fill:#896f68}</style>
+  <rect width="1200" height="330" rx="12" fill="#fffcf8"/>
+  <g stroke="#9b7865" stroke-width="2" marker-end="url(#retrieval-arrow)" fill="none"><path data-flow-link="0" d="M252 157H308"/><path data-flow-link="1" d="M542 157H593"/><path data-flow-link="2" d="M827 157H878"/></g>
+  <g data-flow-node="0">
+    <rect x="24" y="45" width="228" height="220" rx="12" fill="#f6ede6" stroke="#e8d5d0"/>
+    <rect x="43" y="70" width="70" height="70" rx="7" fill="#e8d5d0"/>
+    <path d="m52 126 17-24 14 15 14-31 8 40" fill="none" stroke="#9b7865" stroke-width="3"/>
+    <text x="127" y="94" class="label">Initial RGB</text>
+    <text x="127" y="119" class="small">Current scene only</text>
+    <path d="M44 162H230" stroke="#e8d5d0"/>
+    <text x="44" y="195" class="label">Task instruction</text>
+    <text x="44" y="226" class="sub">What should be done?</text>
+  </g>
+  <g data-flow-node="1">
+    <rect x="312" y="45" width="230" height="220" rx="12" fill="#f0e8f2" stroke="#d9c8dd"/>
+    <text x="335" y="85" class="label">Frozen encoders</text>
+    <rect x="334" y="111" width="186" height="50" rx="7" fill="#fffcf8"/><text x="351" y="142" class="sub">Qwen3-VL semantics</text>
+    <rect x="334" y="176" width="186" height="50" rx="7" fill="#fffcf8"/><text x="351" y="207" class="sub">DINOv3 appearance</text>
+  </g>
+  <g data-flow-node="2">
+    <rect x="597" y="45" width="230" height="220" rx="12" fill="#fff6da" stroke="#ead499"/>
+    <text x="620" y="85" class="label">Refreward ranking</text>
+    <path d="M622 130h168M622 174h128M622 218h86" stroke="#c5a362" stroke-width="20" stroke-linecap="round"/>
+    <text x="625" y="134" class="small">01 / compatible procedure</text>
+    <text x="625" y="178" class="small">02 / alternative</text>
+    <text x="625" y="222" class="small">03 / alternative</text>
+  </g>
+  <g data-flow-node="3">
+    <rect x="882" y="45" width="292" height="220" rx="12" fill="#f0e8f2" stroke="#bca5c3"/>
+    <text x="907" y="85" class="label">Top-1 reference video</text>
+    <g fill="#bca5c3"><rect x="908" y="111" width="69" height="50" rx="6"/><rect x="985" y="111" width="69" height="50" rx="6"/><rect x="1062" y="111" width="69" height="50" rx="6"/></g>
+    <path d="M1024 173V194" stroke="#796181" stroke-width="2" marker-end="url(#retrieval-arrow)"/>
+    <text x="1028" y="226" class="label" text-anchor="middle">Demonstration-intent memory</text>
+  </g>
+  <text x="600" y="306" class="sub" text-anchor="middle">The robot video replaces the human reference, not the dual-memory policy.</text>
+</svg>

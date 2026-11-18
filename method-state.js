@@ -1,8 +1,8 @@
 export const timeline = [
   ['query','Start with what is visible','从眼前的场景开始','Initial RGB + instruction. No query future is available.','初始 RGB 与指令，不读取当前轨迹的未来帧。'],
   ['retrieve','Choose a compatible procedure','选择兼容的操作过程','The robot training bank supplies a selected reference. Human input bypasses retrieval.','从机器人训练库选择参考；人类演示直接进入编码，无需检索。'],
-  ['encode','Keep the meaning and the motion','同时保留语义与运动','Chronological segments become fixed-width registers through semantic and motion branches.','按时间分段，经语义与运动分支生成固定数量的 tokens。'],
-  ...[1,2,3,4].map(n=>['preload',`Store what should happen · segment ${n}/4`,`保存预期过程 · 第 ${n}/4 段`,'Self-supervised inner updates change only reference fast weights.','自监督内层更新仅改变参考 fast weights。',n]),
+  ['encode','Keep the meaning and the motion','同时保留语义与运动','H-GEC sampling encodes the complete reference into semantic and motion registers, then fuses them.','H-GEC 采样将完整参考编码为语义与运动 registers，再进行融合。'],
+  ['preload','Store the complete demonstration intent','保存完整演示意图','Write the fused reference registers once per Action-DiT block, before rollout.','执行前，在每个 Action-DiT block 中写入一次融合后的参考 registers。',1],
   ['freeze','Protect the intended procedure','保护演示意图','Keep the terminal reference state fixed throughout the rollout. Execution state is still initialized.','保留参考终态，整个执行期间固定；执行记忆尚为初始化状态。'],
   ...[0,1].flatMap(c=>[
     ['read',`Read intent, then progress · loop ${c+1}`,`先读意图，再读进度 · 循环 ${c+1}`,'Attention → Retrieval read → Execution read → FFN, in every Action-DiT block.','每个 Action-DiT block：Attention → Retrieval read → Execution read → FFN。',c],
@@ -21,10 +21,10 @@ export function transition(previous,event){
   const s=structuredClone(previous);s.phase=event.phase;
   if(event.phase==='preload'){
     if(s.referenceFrozen)throw new Error('Reference is frozen');
-    if(event.value!==s.referenceVersion+1)throw new Error('Reference segments must be chronological');
+    if(event.value!==1||s.referenceVersion!==0)throw new Error('Reference is preloaded once');
     s.referenceVersion++;
   }
-  if(event.phase==='freeze'){if(s.referenceVersion!==4)throw new Error('Incomplete preload');s.referenceFrozen=true;}
+  if(event.phase==='freeze'){if(s.referenceVersion!==1)throw new Error('Incomplete preload');s.referenceFrozen=true;}
   if(['read','denoise','predict','execute','complete','write','advance','continue'].includes(event.phase)&&!s.referenceFrozen)throw new Error('Read before preload');
   if(event.phase==='complete'){s.pending=s.controlStep+1;s.completed.push(s.pending);}
   if(event.phase==='write'){

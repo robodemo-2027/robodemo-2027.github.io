@@ -32,7 +32,7 @@
       <g data-patch-grid="reference" opacity="0"><path d="M101.5 126v174" stroke="#BCA5C3" stroke-width="1.4"/><path d="M169 126v174" stroke="#BCA5C3" stroke-width="1.4"/><path d="M236.5 126v174" stroke="#BCA5C3" stroke-width="1.4"/><path d="M34 213h270" stroke="#BCA5C3" stroke-width="1.4"/></g>
       <rect data-scan="reference" x="34" y="126" width="270" height="3" fill="#FFD968" opacity="0"/>
       </g>
-      <text x="34" y="324" class="small" id="method-image-label-reference">Segment 4 / 4</text>
+      <text x="34" y="324" class="small" id="method-image-label-reference">Reference frame 4 / 4</text>
     </g><g id="method-photo-progress">
       <text x="896" y="88" class="photo-title" >Track the reality.</text>
       <text x="896" y="111" class="eyebrow" >RECORDED EXECUTION</text>
@@ -56,7 +56,7 @@
       <rect x="55" y="432" width="18" height="18" fill="#BCA5C3" rx="4" opacity=".16"/><rect x="84" y="432" width="18" height="18" fill="#BCA5C3" rx="4" opacity=".16"/><rect x="113" y="432" width="18" height="18" fill="#BCA5C3" rx="4" opacity=".16"/><rect x="142" y="432" width="18" height="18" fill="#BCA5C3" rx="4" opacity=".16"/><rect x="171" y="432" width="18" height="18" fill="#BCA5C3" rx="4" opacity=".16"/><rect x="200" y="432" width="18" height="18" fill="#BCA5C3" rx="4" opacity=".16"/><rect x="229" y="432" width="18" height="18" fill="#BCA5C3" rx="4" opacity=".16"/><rect x="258" y="432" width="18" height="18" fill="#BCA5C3" rx="4" opacity=".16"/><text x="55" y="471" class="small" >8 shown / 32 ref. tokens</text><rect x="926" y="432" width="18" height="18" fill="#D86689" rx="4" opacity=".16"/><rect x="955" y="432" width="18" height="18" fill="#D86689" rx="4" opacity=".16"/><rect x="984" y="432" width="18" height="18" fill="#D86689" rx="4" opacity=".16"/><rect x="1013" y="432" width="18" height="18" fill="#D86689" rx="4" opacity=".16"/><rect x="1042" y="432" width="18" height="18" fill="#D86689" rx="4" opacity=".16"/><rect x="1071" y="432" width="18" height="18" fill="#D86689" rx="4" opacity=".16"/><rect x="1100" y="432" width="18" height="18" fill="#D86689" rx="4" opacity=".16"/><rect x="1129" y="432" width="18" height="18" fill="#D86689" rx="4" opacity=".16"/><text x="926" y="471" class="small" >8 shown / 16 prog. tokens</text>
       <text x="403" y="129" class="eyebrow" >DUAL TTT LAYERS</text>
       <text x="403" y="153" class="small" >Two fast states. Not a video cache.</text>
-      <g id="memory-reference" data-memory="reference" data-version="4">
+      <g id="memory-reference" data-memory="reference" data-version="1">
       <rect x="415" y="169" width="184" height="225" fill="#FFFCF8" rx="12" stroke="#BCA5C3" stroke-opacity=".32"/>
       <rect x="409" y="178" width="184" height="225" fill="#F0E8F2" rx="12" stroke="#BCA5C3" stroke-opacity=".45"/>
       <rect x="403" y="187" width="184" height="225" fill="#FFFFFF" rx="12" stroke="#BCA5C3" stroke-width="1.6"/>

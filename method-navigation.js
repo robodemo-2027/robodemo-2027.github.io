@@ -3,9 +3,9 @@ import {METHOD_SECONDS,clamp} from './method-motion.js';
 
 export const methodChapters=[
   {start:0,end:3,jump:2},
-  {start:3,end:8,jump:3},
-  {start:8,end:15,jump:13},
-  {start:15,end:23,jump:15}
+  {start:3,end:5,jump:3},
+  {start:5,end:12,jump:10},
+  {start:12,end:20,jump:12}
 ];
 
 // Timeline units are stages; 0.01 is 32 ms of illustrative animation time.

@@ -2,7 +2,7 @@ import {$,$$,tr,loadJSON} from './lib.js';
 import {initMethod} from './method.js';
 import {initMethodDetails} from './method-details.js';
 import {initPerformance} from './performance.js';
-import {initRepresentations} from './representations.js';
+import {initRelease} from './release-2026.js';
 import {initDemos} from './demos.js';
 import {publication} from './content/config.js';
 import {initSummaryFilm} from './summary-film.js';
@@ -32,18 +32,17 @@ function error(err){status.hidden=false;status.textContent=tr('Resource failed t
 async function boot(){
   const results=await Promise.allSettled([
     loadJSON('data/full50.json').then(initPerformance),
-    loadJSON('data/representations.json').then(initRepresentations),
     loadJSON('data/demos.json').then(initDemos),
-    loadJSON('data/retrieval.json').then(d=>{
-      $('#retrieval-info').textContent=`${d.task} · ${d.query.uid} → ${d.reference.uid}. ${tr('Saved top-1 selection from','保存的 top-1 选择，候选数')} ${d.candidates} ${tr('candidates. Query uses initial RGB and instruction, never its future frames.','。查询仅使用初始 RGB 与指令，不使用未来帧。')}`;
+    loadJSON('data/retrieval-pair.json').then(d=>{
+      $('#retrieved-instruction').textContent=d.reference.instruction;
+      $('#execution-instruction').textContent=d.execution.instruction;
+      $('#retrieval-info').textContent=d.caption;
     })
   ]);
   results.filter(x=>x.status==='rejected').forEach(x=>error(x.reason));
 }
 boot();
-for(const [key,label]of [['paperURL','Paper'],['codeURL','Code'],['modelsURL','Models'],['quickstartURL','Quickstart'],['resultsURL','All numerical results']]){
-  if(publication[key]){const a=document.createElement('a');a.textContent=label;a.href=publication[key];a.rel='noopener';$('#publication-links').append(a);}
-}
+initRelease();
 initSummaryFilm();
 const lazyIO=new IntersectionObserver(es=>es.forEach(en=>{
   const v=en.target;if(en.isIntersecting&&v.dataset.lazySrc&&!v.getAttribute('src')){v.src=v.dataset.lazySrc;v.preload='metadata';}

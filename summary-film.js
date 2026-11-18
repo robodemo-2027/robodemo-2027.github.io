@@ -5,7 +5,7 @@ export function initSummaryFilm(){
   const film=$('#overview'),frame=$('#film-frame'),quality=$('#film-quality'),seek=$('#film-seek');
   const captionBox=$('#film-caption-text'),chapter=$('#film-chapter');
   let generation=0,playRequest=0,nativeFullscreen=false,chapters=[],plannedDuration=0;
-  quality.value=innerWidth<768||navigator.connection?.saveData?'720':'1080';
+  quality.value='720';
   film.controls=false;frame.classList.add('custom-controls');
   function controls(){
     $('#film-toggle').textContent=film.paused?tr('Play','播放'):tr('Pause','暂停');
@@ -83,7 +83,7 @@ export function initSummaryFilm(){
   };
   guardVisible(frame,pause);
   new IntersectionObserver(es=>{
-    if(es[0].isIntersecting&&!film.getAttribute('src'))setFilm(0,!reduced()&&!navigator.connection?.saveData);
+    if(es[0].isIntersecting&&!film.getAttribute('src'))setFilm(0,false);
   },{threshold:.2}).observe(film);
   loadJSON('data/summary-film-en.json').then(data=>{
     plannedDuration=data.duration;seek.max=String(plannedDuration);

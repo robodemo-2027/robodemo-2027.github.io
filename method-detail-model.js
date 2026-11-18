@@ -13,10 +13,10 @@ export const detailSteps={
     {label:['Return a delta','返回增量'],title:['Read the change relative to initialization.','读取相对于初始化的增量。'],body:['The reader subtracts the initial-state response under the same query and role. An unwritten or reset memory contributes exactly zero, not fabricated history.','Reader 在相同 query 和 role 下减去初始化状态的响应。尚未写入或已重置的记忆贡献恰为零，不伪造历史。'],formula:'Delta = Read(phi, H) - Read(phi_0, H)',token:'D'}
   ],
   encoding:[
-    {label:['Sample','采样'],title:['One segment. Two frame groups.','一个片段，两组采样帧。'],body:['The same single reference segment supplies sparse semantic frames and a dense, consecutive action slice. Both sample groups share one timeline. The real frame indices illustrate spacing and continuity, not configured sample counts.','同一个参考片段采样出稀疏语义帧与稠密、连续的动作切片，两种采样共享同一条时间轴。真实源帧编号用于说明间隔与连续性，不代表模型配置的采样数量。'],formula:'one segment -> {sparse frames, consecutive clip}',token:'U'},
+    {label:['Sample','采样'],title:['One reference. Two frame groups.','一个参考，两组采样帧。'],body:['The complete reference video supplies sparse semantic frames and a dense, consecutive action slice. Both sample groups share one timeline. The real frame indices illustrate spacing and continuity, not configured sample counts.','同一个参考片段采样出稀疏语义帧与稠密、连续的动作切片，两种采样共享同一条时间轴。真实源帧编号用于说明间隔与连续性，不代表模型配置的采样数量。'],formula:'complete reference -> {sparse frames, consecutive clip}',token:'U'},
     {label:['Encode','编码'],title:['Separate semantics from continuous motion.','分别编码语义与连续运动。'],body:['Sparse frames enter qwen3-vl-vision-tower for visual semantics. The dense consecutive slice enters v-jepa2-encoder for temporal motion. Both encoders remain frozen; the reference encoders do not take the task prompt.','稀疏帧交给 qwen3-vl-vision-tower 编码视觉语义，稠密连续动作切片交给 v-jepa2-encoder 编码时序运动。两路编码器均冻结，参考编码器不接收任务提示词。'],formula:'S = Qwen3-VL-Vision(sparse); M = V-JEPA2(dense)',token:'U'},
     {label:['Resample','重采样'],title:['Compress both streams to registers.','把两条 token 流压缩为 registers。'],body:['Separate semantic and motion Q-formers resample valid source tokens. Their fixed-size outputs provide a stable interface independent of raw video length.','独立的语义和运动 Q-former 对有效源 tokens 重采样；固定数量的输出形成不随原始视频长度增长的接口。'],formula:'A_S = SemResampler(S_p); A_M = MotionResampler(M_p)',token:'U'},
-    {label:['Fuse','融合'],title:['Keep semantics; add a gated motion residual.','保留语义基底，加入门控运动残差。'],body:['The two register streams from the single segment fuse into U_R for Retrieval-TTT. Preloading retains a fast-weight state, not a video prefix. This current single-segment design is distinct from the historical 240k protocol below.','来自同一片段的两路 registers 融合为 U_R，送入 Retrieval-TTT。预加载保留的是快权重状态，而非视频前缀。当前单片段设计与下方历史 240k 协议独立区分。'],formula:'U_R = A_S + tanh(alpha_M) * G * A_M',token:'U'}
+    {label:['Fuse','融合'],title:['Keep semantics; add a gated motion residual.','保留语义基底，加入门控运动残差。'],body:['The two register streams from the complete reference fuse into U_R for Retrieval-TTT. Preloading retains a fast-weight state, not a video prefix.','来自同一片段的两路 registers 融合为 U_R，送入 Retrieval-TTT。预加载保留的是快权重状态，而非视频前缀。'],formula:'U_R = A_S + tanh(alpha_M) * G * A_M',token:'U'}
   ]
 };
 
@@ -92,10 +92,10 @@ const guideCopy={
     [['Compare the two responses under the same query and role.','比较相同查询和 role 下的两份响应。'],['Return only the difference to the action stream.','只把响应差值送回动作流。'],['A read returns a delta. It never performs another write.','读取返回增量，不会执行第二次写入。']]
   ],
   encoding:[
-    [['Sample both frame groups from the same single segment.','从同一个片段采样两组帧。'],['Spaced semantic frames; adjacent frames for continuous motion.','语义帧稀疏间隔，动作帧相邻连续。'],['Send sparse frames to Qwen3-VL and the dense slice to V-JEPA2.','稀疏帧进入 Qwen3-VL，稠密切片进入 V-JEPA2。']],
+    [['Sample both frame groups from the same complete reference.','从同一个片段采样两组帧。'],['Spaced semantic frames; adjacent frames for continuous motion.','语义帧稀疏间隔，动作帧相邻连续。'],['Send sparse frames to Qwen3-VL and the dense slice to V-JEPA2.','稀疏帧进入 Qwen3-VL，稠密切片进入 V-JEPA2。']],
     [['Two frozen visual encoders process their own inputs.','两个冻结的视觉编码器分别处理各自输入。'],['Semantic and temporal tokens travel to separate Q-formers.','语义与时序 tokens 移向独立的 Q-former。'],['No task prompt is injected into either reference encoder.','两路参考编码器都不注入任务提示词。']],
     [['Each Q-former resamples its source tokens.','每个 Q-former 对各自源 tokens 重采样。'],['Both streams become fixed-width register interfaces.','两路流都变成固定数量的 register 接口。'],['The registers are ready for gated fusion.','Registers 准备进行门控融合。']],
-    [['Keep the semantic base; add the gated motion residual.','保留语义基底，加入门控运动残差。'],['The fused reference registers form U_R.','融合后的参考 registers 形成 U_R。'],['One segment, one fused reference interface to Retrieval-TTT.','一个片段融合为一份参考接口，送入 Retrieval-TTT。']]
+    [['Keep the semantic base; add the gated motion residual.','保留语义基底，加入门控运动残差。'],['The fused reference registers form U_R.','融合后的参考 registers 形成 U_R。'],['One reference, one fused interface to Retrieval-TTT.','一个片段融合为一份参考接口，送入 Retrieval-TTT。']]
   ]
 };
 

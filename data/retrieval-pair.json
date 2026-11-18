@@ -1,0 +1,14 @@
+{
+  "reference": {
+    "uid": "L0_TwoRobotFoldTowel-v1:34",
+    "instruction": "Bring the laptop's lid toward its base, then place the laptop in the box and release it."
+  },
+  "execution": {
+    "trial_id": "L0_TwoRobotFoldTowel-v1_trial00",
+    "instruction": "Fold the towel, then stow it inside the basket",
+    "model": "RoboDemo-c15-wo",
+    "checkpoint_step": 100000
+  },
+  "query_instruction": "Bring the laptop's lid toward its base, then place the laptop in the box and release it.",
+  "caption": "Selected reference L0_TwoRobotFoldTowel-v1:34; execution L0_TwoRobotFoldTowel-v1_trial00, C15-wo 100k, complete 500-step rollout. Robot video playback follows simulation time. The reference caption describes its visual instance; the execution instruction retains the benchmark task wording."
+}

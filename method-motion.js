@@ -29,12 +29,13 @@ export function methodVisual(index,fraction=1,source='robot'){
   const local=phase==='advance'?Math.min(1,f===1?1:f*3-cycle):f;
   const referenceAmount=phase==='preload'?before.referenceVersion+writeFraction:s.referenceVersion;
   const progressAmount=phase==='write'?before.executionVersion+writeFraction:phase==='advance'?Math.min(after.executionVersion,before.executionVersion+cycle+writeFraction):s.executionVersion;
-  const referenceFrame=phase==='preload'?timeline[index].value-1:index>=7?3:phase==='encode'?Math.min(3,Math.floor(f*4)):0;
+  const referenceFrame=phase==='encode'?Math.min(3,Math.floor(f*4)):
+    (phase==='preload'||s.referenceFrozen)?3:0;
   let observation=before.controlStep;
   if(phase==='complete')observation=f>.55?after.pending:before.controlStep;
   else if(phase==='write')observation=after.controlStep;
   else if(phase==='advance')observation=Math.min(8,before.controlStep+cycle+(local>.3?1:0));
-  else if(index>=8)observation=s.controlStep;
+  else if(s.referenceFrozen)observation=s.controlStep;
   return {phase,f,local,state:s,active,referenceAmount,progressAmount,referenceFrame,observation,
     tokenizeReference:phase==='encode'||phase==='preload',tokenizeProgress:phase==='write'||phase==='advance',
     read:['read','denoise','continue'].includes(phase),predicted:phase==='predict'||phase==='execute',

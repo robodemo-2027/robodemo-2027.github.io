@@ -1,85 +1,48 @@
 {
-  "title": "RoboDemo | Demonstration Intent and Execution Progress",
-  "duration": 293.3333333333333,
-  "voice": "Local neural English narration",
+  "duration": 161.4,
   "chapters": [
     {
-      "id": "intro",
-      "title": "RoboDemo.",
       "start": 0,
-      "duration": 18.708333333333332
+      "end": 17.3,
+      "title": "Learn the intent. Track the progress."
     },
     {
-      "id": "problem",
-      "title": "The reference is not the reality.",
-      "start": 18.708333333333332,
-      "duration": 19.083333333333332
+      "start": 17.3,
+      "end": 35.43333333333334,
+      "title": "The reference is not the reality."
     },
     {
-      "id": "reference",
-      "title": "Two sources. One intended procedure.",
-      "start": 37.791666666666664,
-      "duration": 24.166666666666668
+      "start": 35.43333333333334,
+      "end": 57,
+      "title": "Two memories. One coherent action."
     },
     {
-      "id": "sampling",
-      "title": "One segment. Two ways to look.",
-      "start": 61.95833333333333,
-      "duration": 22.875
+      "start": 57,
+      "end": 77.73333333333333,
+      "title": "Write context. Read for action."
     },
     {
-      "id": "encoding",
-      "title": "Pixels become memory context.",
-      "start": 84.83333333333333,
-      "duration": 25.5
+      "start": 77.73333333333333,
+      "end": 99.96666666666667,
+      "title": "Evaluate across tasks and scenes."
     },
     {
-      "id": "write",
-      "title": "Context writes. Actions read.",
-      "start": 110.33333333333333,
-      "duration": 21.166666666666668
+      "start": 99.96666666666667,
+      "end": 120.16666666666667,
+      "title": "From video guidance to the real world."
     },
     {
-      "id": "memories",
-      "title": "Protect intent. Update progress.",
-      "start": 131.5,
-      "duration": 22.333333333333332
+      "start": 120.16666666666667,
+      "end": 138.70000000000002,
+      "title": "Keep the procedure. Adapt to the scene."
     },
     {
-      "id": "reads",
-      "title": "Read both. In a deliberate order.",
-      "start": 153.83333333333334,
-      "duration": 23.625
-    },
-    {
-      "id": "results",
-      "title": "50 tasks. 2,000 trials.",
-      "start": 177.45833333333334,
-      "duration": 28.083333333333332
-    },
-    {
-      "id": "demos",
-      "title": "Inspect what the robot actually did.",
-      "start": 205.54166666666669,
-      "duration": 25.5
-    },
-    {
-      "id": "representations",
-      "title": "Look inside the representation.",
-      "start": 231.04166666666669,
-      "duration": 21.625
-    },
-    {
-      "id": "boundary",
-      "title": "A method claim is not an experiment.",
-      "start": 252.66666666666669,
-      "duration": 21.958333333333332
-    },
-    {
-      "id": "closing",
-      "title": "Two memories. One coherent action.",
-      "start": 274.625,
-      "duration": 18.708333333333332
+      "start": 138.70000000000002,
+      "end": 161.4,
+      "title": "A second route to visual guidance."
     }
-  ]
+  ],
+  "narration": "Locally synthesized English narration",
+  "visuals": "Recorded footage and SVG-authored illustrations",
+  "defaultQuality": "720p"
 }

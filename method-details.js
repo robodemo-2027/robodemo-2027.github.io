@@ -117,10 +117,10 @@ function initLab(root){
         host.style.setProperty('--detail-memory',role==='reference'?'#BCA5C3':'#D86689');
         host.style.setProperty('--detail-memory-light',role==='reference'?'#F0E8F2':'#FBE8EF');
         $('[data-state-label]',svg).textContent=role==='reference'?tr('independent reference state','独立的参考状态'):tr('independent progress state','独立的进度状态');
-        $('[data-context-label]',svg).textContent=role==='reference'?tr('Reference segment','参考片段'):tr('Completed transition','已完成的转移');
+        $('[data-context-label]',svg).textContent=role==='reference'?tr('Reference registers','参考 registers'):tr('Completed transition','已完成的转移');
         const image=$('[data-context-image]',svg),imageURL=new URL(`assets/method/${role==='reference'?'human-2':'observation-4'}.jpg`,document.baseURI).href;
         if(image.getAttribute('href')!==imageURL)image.setAttribute('href',imageURL);
-        $('[data-writer-input]',root).textContent=role==='reference'?tr('Chronological reference segment U_R','按时间排列的参考片段 U_R'):tr('New observation + state + preceding executed action U_E','新观测 + 状态 + 前一步实际执行动作 U_E');
+        $('[data-writer-input]',root).textContent=role==='reference'?tr('Fused reference registers U_R','融合后的参考 registers U_R'):tr('New observation + state + preceding executed action U_E','新观测 + 状态 + 前一步实际执行动作 U_E');
         $('[data-writer-schedule]',root).textContent=role==='reference'?tr('Preload, then keep the terminal state fixed.','预加载后固定参考终态。'):tr('One write after each completed transition.','每次控制转移完成后写入一次。');
         $('[data-write-status]',root).textContent=v.writeActive?tr('Updating the fast MLP','正在更新 fast MLP'):v.referenceWrites+v.executionWrites?tr('Stored. Queries do not write.','已写入，后续查询只读。'):tr('Context ready for encoding','上下文就绪，等待编码');
         $$('[data-writer-role]',root).forEach(button=>button.setAttribute('aria-pressed',String(button.dataset.writerRole===role)));

@@ -32,7 +32,7 @@ export function initMethod(){
   }
   function framePaint(fraction){
     const v=paint(index,fraction),s=v.state;
-    $('#method-clock').textContent=`${index<8?'PRE-ROLLOUT':v.phase==='denoise'?'ACTION DENOISING':'CONTROL STEP '+s.controlStep} · R=${s.referenceVersion} · E=${s.executionVersion}`;
+    $('#method-clock').textContent=`${['query','retrieve','encode','preload','freeze'].includes(v.phase)?'PRE-ROLLOUT':v.phase==='denoise'?'ACTION DENOISING':'CONTROL STEP '+s.controlStep} · R=${s.referenceVersion} · E=${s.executionVersion}`;
     const position=playbackPosition(index,fraction);
     $('#method-time').textContent=`${animationTime(position.seconds)} / ${animationTime(position.duration)}`;
     range.value=(index+fraction).toFixed(2);

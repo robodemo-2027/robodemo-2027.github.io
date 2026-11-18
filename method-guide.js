@@ -14,7 +14,7 @@ export function methodCue(v){
     if(f<.4)return cue('reference-patches','reference','Image regions become reference tokens.','参考图像区域正在变成 token。');
     if(f<.68)return cue('reference-travel','reference','Reference tokens travel to Retrieval-TTT.','参考 token 正在进入 Retrieval-TTT。');
     if(f<.9)return cue('reference-update','reference','K/V updates reference fast weights.','K/V 正在更新参考 fast weights。');
-    return cue('reference-stored','reference','Reference segment stored; no execution history yet.','本段参考已写入；此时还没有执行历史。');
+    return cue('reference-stored','reference','Fused reference stored; no execution history yet.','融合参考已写入；此时还没有执行历史。');
   }
   if(v.phase==='freeze')return cue('reference-lock','reference',
     'Protect the reference; progress is still initialized.','保护参考终态；执行记忆仍为初始化状态。');
