@@ -184,3 +184,27 @@ footer{color:#E8D5D0}.scatter-panel{border-color:#E8D5D0}.video-panel,#sample-pr
 .table-abbreviations dd{display:inline;margin-left:6px;overflow-wrap:anywhere}
 @media(max-width:900px){.table-abbreviations{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media(max-width:620px){.table-abbreviations{grid-template-columns:1fr}.table-category-nav{display:grid;grid-template-columns:1fr 1fr}.table-category-nav button{font-size:11px;justify-content:space-between;text-align:left}.table-locator label{flex-basis:100%}.table-locator input{width:auto;flex:1}.table-locator [data-table-columns]{margin-left:0}#full-table .reporting-label{font-size:13px}#full-table .reporting-group span{margin-left:8px}}
+
+/* Release resources share the site's warm paper and editorial typography. */
+.release-rail{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));margin:36px 0 28px;border-block:1px solid var(--line)}
+.release-rail a{display:grid;grid-template-columns:1fr auto;gap:5px 12px;padding:20px 22px;transition:background .18s}
+.release-rail a:first-child{padding-left:0}
+.release-rail a+a{border-left:1px solid var(--line)}
+.release-rail a:hover{background:#e8d5d030;text-decoration:none}
+.release-rail small{grid-column:1/-1;font:10px/1.5 var(--mono);letter-spacing:.1em;color:var(--muted)}
+.release-rail strong{font:500 20px var(--title)}
+.release-rail span{color:var(--green)}
+.release-results{margin-top:60px;padding:32px;background:linear-gradient(120deg,#fffdf7,#f5e7df);border:1px solid var(--line);border-radius:12px}
+.release-results .eyebrow{margin-bottom:12px}
+.release-results h3{font-size:clamp(25px,3vw,36px)}
+.release-results>p{max-width:760px;margin-top:16px;color:var(--muted)}
+.release-results .table-scroll{margin:28px 0 20px}
+.release-results table{width:100%;font-variant-numeric:tabular-nums;white-space:nowrap}
+.release-results caption{text-align:left;font-size:13px;color:var(--muted);padding-bottom:12px;white-space:normal}
+.release-results tbody th{text-align:left}
+.release-results td:not(:nth-child(3)){text-align:right}
+.release-results a:not(.button){text-decoration:underline;text-underline-offset:4px}
+.release-links{display:flex;flex-wrap:wrap;gap:12px;margin-top:24px}
+.release-citation{margin-top:26px}
+.release-citation pre{overflow-x:auto;background:#fff9;padding:20px;border:1px solid var(--line);border-radius:8px;font:12px/1.7 var(--mono)}
+@media(max-width:620px){.release-rail{grid-template-columns:1fr}.release-rail a{padding:15px 0}.release-rail a+a{border-left:0;border-top:1px solid var(--line)}.release-rail strong{font-size:19px}.release-results{padding:24px 18px}.release-results .table-scroll{margin-inline:-4px}.release-links .button{width:100%}}

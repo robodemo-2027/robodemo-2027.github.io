@@ -41,7 +41,7 @@ async function boot(){
   results.filter(x=>x.status==='rejected').forEach(x=>error(x.reason));
 }
 boot();
-for(const [key,label]of [['paperURL','Paper'],['codeURL','Code'],['modelsURL','Models']]){
+for(const [key,label]of [['paperURL','Paper'],['codeURL','Code'],['modelsURL','Models'],['quickstartURL','Quickstart'],['resultsURL','All numerical results']]){
   if(publication[key]){const a=document.createElement('a');a.textContent=label;a.href=publication[key];a.rel='noopener';$('#publication-links').append(a);}
 }
 initSummaryFilm();

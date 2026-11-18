@@ -1,9 +1,7 @@
 {
   "checkpoint": 240000,
-  "checkpointSHA256": "543672c0a2ecd455ba69abe064b59b59e774a88d1282149a83f0103d31d8463f",
-  "metric": "first_success_stop",
-  "sourceAlias": "stop_success",
-  "definition": "Retrospective first-success truncation of complete 500-step rollouts",
+  "metric": "success_rate",
+  "definition": "Task success within 500 control steps",
   "successes": 1692,
   "trials": 2000,
   "tasks": [
@@ -1462,9 +1460,5 @@
     "L3",
     "Mean"
   ],
-  "baselines": "Archived official full-suite reference, not our reruns and not the ten-task leaderboard",
-  "legacy": {
-    "endpointSuccess": 82.75,
-    "continuousPhaseSubSR": 90.06478382
-  }
+  "baselines": "Archived official full-suite reference, not our reruns and not the ten-task leaderboard"
 }
