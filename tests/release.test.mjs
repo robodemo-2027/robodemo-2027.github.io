@@ -5,7 +5,7 @@ import {filterResults,resultCSV} from '../release-2026.js';
 import {timeline,stateAt,transition} from '../method-state.js';
 import {methodVisual} from '../method-motion.js';
 import {methodChapters,playbackPosition} from '../method-navigation.js';
-import {retrievalSVG,retrievalStage} from '../retrieval-motion.js';
+import {retrievalSVG,retrievalStage,retrievalState} from '../retrieval-motion.js';
 
 const rows=JSON.parse(fs.readFileSync(new URL('../data/task-level.json',import.meta.url)));
 
@@ -37,6 +37,41 @@ test('retrieval diagram transports visible tokens through four stages',()=>{
     assert.ok(!/NaN|undefined/.test(retrievalSVG(t)));
     assert.match(retrievalSVG(t),/marker-end/);
   }
+});
+test('retrieval shares the method palette and writes only after selection',()=>{
+  for(const time of [0,3,4,7,8,11])assert.equal(retrievalState(time).memory,0);
+  assert.ok(retrievalState(15.9).memory>.99);
+  const svg=retrievalSVG(14);
+  for(const color of ['#BCA5C3','#D86689','#FFD968'])assert.ok(svg.includes(color));
+  assert.match(svg,/viewBox="0 0 1200 640"/);
+  assert.match(retrievalSVG(14,{}, {mobile:true}),/viewBox="0 0 390 1620"/);
+  for(const file of ['query.jpg',...Array.from({length:4},(_,i)=>`reference-${i}.jpg`)]){
+    assert.ok(fs.existsSync(new URL(`../assets/retrieval/${file}`,import.meta.url)));
+  }
+});
+test('recut film shows sequential footage rather than a figure slideshow',()=>{
+  const film=JSON.parse(fs.readFileSync(new URL('../data/summary-film-en.json',import.meta.url)));
+  assert.ok(film.duration>=90&&film.duration<=105);
+  assert.ok(film.edit.some(s=>s.kind==='human'&&s.start<5));
+  assert.ok(film.edit.some(s=>s.kind==='simulation'&&s.start<10));
+  assert.ok(film.edit.some(s=>s.kind==='real-robot'&&s.start<10));
+  assert.ok(film.edit.filter(s=>s.kind==='real-robot').reduce((n,s)=>n+s.end-s.start,0)>35);
+  assert.ok(film.edit.every((s,i)=>!i||Math.abs(s.start-film.edit[i-1].end)<.001));
+  assert.ok(film.edit.filter(s=>s.source.endsWith('.mp4')).every(s=>s.rate===1));
+});
+test('English captions stay short and in the reserved lower band',()=>{
+  const vtt=fs.readFileSync(new URL('../assets/subtitles/summary-en.vtt',import.meta.url),'utf8');
+  const blocks=vtt.trim().split('\n\n').slice(1);
+  assert.ok(blocks.length>25);
+  for(const block of blocks){
+    const lines=block.split('\n');
+    assert.match(lines[1],/line:85%/);
+    assert.ok(lines[2].length<=70);
+    assert.equal(lines.length,3);
+  }
+  const css=fs.readFileSync(new URL('../refinement.css',import.meta.url),'utf8');
+  assert.match(css,/#overview::cue[^}]*font-size:18px/);
+  assert.match(css,/#overview::cue \{font-size:11px\}/);
 });
 test('six retrieval/execution pairs retain distinct recorded identities',()=>{
   const pairs=JSON.parse(fs.readFileSync(new URL('../data/retrieval-pairs.json',import.meta.url)));

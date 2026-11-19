@@ -1,46 +1,14 @@
-Learn the intent. Track the progress.
-
 A human demonstration contains more than a goal. It shows a procedure: how to approach an object, coordinate movement, and complete a task.
 
 But a robot does not follow exactly the same path. It also needs to remember what actually happened during its own execution.
 
-The reference is not the reality.
-
-A fixed demonstration cannot tell the robot how far it has progressed. And mixing reference context with execution history can blur the difference between intention and reality.
-
-RoboDemo keeps these two sources of guidance separate, then brings them together when deciding the next action.
-
-Two memories. One coherent action.
-
-The reference video builds a persistent demonstration-intent memory. Semantic and motion features capture what the procedure means and how it unfolds.
-
-A second memory tracks interaction progress using robot observations, states, and actions that have already been executed. Each action block reads intent first, then progress.
-
-Write context. Read for action.
-
-Test-time training writes context into compact fast-weight states. The reference state stays fixed after preload, while the execution state updates causally as interaction continues.
-
-During action denoising, both memories are read-only. Predicted actions do not become execution history until they have actually been applied.
-
-Evaluate across tasks and scenes.
+The reference video builds a persistent demonstration-intent memory. Semantic and motion features capture what the procedure means and how it unfolds. A second memory tracks interaction progress using robot observations, states, and actions that have already been executed. Each action block reads intent first, then progress.
 
 On Imitator Game, the Full50 checkpoint reaches eighty-four point six percent success across two thousand episodes.
 
-The C15, C30, and C45 checkpoints average ninety point seven percent on Seen tasks. The website provides every task-level result, including Unseen tasks and the robot-reference variant.
-
-From video guidance to the real world.
-
-We also evaluate RoboDemo on real household manipulation: organizing a tabletop, arranging sofa cushions, and pouring from a bottle into a cup.
-
-Across these three tasks, the model achieves a mean success rate of seventy-three point three percent. Here are excerpts from the recorded robot executions.
-
-Keep the procedure. Adapt to the scene.
+We also evaluate RoboDemo on real household manipulation: organizing a tabletop, arranging sofa cushions, and pouring from a bottle into a cup. Across these three tasks, the model achieves a mean success rate of seventy-three point three percent. Here are excerpts from the recorded robot executions.
 
 The same memory separation is useful when the environment changes. These recordings show tabletop organization under altered lighting, a different background, and a new scene.
-
-The full videos and the corresponding quantitative visual-generalization results are available on the project website.
-
-A second route to visual guidance.
 
 When a human video is unavailable, Refreward ranks robot demonstrations using the task instruction and the initial image. The selected procedure enters the same intent-memory interface.
 

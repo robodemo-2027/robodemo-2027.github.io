@@ -1,48 +1,158 @@
 {
-  "duration": 161.4,
+  "duration": 99.53333333333333,
   "chapters": [
     {
       "start": 0,
-      "end": 17.3,
-      "title": "Learn the intent. Track the progress."
+      "end": 8.933333333333334,
+      "title": "A procedure, not just a goal."
     },
     {
-      "start": 17.3,
-      "end": 35.43333333333334,
-      "title": "The reference is not the reality."
+      "start": 8.933333333333334,
+      "end": 16.733333333333334,
+      "title": "Execution does not follow an exact replay."
     },
     {
-      "start": 35.43333333333334,
-      "end": 57,
+      "start": 16.733333333333334,
+      "end": 38.3,
       "title": "Two memories. One coherent action."
     },
     {
-      "start": 57,
-      "end": 77.73333333333333,
-      "title": "Write context. Read for action."
+      "start": 38.3,
+      "end": 46.099999999999994,
+      "title": "Hang the mug."
     },
     {
-      "start": 77.73333333333333,
-      "end": 99.96666666666667,
-      "title": "Evaluate across tasks and scenes."
+      "start": 46.099999999999994,
+      "end": 66.3,
+      "title": "Organize the tabletop."
     },
     {
-      "start": 99.96666666666667,
-      "end": 120.16666666666667,
-      "title": "From video guidance to the real world."
+      "start": 66.3,
+      "end": 77.39999999999999,
+      "title": "Different light. The same procedure."
     },
     {
-      "start": 120.16666666666667,
-      "end": 138.70000000000002,
-      "title": "Keep the procedure. Adapt to the scene."
+      "start": 77.39999999999999,
+      "end": 89.63333333333333,
+      "title": "A robot video can supply the reference."
     },
     {
-      "start": 138.70000000000002,
-      "end": 161.4,
-      "title": "A second route to visual guidance."
+      "start": 89.63333333333333,
+      "end": 99.53333333333333,
+      "title": "Learn the intent. Track the progress."
     }
   ],
   "narration": "Locally synthesized English narration",
-  "visuals": "Recorded footage and SVG-authored animated token flows",
-  "defaultQuality": "1080p"
+  "visuals": "Sequential human, simulation and real-robot footage with SVG-authored method animation",
+  "defaultQuality": "1080p",
+  "edit": [
+    {
+      "start": 0,
+      "end": 2.966666666666667,
+      "kind": "human",
+      "source": "assets/media/pour-human.mp4",
+      "sourceStart": 1,
+      "rate": 1
+    },
+    {
+      "start": 2.966666666666667,
+      "end": 5.966666666666667,
+      "kind": "simulation",
+      "source": "assets/media/pour-with.mp4",
+      "sourceStart": 2,
+      "rate": 1
+    },
+    {
+      "start": 5.966666666666667,
+      "end": 8.933333333333334,
+      "kind": "real-robot",
+      "source": "assets/media/real/pouring.mp4",
+      "sourceStart": 36,
+      "rate": 1
+    },
+    {
+      "start": 8.933333333333334,
+      "end": 16.733333333333334,
+      "kind": "simulation",
+      "source": "assets/media/pour-with.mp4",
+      "sourceStart": 4,
+      "rate": 1
+    },
+    {
+      "start": 16.733333333333334,
+      "end": 38.3,
+      "kind": "method",
+      "source": "SVG animation"
+    },
+    {
+      "start": 38.3,
+      "end": 42.199999999999996,
+      "kind": "simulation",
+      "source": "assets/media/mug-with.mp4",
+      "sourceStart": 4,
+      "rate": 1
+    },
+    {
+      "start": 42.199999999999996,
+      "end": 46.099999999999994,
+      "kind": "simulation",
+      "source": "assets/media/fold-with.mp4",
+      "sourceStart": 4,
+      "rate": 1
+    },
+    {
+      "start": 46.099999999999994,
+      "end": 52.83333333333333,
+      "kind": "real-robot",
+      "source": "assets/media/real/tabletop.mp4",
+      "sourceStart": 24,
+      "rate": 1
+    },
+    {
+      "start": 52.83333333333333,
+      "end": 59.56666666666666,
+      "kind": "real-robot",
+      "source": "assets/media/real/cushion.mp4",
+      "sourceStart": 31,
+      "rate": 1
+    },
+    {
+      "start": 59.56666666666666,
+      "end": 66.3,
+      "kind": "real-robot",
+      "source": "assets/media/real/pouring.mp4",
+      "sourceStart": 39,
+      "rate": 1
+    },
+    {
+      "start": 66.3,
+      "end": 71.86666666666666,
+      "kind": "real-robot",
+      "source": "assets/media/real/lighting.mp4",
+      "sourceStart": 36,
+      "rate": 1
+    },
+    {
+      "start": 71.86666666666666,
+      "end": 77.39999999999999,
+      "kind": "real-robot",
+      "source": "assets/media/real/background.mp4",
+      "sourceStart": 46,
+      "rate": 1
+    },
+    {
+      "start": 77.39999999999999,
+      "end": 89.63333333333333,
+      "kind": "retrieval",
+      "source": "SVG animation"
+    },
+    {
+      "start": 89.63333333333333,
+      "end": 99.53333333333333,
+      "kind": "real-robot",
+      "source": "assets/media/real/tabletop.mp4",
+      "sourceStart": 112,
+      "rate": 1
+    }
+  ]
 }

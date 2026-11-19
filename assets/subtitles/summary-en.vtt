@@ -1,65 +1,129 @@
 WEBVTT
 
 1
-00:00:00.000 --> 00:00:08.576
-A human demonstration contains more than a goal. It shows a procedure: how to approach an object, coordinate movement, and complete a task.
+00:00:00.000 --> 00:00:03.005 line:85% position:50% align:center size:90%
+A human demonstration contains more than a goal.
 
 2
-00:00:09.026 --> 00:00:16.471
-But a robot does not follow exactly the same path. It also needs to remember what actually happened during its own execution.
+00:00:03.005 --> 00:00:06.009 line:85% position:50% align:center size:90%
+It shows a procedure: how to approach an object,
 
 3
-00:00:17.300 --> 00:00:27.903
-A fixed demonstration cannot tell the robot how far it has progressed. And mixing reference context with execution history can blur the difference between intention and reality.
+00:00:06.009 --> 00:00:08.576 line:85% position:50% align:center size:90%
+coordinate movement, and complete a task.
 
 4
-00:00:28.353 --> 00:00:34.603
-RoboDemo keeps these two sources of guidance separate, then brings them together when deciding the next action.
+00:00:08.933 --> 00:00:11.960 line:85% position:50% align:center size:90%
+But a robot does not follow exactly the same path.
 
 5
-00:00:35.433 --> 00:00:44.841
-The reference video builds a persistent demonstration-intent memory. Semantic and motion features capture what the procedure means and how it unfolds.
+00:00:11.960 --> 00:00:14.321 line:85% position:50% align:center size:90%
+It also needs to remember what actually
 
 6
-00:00:45.291 --> 00:00:56.193
-A second memory tracks interaction progress using robot observations, states, and actions that have already been executed. Each action block reads intent first, then progress.
+00:00:14.321 --> 00:00:16.379 line:85% position:50% align:center size:90%
+happened during its own execution.
 
 7
-00:00:57.000 --> 00:01:07.944
-Test-time training writes context into compact fast-weight states. The reference state stays fixed after preload, while the execution state updates causally as interaction continues.
+00:00:16.733 --> 00:00:20.547 line:85% position:50% align:center size:90%
+The reference video builds a persistent demonstration-intent
 
 8
-00:01:08.394 --> 00:01:16.927
-During action denoising, both memories are read-only. Predicted actions do not become execution history until they have actually been applied.
+00:00:20.547 --> 00:00:23.344 line:85% position:50% align:center size:90%
+memory. Semantic and motion features capture
 
 9
-00:01:17.733 --> 00:01:25.157
-On Imitator Game, the Full50 checkpoint reaches eighty-four point six percent success across two thousand episodes.
+00:00:23.344 --> 00:00:26.141 line:85% position:50% align:center size:90%
+what the procedure means and how it unfolds.
 
 10
-00:01:25.607 --> 00:01:39.154
-The C15, C30, and C45 checkpoints average ninety point seven percent on Seen tasks. The website provides every task-level result, including Unseen tasks and the robot-reference variant.
+00:00:26.591 --> 00:00:28.746 line:85% position:50% align:center size:90%
+A second memory tracks interaction
 
 11
-00:01:39.967 --> 00:01:49.716
-We also evaluate RoboDemo on real household manipulation: organizing a tabletop, arranging sofa cushions, and pouring from a bottle into a cup.
+00:00:28.746 --> 00:00:31.408 line:85% position:50% align:center size:90%
+progress using robot observations, states,
 
 12
-00:01:50.166 --> 00:01:59.339
-Across these three tasks, the model achieves a mean success rate of seventy-three point three percent. Here are excerpts from the recorded robot executions.
+00:00:31.408 --> 00:00:34.197 line:85% position:50% align:center size:90%
+and actions that have already been executed.
 
 13
-00:02:00.167 --> 00:02:10.897
-The same memory separation is useful when the environment changes. These recordings show tabletop organization under altered lighting, a different background, and a new scene.
+00:00:34.197 --> 00:00:37.493 line:85% position:50% align:center size:90%
+Each action block reads intent first, then progress.
 
 14
-00:02:11.347 --> 00:02:17.897
-The full videos and the corresponding quantitative visual-generalization results are available on the project website.
+00:00:38.300 --> 00:00:42.142 line:85% position:50% align:center size:90%
+On Imitator Game, the Full50 checkpoint reaches eighty-four
 
 15
-00:02:18.700 --> 00:02:30.583
-When a human video is unavailable, Refreward ranks robot demonstrations using the task instruction and the initial image. The selected procedure enters the same intent-memory interface.
+00:00:42.142 --> 00:00:45.724 line:85% position:50% align:center size:90%
+point six percent success across two thousand episodes.
 
 16
-00:02:31.033 --> 00:02:40.569
-Explore the model architecture, five checkpoints, evaluation tools, and minimal examples. Learn the intent. Track the progress. Build on RoboDemo.
+00:00:46.100 --> 00:00:50.041 line:85% position:50% align:center size:90%
+We also evaluate RoboDemo on real household manipulation:
+
+17
+00:00:50.041 --> 00:00:53.291 line:85% position:50% align:center size:90%
+organizing a tabletop, arranging sofa cushions,
+
+18
+00:00:53.291 --> 00:00:55.849 line:85% position:50% align:center size:90%
+and pouring from a bottle into a cup.
+
+19
+00:00:56.299 --> 00:00:59.337 line:85% position:50% align:center size:90%
+Across these three tasks, the model achieves a mean
+
+20
+00:00:59.337 --> 00:01:02.316 line:85% position:50% align:center size:90%
+success rate of seventy-three point three percent.
+
+21
+00:01:02.316 --> 00:01:05.473 line:85% position:50% align:center size:90%
+Here are excerpts from the recorded robot executions.
+
+22
+00:01:06.300 --> 00:01:08.858 line:85% position:50% align:center size:90%
+The same memory separation is useful when
+
+23
+00:01:08.858 --> 00:01:11.728 line:85% position:50% align:center size:90%
+the environment changes. These recordings show
+
+24
+00:01:11.728 --> 00:01:14.535 line:85% position:50% align:center size:90%
+tabletop organization under altered lighting,
+
+25
+00:01:14.535 --> 00:01:17.031 line:85% position:50% align:center size:90%
+a different background, and a new scene.
+
+26
+00:01:17.400 --> 00:01:19.620 line:85% position:50% align:center size:90%
+When a human video is unavailable,
+
+27
+00:01:19.620 --> 00:01:22.950 line:85% position:50% align:center size:90%
+Refreward ranks robot demonstrations using the task
+
+28
+00:01:22.950 --> 00:01:26.018 line:85% position:50% align:center size:90%
+instruction and the initial image. The selected
+
+29
+00:01:26.018 --> 00:01:29.283 line:85% position:50% align:center size:90%
+procedure enters the same intent-memory interface.
+
+30
+00:01:29.633 --> 00:01:32.878 line:85% position:50% align:center size:90%
+Explore the model architecture, five checkpoints,
+
+31
+00:01:32.878 --> 00:01:35.461 line:85% position:50% align:center size:90%
+evaluation tools, and minimal examples.
+
+32
+00:01:35.461 --> 00:01:39.169 line:85% position:50% align:center size:90%
+Learn the intent. Track the progress. Build on RoboDemo.

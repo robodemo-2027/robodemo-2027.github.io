@@ -22,18 +22,25 @@
 .resource-icon {width:20px;height:20px;flex:0 0 20px;object-fit:contain}
 .hero .film {background:#fffcf8;border:0;border-radius:14px;overflow:hidden}
 .hero .film>video {display:block;width:100%;height:auto;aspect-ratio:16/9;background:#fffcf8}
-#overview::cue {color:#fff;background:rgba(25,20,25,.86);font-family:"Avenir Next",sans-serif}
+#overview::cue {color:#fff;background:rgba(45,36,39,.88);font-family:Source,"Source Sans 3",sans-serif;font-size:18px;line-height:1.3}
+#overview:fullscreen::cue {font-size:26px}
 .paper-figure figcaption {max-width:1100px;font-size:15px;line-height:1.75}
 .figure-mat img {height:auto;object-fit:contain}
 .explorer-table table {width:100%;table-layout:auto}
 .explorer-table th,.explorer-table td {white-space:nowrap;text-align:right}
 .explorer-table th:nth-child(-n+3),.explorer-table td:nth-child(-n+3) {text-align:left}
 .explorer-table th:nth-child(3),.explorer-table td:nth-child(3) {min-width:240px;padding-left:18px}
-.retrieval-canvas {overflow-x:auto}
+.retrieval-canvas {overflow:hidden}
 .retrieval-canvas svg {display:block;width:100%;height:auto}
-.retrieval-animation {padding:16px}
-.retrieval-stages {margin-inline:12px}
-.retrieval-animation>p,.retrieval-animation>button {margin-left:12px}
+.retrieval-animation {padding:0;border-radius:18px;overflow:hidden;background:var(--surface);box-shadow:0 20px 45px #49332f08}
+.retrieval-stages {margin:0;padding:16px 22px;gap:10px;border-top:1px solid var(--line)}
+.retrieval-stages button {font:12px var(--mono);border:1px solid var(--line);border-radius:8px;padding:10px 12px;color:var(--muted)}
+.retrieval-animation[data-stage="0"] .retrieval-stages button:nth-child(1),
+.retrieval-animation[data-stage="1"] .retrieval-stages button:nth-child(2),
+.retrieval-animation[data-stage="2"] .retrieval-stages button:nth-child(3),
+.retrieval-animation[data-stage="3"] .retrieval-stages button:nth-child(4) {background:#f0e8f2;border-color:#bca5c3;color:#49332f}
+.retrieval-animation>p {padding:0 22px;margin:0 0 14px;min-height:26px}
+.retrieval-controls {display:flex;gap:10px;padding:0 22px 20px}
 .retrieval-gallery {display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:22px;margin-top:30px}
 .retrieval-case {background:var(--surface);border:1px solid var(--line);border-radius:12px;overflow:hidden}
 .retrieval-case header {display:flex;justify-content:space-between;gap:10px;padding:17px 18px;border-bottom:1px solid var(--line)}
@@ -47,13 +54,16 @@
 .retrieval-case .pair-identity {font:9px/1.6 var(--mono);color:var(--muted);padding:0 12px 12px;overflow-wrap:anywhere}
 #demo-status:empty {display:none}
 @media(max-width:680px) {
+  #overview::cue {font-size:11px}
   .hero-meta {flex-direction:column;gap:8px}
   .hero .formal {font-size:23px}
   .resource-buttons {gap:8px}
   .resource-buttons .button {padding:9px 11px}
   .resource-icon {width:17px;height:17px;flex-basis:17px}
   .paper-figure figcaption {font-size:13px}
-  .retrieval-canvas svg {min-width:800px}
+  .retrieval-canvas svg {min-width:0}
+  .retrieval-stages {grid-template-columns:1fr 1fr;padding:14px}
+  .retrieval-stages button {font-size:10px}
   .retrieval-gallery {grid-template-columns:1fr}
   .retrieval-case .paired-clips {gap:8px;padding:10px}
 }

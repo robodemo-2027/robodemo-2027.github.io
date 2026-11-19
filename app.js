@@ -2,7 +2,7 @@ import {$,$$,tr,loadJSON} from './lib.js';
 import {initMethod} from './method.js';
 import {initMethodDetails} from './method-details.js';
 import {initPerformance} from './performance.js';
-import {initRelease} from './release-2026.js';
+import {initRelease} from './release-2026.js?v=20261119-recut';
 import {initDemos} from './demos.js';
 import {publication} from './content/config.js';
 import {initSummaryFilm} from './summary-film.js';

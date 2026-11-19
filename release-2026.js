@@ -1,4 +1,4 @@
-import {initRetrievalMotion} from './retrieval-motion.js';
+import {initRetrievalMotion} from './retrieval-motion.js?v=20261119-recut';
 import {$, tr, escapeHTML as escape, loadJSON, reduced} from './lib.js';
 
 export function filterResults(rows, {model='all', split='all', level='all', task=''}={}) {
