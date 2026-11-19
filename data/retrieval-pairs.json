@@ -1,0 +1,92 @@
+[
+  {
+    "key": "foldbox",
+    "title": "Close the box",
+    "reference": {
+      "uid": "L0_TwoRobotFoldBox-v1:0",
+      "instruction": "Close the lid of the box."
+    },
+    "execution": {
+      "trial_id": "L0_TwoRobotFoldBox-v1_trial00",
+      "instruction": "Taping the carton shut",
+      "success": false,
+      "split": "unseen",
+      "steps": 500
+    }
+  },
+  {
+    "key": "foldtowel",
+    "title": "Fold and stow",
+    "reference": {
+      "uid": "L0_TwoRobotFoldTowel-v1:34",
+      "instruction": "Bring the laptop's lid toward its base, then place the laptop in the box and release it."
+    },
+    "execution": {
+      "trial_id": "L0_TwoRobotFoldTowel-v1_trial00",
+      "instruction": "Fold the towel, then stow it inside the basket",
+      "success": true,
+      "split": "seen",
+      "steps": 500
+    }
+  },
+  {
+    "key": "placemugrack",
+    "title": "Place the mug",
+    "reference": {
+      "uid": "L1_TwoRobotPlaceMugRack-v1:15",
+      "instruction": "Place the mug on the rack."
+    },
+    "execution": {
+      "trial_id": "L0_TwoRobotPlaceMugRack-v1_trial00",
+      "instruction": "Suspend the handled water cup from the cup holder",
+      "success": true,
+      "split": "seen",
+      "steps": 500
+    }
+  },
+  {
+    "key": "pourkettle",
+    "title": "Pour into a cup",
+    "reference": {
+      "uid": "L0_TwoRobotPourKettle-v1:15",
+      "instruction": "Grasp the kettle and position it above the cup for pouring."
+    },
+    "execution": {
+      "trial_id": "L0_TwoRobotPourKettle-v1_trial00",
+      "instruction": "Transfer water into the cup",
+      "success": false,
+      "split": "unseen",
+      "steps": 500
+    }
+  },
+  {
+    "key": "scanmilkbox",
+    "title": "Scan the carton",
+    "reference": {
+      "uid": "L2_TwoRobotScanMilkBox-v1:24",
+      "instruction": "Pick up the scanner and milk box and bring them close together for scanning."
+    },
+    "execution": {
+      "trial_id": "L0_TwoRobotScanMilkBox-v1_trial00",
+      "instruction": "Read the drink’s barcode using the scanner",
+      "success": false,
+      "split": "unseen",
+      "steps": 500
+    }
+  },
+  {
+    "key": "stirspoon",
+    "title": "Stir with a spoon",
+    "reference": {
+      "uid": "L1_TwoRobotStirSpoon-v1:48",
+      "instruction": "Take the spoon from the mug and use it to stir inside the bowl."
+    },
+    "execution": {
+      "trial_id": "L0_TwoRobotStirSpoon-v1_trial00",
+      "instruction": "Use the spoon to mix the soup in the bowl",
+      "success": false,
+      "split": "seen",
+      "steps": 500
+    }
+  }
+]

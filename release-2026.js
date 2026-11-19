@@ -1,3 +1,4 @@
+import {initRetrievalMotion} from './retrieval-motion.js';
 import {$, tr, escapeHTML as escape, loadJSON, reduced} from './lib.js';
 
 export function filterResults(rows, {model='all', split='all', level='all', task=''}={}) {
@@ -59,29 +60,5 @@ export function initRelease() {
     $('#result-count').textContent=`Results could not load: ${error.message}`;
   });
   document.addEventListener('languagechange',render);
-  const animation=$('.retrieval-animation'), button=$('#retrieval-motion');
-  let playing=!reduced(), visible=false, stage=0;
-  const descriptions=[
-    ['Start with the initial image and the task instruction.','从初始观测图像与任务指令出发。'],
-    ['Encode semantics and appearance with frozen encoders.','用冻结编码器提取语义与视觉特征。'],
-    ['Rank eligible robot episodes with the learned Refreward score.','使用 Refreward 评分对候选机器人 episode 排序。'],
-    ['Preload the top-ranked video into demonstration-intent memory.','将排序最高的视频预加载到演示意图记忆。'],
-  ];
-  function draw() {
-    animation.dataset.stage=stage;
-    animation.dataset.playing=String(playing && visible);
-    for(const node of animation.querySelectorAll('[data-flow-node]')) {
-      node.classList.toggle('active',Number(node.dataset.flowNode)===stage);
-    }
-    for(const link of animation.querySelectorAll('[data-flow-link]')) {
-      link.classList.toggle('active',Number(link.dataset.flowLink)===stage);
-    }
-    $('#retrieval-stage-text').textContent=tr(...descriptions[stage]);
-    button.textContent=playing?tr('Pause animation','暂停动画'):tr('Play animation','播放动画');
-    button.setAttribute('aria-pressed',String(playing));
-  }
-  button.onclick=()=>{playing=!playing;draw();};
-  new IntersectionObserver(entries=>{visible=entries[0].isIntersecting;draw();},{threshold:.15}).observe(animation);
-  setInterval(()=>{if(playing&&visible&&!document.hidden){stage=(stage+1)%4;draw();}},2200);
-  document.addEventListener('languagechange',draw);draw();
+  initRetrievalMotion();
 }

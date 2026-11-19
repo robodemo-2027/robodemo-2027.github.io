@@ -47,7 +47,7 @@ function controls(kind,speed){
     <input data-detail-seek type="range" min="0" max="${detailSteps[kind].length*100}" step="1" value="0" aria-label="${tr('Mechanism animation progress','机制动画进度')}">
     <span class="detail-position" data-detail-position>01 / 04</span>
     <label class="detail-speed"><span>${tr('Speed','速度')}</span><select data-detail-speed aria-label="${tr('Illustration playback speed','示意动画播放速度')}">${[.5,1,1.5].map(value=>`<option value="${value}"${value===speed?' selected':''}>${value}&times;</option>`).join('')}</select></label></div>
-    <p class="detail-keys">${kind==='encoding'?tr('Click any sampled frame to trace its path. ','点击任一采样帧，查看它的编码路径。 '):''}${tr('Click a block to inspect. Player keys: Space play / pause, arrows step.','点击图中模块可检查；播放器内：空格播放 / 暂停，方向键逐步查看。')}</p>`;
+`;
 }
 
 function initLab(root){

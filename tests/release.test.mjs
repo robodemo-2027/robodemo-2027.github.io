@@ -5,6 +5,7 @@ import {filterResults,resultCSV} from '../release-2026.js';
 import {timeline,stateAt,transition} from '../method-state.js';
 import {methodVisual} from '../method-motion.js';
 import {methodChapters,playbackPosition} from '../method-navigation.js';
+import {retrievalSVG,retrievalStage} from '../retrieval-motion.js';
 
 const rows=JSON.parse(fs.readFileSync(new URL('../data/task-level.json',import.meta.url)));
 
@@ -16,7 +17,38 @@ test('five released models account for all 3600 episodes',()=>{
 test('Full50 result remains 1692/2000',()=>{
   const full=filterResults(rows,{model:'full50'});
   assert.equal(full.length,200);
+  assert.ok(full.every(row=>row.split==='seen'));
+  assert.equal(filterResults(rows,{model:'full50',split:'seen'}).length,200);
   assert.equal(full.reduce((n,r)=>n+r.successes,0),1692);
+});
+test('overview uses one native 1080p player and default English subtitles',()=>{
+  const html=fs.readFileSync(new URL('../index.html',import.meta.url),'utf8');
+  assert.match(html,/<video id="overview"[^>]*controls[^>]*summary-en-1080p.mp4/);
+  assert.match(html,/<track[^>]*srclang="en"[^>]*default>/);
+  for(const id of ['hero-index','film-toolbar','film-chapter','film-transcript','demo-timing']){
+    assert.ok(!html.includes(`"${id}"`),id);
+  }
+  assert.equal((html.match(/<figcaption data-en="Figure [123]\./g)||[]).length,3);
+});
+test('retrieval diagram transports visible tokens through four stages',()=>{
+  assert.deepEqual([0,4,8,12].map(retrievalStage),[0,1,2,3]);
+  assert.notEqual(retrievalSVG(.5),retrievalSVG(1.5));
+  for(const t of [0,.5,4.5,8.5,12.5,16]){
+    assert.ok(!/NaN|undefined/.test(retrievalSVG(t)));
+    assert.match(retrievalSVG(t),/marker-end/);
+  }
+});
+test('six retrieval/execution pairs retain distinct recorded identities',()=>{
+  const pairs=JSON.parse(fs.readFileSync(new URL('../data/retrieval-pairs.json',import.meta.url)));
+  assert.equal(pairs.length,6);
+  assert.equal(new Set(pairs.map(row=>row.execution.trial_id)).size,6);
+  assert.ok(pairs.some(row=>!row.execution.success));
+  for(const pair of pairs){
+    assert.equal(pair.execution.steps,500);
+    for(const kind of ['reference','execution']){
+      assert.ok(fs.existsSync(new URL(`../assets/media/retrieval-pairs/${pair.key}-${kind}.mp4`,import.meta.url)));
+    }
+  }
 });
 test('nested model filters compose',()=>{
   const seen=filterResults(rows,{model:'c15-wo',split:'seen'});

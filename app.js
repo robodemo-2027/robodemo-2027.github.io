@@ -6,6 +6,7 @@ import {initRelease} from './release-2026.js';
 import {initDemos} from './demos.js';
 import {publication} from './content/config.js';
 import {initSummaryFilm} from './summary-film.js';
+import {initRetrievalGallery} from './retrieval-gallery.js';
 function language(lang){
   document.documentElement.lang=lang;
   $$('[data-en][data-zh]').forEach(el=>el.innerHTML=el.dataset[lang==='zh'?'zh':'en']);
@@ -33,11 +34,7 @@ async function boot(){
   const results=await Promise.allSettled([
     loadJSON('data/full50.json').then(initPerformance),
     loadJSON('data/demos.json').then(initDemos),
-    loadJSON('data/retrieval-pair.json').then(d=>{
-      $('#retrieved-instruction').textContent=d.reference.instruction;
-      $('#execution-instruction').textContent=d.execution.instruction;
-      $('#retrieval-info').textContent=d.caption;
-    })
+    initRetrievalGallery()
   ]);
   results.filter(x=>x.status==='rejected').forEach(x=>error(x.reason));
 }

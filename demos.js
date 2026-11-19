@@ -10,8 +10,6 @@ export function initDemos(data){
   function pause(){session.pause();$('#demo-play').textContent=tr('Play together','联合播放');}
   function setRate(){
     session.elements.forEach((v,i)=>{const d=descriptors[i];v.playbackRate=speed*(d.human&&$('#demo-align').checked?d.duration/25:1);});
-    const human=descriptors.filter(d=>d.human);
-    $('#demo-timing').textContent=tr(`Robot clock: step = encoded seconds × 20. Human rates: ${human.map(d=>(d.duration/25).toFixed(3)+'×').join(', ')} when linear alignment is on, before the ${speed}× playback multiplier. Not phase synchronization or inference speed.`,`机器人时钟：控制步 = 编码秒数 × 20。线性对齐时，人类时长倍率为 ${human.map(d=>(d.duration/25).toFixed(3)+'×').join('、')}，再乘 ${speed}× 播放速度；不是动作阶段同步或推理速度。`);
   }
   function seek(n){
     pause();step=clamp(Math.round(n),0,500);
@@ -55,8 +53,7 @@ export function initDemos(data){
     extra.disabled=!!c&&c.firstSuccessStep===null;
     extra.textContent=c?(c.firstSuccessStep===null?tr('Comparison: never succeeds','对照：从未成功'):`${tr('Comparison first success','对照首次成功')} · ${c.firstSuccessStep}`):tr('L3 first success','L3 首次成功');
     $('#demo-first').textContent=`${tr('Matched first success','正确参考首次成功')} · ${Math.round(t.firstSuccess*20)}`;
-    $('#demo-outcome').textContent=mode==='mismatch'&&key==='fold'?tr('Retain both outcomes: first success at step 365, final failure at step 500. The complete ending is preserved.','同时保留：第 365 步首次成功，第 500 步终态失败。完整结尾未剪除。'):c?tr(`${mode}: ${c.success?'final success':'final failure'} in this selected case. Static 3/3, reversed 3/3, mismatch 1/3 at step 500.`,`${mode}：本筛选案例${c.success?'终态成功':'终态失败'}。静态 3/3、倒序 3/3、错配 1/3（第 500 步）。`):tr('Six selected L0 cases: with demonstration 6/6, without 0/6. Selected qualitative evidence, not a benchmark-wide ablation.','六个筛选 L0 案例：有演示 6/6、无演示 0/6。属于筛选质性证据，不是全基准消融。');
-    status(tr('Ready. Recordings load only when this experiment is visible.','就绪，仅在实验进入视口时加载录像。'));setRate();readout();
+    status('');setRate();readout();
   }
   function updateURL(){const p=new URLSearchParams(location.search);p.set('task',key);p.set('comparison',mode);history.replaceState(null,'',`${location.pathname}?${p}#demos`);}
   $('#demo-mode').onchange=ev=>{mode=ev.target.value;render();updateURL();};

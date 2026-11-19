@@ -43,6 +43,6 @@
     }
   ],
   "narration": "Locally synthesized English narration",
-  "visuals": "Recorded footage and SVG-authored illustrations",
-  "defaultQuality": "720p"
+  "visuals": "Recorded footage and SVG-authored animated token flows",
+  "defaultQuality": "1080p"
 }
