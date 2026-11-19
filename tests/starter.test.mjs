@@ -23,12 +23,23 @@ test('full evaluation removes only the episode limit', () => {
     assert.ok(!command.includes('--max-episodes'));
     assert.match(command, /export CUDA_VISIBLE_DEVICES=0,1,2,3,4,5,6,7/);
     assert.match(command, /--workers-per-gpu 1/);
-    assert.match(command, /8gpu-full/);
+    assert.match(command, /8gpu-1worker-full/);
+  }
+});
+
+test('80 GB preset uses two workers and keeps the episode limit global', () => {
+  for (const model of Object.keys(checkpointSteps)) {
+    for (const gpus of ['1', '8']) {
+      const command = evaluationCommand({model, gpus, memory: '80'});
+      assert.ok(command.includes(`--workers-per-gpu 2 --max-episodes ${Number(gpus) * 2}`));
+      assert.ok(command.includes(`${gpus}gpu-2worker-smoke`));
+      assert.ok(!evaluationCommand({model, gpus, memory: '80', plan: 'full'}).includes('--max-episodes'));
+    }
   }
 });
 
 test('starter accepts only published models and supported presets', () => {
-  for (const options of [{model: '__proto__'}, {model: '$(id)'}, {gpus: '2'}, {plan: 'short'}]) {
+  for (const options of [{model: '__proto__'}, {model: '$(id)'}, {gpus: '2'}, {memory: '16'}, {plan: 'short'}]) {
     assert.throws(() => evaluationCommand(options), RangeError);
   }
 });

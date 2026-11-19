@@ -9,6 +9,6 @@ the single-reference-write method animation, Refreward token-flow stages,
 film sequencing, subtitle placement, paired recordings and the five-model
 evaluation-command builder.
 
-`workflow-template.yml` is an optional GitHub Actions template, not an active
-workflow. A maintainer with workflow-update permission can place it in
-`.github/workflows/static-checks.yml`.
+The [active GitHub Actions workflow](https://github.com/robodemo-2027/robodemo-2027.github.io/actions/workflows/site-checks.yml)
+runs these tests on every push and pull request. `workflow-template.yml` is
+the reusable copy. The first hosted run passed all 16 tests.
