@@ -1,158 +1,748 @@
 {
-  "duration": 99.53333333333333,
+  "title": "RoboDemo: Reconciling Demonstration Intent and Execution Progress for Long-Horizon Manipulation",
+  "duration": 253.96666666666664,
+  "defaultQuality": "1080p",
+  "narration": "Locally synthesized English narration",
+  "structure": [
+    "Paper title",
+    "Motivation",
+    "Architecture",
+    "Simulation tables",
+    "Simulation polygons",
+    "Simulation videos",
+    "Real-world results and six 10-second excerpts"
+  ],
+  "visuals": "SVG-authored research diagrams, tables and linear-scale polygons; aspect-preserved recorded footage",
   "chapters": [
     {
+      "id": "title",
+      "title": "RoboDemo",
+      "kind": "title",
+      "section": "TITLE",
       "start": 0,
-      "end": 8.933333333333334,
-      "title": "A procedure, not just a goal."
+      "end": 8,
+      "media": []
     },
     {
-      "start": 8.933333333333334,
-      "end": 16.733333333333334,
-      "title": "Execution does not follow an exact replay."
+      "id": "human",
+      "title": "A demonstration specifies a procedure",
+      "kind": "human",
+      "section": "01 / MOTIVATION",
+      "start": 8,
+      "end": 15.1,
+      "media": [
+        {
+          "source": "assets/media/pour-human.mp4",
+          "sourceStart": 0,
+          "rate": 1,
+          "excerptSeconds": 7.1
+        }
+      ]
     },
     {
-      "start": 16.733333333333334,
-      "end": 38.3,
-      "title": "Two memories. One coherent action."
+      "id": "motivation",
+      "title": "Intended progress is not realized progress",
+      "kind": "motivation",
+      "section": "01 / MOTIVATION",
+      "start": 15.1,
+      "end": 28.1,
+      "media": []
     },
     {
-      "start": 38.3,
-      "end": 46.099999999999994,
-      "title": "Hang the mug."
+      "id": "intent",
+      "title": "Encode the reference. Write the intent once.",
+      "kind": "intent",
+      "section": "02 / METHOD",
+      "start": 28.1,
+      "end": 44.1,
+      "media": []
     },
     {
-      "start": 46.099999999999994,
-      "end": 66.3,
-      "title": "Organize the tabletop."
+      "id": "progress",
+      "title": "Update memory after each completed interaction",
+      "kind": "progress",
+      "section": "02 / METHOD",
+      "start": 44.1,
+      "end": 58.1,
+      "media": []
     },
     {
-      "start": 66.3,
-      "end": 77.39999999999999,
-      "title": "Different light. The same procedure."
+      "id": "cascade",
+      "title": "Cross-Memorization with cascaded reads",
+      "kind": "cascade",
+      "section": "02 / METHOD",
+      "start": 58.1,
+      "end": 76.1,
+      "media": []
     },
     {
-      "start": 77.39999999999999,
-      "end": 89.63333333333333,
-      "title": "A robot video can supply the reference."
+      "id": "retrieval",
+      "title": "Optional input: a retrieved robot demonstration",
+      "kind": "retrieval",
+      "section": "02 / METHOD",
+      "start": 76.1,
+      "end": 87.73333333333332,
+      "media": []
     },
     {
-      "start": 89.63333333333333,
-      "end": 99.53333333333333,
-      "title": "Learn the intent. Track the progress."
+      "id": "full50",
+      "title": "Imitator Game: the complete 50-task suite",
+      "kind": "table-full50",
+      "section": "03 / SIMULATION RESULTS",
+      "start": 87.73333333333332,
+      "end": 101.1,
+      "media": []
+    },
+    {
+      "id": "scales",
+      "title": "Training scales and reference sources",
+      "kind": "table-scales",
+      "section": "03 / SIMULATION RESULTS",
+      "start": 101.1,
+      "end": 117.1,
+      "media": []
+    },
+    {
+      "id": "ablation",
+      "title": "Why separate memories and read them in order?",
+      "kind": "table-ablation",
+      "section": "03 / SIMULATION RESULTS",
+      "start": 117.1,
+      "end": 130.29999999999998,
+      "media": []
+    },
+    {
+      "id": "profiles",
+      "title": "Performance across nine operation groups",
+      "kind": "radar",
+      "section": "03 / SIMULATION RESULTS",
+      "start": 130.29999999999998,
+      "end": 146.29999999999998,
+      "media": []
+    },
+    {
+      "id": "sim-pour",
+      "title": "Human demonstration to robot execution",
+      "kind": "simulation",
+      "section": "03 / SIMULATION RESULTS",
+      "start": 146.29999999999998,
+      "end": 156.29999999999998,
+      "media": [
+        {
+          "source": "assets/media/pour-human.mp4",
+          "sourceStart": 0,
+          "rate": 1,
+          "excerptSeconds": 7.1,
+          "holdFinalFrameSeconds": 2.9000000000000004
+        },
+        {
+          "source": "assets/media/pour-with.mp4",
+          "sourceStart": 1,
+          "rate": 1,
+          "excerptSeconds": 10
+        }
+      ]
+    },
+    {
+      "id": "sim-mug",
+      "title": "Human demonstration to robot execution",
+      "kind": "simulation",
+      "section": "03 / SIMULATION RESULTS",
+      "start": 156.29999999999998,
+      "end": 166.29999999999998,
+      "media": [
+        {
+          "source": "assets/media/mug-human.mp4",
+          "sourceStart": 0,
+          "rate": 1,
+          "excerptSeconds": 1.933333,
+          "holdFinalFrameSeconds": 8.066667
+        },
+        {
+          "source": "assets/media/mug-with.mp4",
+          "sourceStart": 4,
+          "rate": 1,
+          "excerptSeconds": 10
+        }
+      ]
+    },
+    {
+      "id": "sim-fold",
+      "title": "Human demonstration to robot execution",
+      "kind": "simulation",
+      "section": "03 / SIMULATION RESULTS",
+      "start": 166.29999999999998,
+      "end": 176.29999999999998,
+      "media": [
+        {
+          "source": "assets/media/fold-human.mp4",
+          "sourceStart": 0,
+          "rate": 1,
+          "excerptSeconds": 3.833333,
+          "holdFinalFrameSeconds": 6.166667
+        },
+        {
+          "source": "assets/media/fold-with.mp4",
+          "sourceStart": 14,
+          "rate": 1,
+          "excerptSeconds": 10
+        }
+      ]
+    },
+    {
+      "id": "real-summary",
+      "title": "Real-world evaluation on AgiBot-G2",
+      "kind": "real-summary",
+      "section": "04 / REAL-WORLD RESULTS",
+      "start": 176.29999999999998,
+      "end": 185.39999999999998,
+      "media": []
+    },
+    {
+      "id": "real-tabletop",
+      "title": "Tabletop organization",
+      "kind": "real-robot",
+      "section": "04 / REAL-WORLD RESULTS",
+      "start": 185.39999999999998,
+      "end": 195.39999999999998,
+      "media": [
+        {
+          "source": "assets/media/real/tabletop.mp4",
+          "sourceStart": 24,
+          "rate": 1,
+          "excerptSeconds": 10
+        }
+      ]
+    },
+    {
+      "id": "real-cushion",
+      "title": "Sofa cushion arrangement",
+      "kind": "real-robot",
+      "section": "04 / REAL-WORLD RESULTS",
+      "start": 195.39999999999998,
+      "end": 205.39999999999998,
+      "media": [
+        {
+          "source": "assets/media/real/cushion.mp4",
+          "sourceStart": 31,
+          "rate": 1,
+          "excerptSeconds": 10
+        }
+      ]
+    },
+    {
+      "id": "real-pouring",
+      "title": "Bottle-to-cup pouring",
+      "kind": "real-robot",
+      "section": "04 / REAL-WORLD RESULTS",
+      "start": 205.39999999999998,
+      "end": 215.39999999999998,
+      "media": [
+        {
+          "source": "assets/media/real/pouring.mp4",
+          "sourceStart": 36,
+          "rate": 1,
+          "excerptSeconds": 10
+        }
+      ]
+    },
+    {
+      "id": "real-lighting",
+      "title": "Tabletop organization",
+      "kind": "real-robot",
+      "section": "04 / REAL-WORLD RESULTS",
+      "start": 215.39999999999998,
+      "end": 225.39999999999998,
+      "media": [
+        {
+          "source": "assets/media/real/lighting.mp4",
+          "sourceStart": 36,
+          "rate": 1,
+          "excerptSeconds": 10
+        }
+      ]
+    },
+    {
+      "id": "real-background",
+      "title": "Tabletop organization",
+      "kind": "real-robot",
+      "section": "04 / REAL-WORLD RESULTS",
+      "start": 225.39999999999998,
+      "end": 235.39999999999998,
+      "media": [
+        {
+          "source": "assets/media/real/background.mp4",
+          "sourceStart": 46,
+          "rate": 1,
+          "excerptSeconds": 10
+        }
+      ]
+    },
+    {
+      "id": "real-new-scene",
+      "title": "Tabletop organization",
+      "kind": "real-robot",
+      "section": "04 / REAL-WORLD RESULTS",
+      "start": 235.39999999999998,
+      "end": 245.39999999999998,
+      "media": [
+        {
+          "source": "assets/media/real/new-scene.mp4",
+          "sourceStart": 18,
+          "rate": 1,
+          "excerptSeconds": 10
+        }
+      ]
+    },
+    {
+      "id": "closing",
+      "title": "Preserve demonstration intent. Track execution progress.",
+      "kind": "closing",
+      "section": "ROBODEMO",
+      "start": 245.39999999999998,
+      "end": 253.96666666666664,
+      "media": []
     }
   ],
-  "narration": "Locally synthesized English narration",
-  "visuals": "Sequential human, simulation and real-robot footage with SVG-authored method animation",
-  "defaultQuality": "1080p",
   "edit": [
     {
+      "id": "title",
+      "title": "RoboDemo",
+      "kind": "title",
+      "section": "TITLE",
       "start": 0,
-      "end": 2.966666666666667,
+      "end": 8,
+      "media": [],
+      "source": "SVG research visual"
+    },
+    {
+      "id": "human",
+      "title": "A demonstration specifies a procedure",
       "kind": "human",
-      "source": "assets/media/pour-human.mp4",
-      "sourceStart": 1,
-      "rate": 1
+      "section": "01 / MOTIVATION",
+      "start": 8,
+      "end": 15.1,
+      "media": [
+        {
+          "source": "assets/media/pour-human.mp4",
+          "sourceStart": 0,
+          "rate": 1,
+          "excerptSeconds": 7.1
+        }
+      ],
+      "source": "assets/media/pour-human.mp4"
     },
     {
-      "start": 2.966666666666667,
-      "end": 5.966666666666667,
-      "kind": "simulation",
-      "source": "assets/media/pour-with.mp4",
-      "sourceStart": 2,
-      "rate": 1
+      "id": "motivation",
+      "title": "Intended progress is not realized progress",
+      "kind": "motivation",
+      "section": "01 / MOTIVATION",
+      "start": 15.1,
+      "end": 28.1,
+      "media": [],
+      "source": "SVG research visual"
     },
     {
-      "start": 5.966666666666667,
-      "end": 8.933333333333334,
-      "kind": "real-robot",
-      "source": "assets/media/real/pouring.mp4",
-      "sourceStart": 36,
-      "rate": 1
+      "id": "intent",
+      "title": "Encode the reference. Write the intent once.",
+      "kind": "intent",
+      "section": "02 / METHOD",
+      "start": 28.1,
+      "end": 44.1,
+      "media": [],
+      "source": "SVG research visual"
     },
     {
-      "start": 8.933333333333334,
-      "end": 16.733333333333334,
-      "kind": "simulation",
-      "source": "assets/media/pour-with.mp4",
-      "sourceStart": 4,
-      "rate": 1
+      "id": "progress",
+      "title": "Update memory after each completed interaction",
+      "kind": "progress",
+      "section": "02 / METHOD",
+      "start": 44.1,
+      "end": 58.1,
+      "media": [],
+      "source": "SVG research visual"
     },
     {
-      "start": 16.733333333333334,
-      "end": 38.3,
-      "kind": "method",
-      "source": "SVG animation"
+      "id": "cascade",
+      "title": "Cross-Memorization with cascaded reads",
+      "kind": "cascade",
+      "section": "02 / METHOD",
+      "start": 58.1,
+      "end": 76.1,
+      "media": [],
+      "source": "SVG research visual"
     },
     {
-      "start": 38.3,
-      "end": 42.199999999999996,
-      "kind": "simulation",
-      "source": "assets/media/mug-with.mp4",
-      "sourceStart": 4,
-      "rate": 1
-    },
-    {
-      "start": 42.199999999999996,
-      "end": 46.099999999999994,
-      "kind": "simulation",
-      "source": "assets/media/fold-with.mp4",
-      "sourceStart": 4,
-      "rate": 1
-    },
-    {
-      "start": 46.099999999999994,
-      "end": 52.83333333333333,
-      "kind": "real-robot",
-      "source": "assets/media/real/tabletop.mp4",
-      "sourceStart": 24,
-      "rate": 1
-    },
-    {
-      "start": 52.83333333333333,
-      "end": 59.56666666666666,
-      "kind": "real-robot",
-      "source": "assets/media/real/cushion.mp4",
-      "sourceStart": 31,
-      "rate": 1
-    },
-    {
-      "start": 59.56666666666666,
-      "end": 66.3,
-      "kind": "real-robot",
-      "source": "assets/media/real/pouring.mp4",
-      "sourceStart": 39,
-      "rate": 1
-    },
-    {
-      "start": 66.3,
-      "end": 71.86666666666666,
-      "kind": "real-robot",
-      "source": "assets/media/real/lighting.mp4",
-      "sourceStart": 36,
-      "rate": 1
-    },
-    {
-      "start": 71.86666666666666,
-      "end": 77.39999999999999,
-      "kind": "real-robot",
-      "source": "assets/media/real/background.mp4",
-      "sourceStart": 46,
-      "rate": 1
-    },
-    {
-      "start": 77.39999999999999,
-      "end": 89.63333333333333,
+      "id": "retrieval",
+      "title": "Optional input: a retrieved robot demonstration",
       "kind": "retrieval",
-      "source": "SVG animation"
+      "section": "02 / METHOD",
+      "start": 76.1,
+      "end": 87.73333333333332,
+      "media": [],
+      "source": "SVG research visual"
     },
     {
-      "start": 89.63333333333333,
-      "end": 99.53333333333333,
+      "id": "full50",
+      "title": "Imitator Game: the complete 50-task suite",
+      "kind": "table-full50",
+      "section": "03 / SIMULATION RESULTS",
+      "start": 87.73333333333332,
+      "end": 101.1,
+      "media": [],
+      "source": "SVG research visual"
+    },
+    {
+      "id": "scales",
+      "title": "Training scales and reference sources",
+      "kind": "table-scales",
+      "section": "03 / SIMULATION RESULTS",
+      "start": 101.1,
+      "end": 117.1,
+      "media": [],
+      "source": "SVG research visual"
+    },
+    {
+      "id": "ablation",
+      "title": "Why separate memories and read them in order?",
+      "kind": "table-ablation",
+      "section": "03 / SIMULATION RESULTS",
+      "start": 117.1,
+      "end": 130.29999999999998,
+      "media": [],
+      "source": "SVG research visual"
+    },
+    {
+      "id": "profiles",
+      "title": "Performance across nine operation groups",
+      "kind": "radar",
+      "section": "03 / SIMULATION RESULTS",
+      "start": 130.29999999999998,
+      "end": 146.29999999999998,
+      "media": [],
+      "source": "SVG research visual"
+    },
+    {
+      "id": "sim-pour",
+      "title": "Human demonstration to robot execution",
+      "kind": "simulation",
+      "section": "03 / SIMULATION RESULTS",
+      "start": 146.29999999999998,
+      "end": 156.29999999999998,
+      "media": [
+        {
+          "source": "assets/media/pour-human.mp4",
+          "sourceStart": 0,
+          "rate": 1,
+          "excerptSeconds": 7.1,
+          "holdFinalFrameSeconds": 2.9000000000000004
+        },
+        {
+          "source": "assets/media/pour-with.mp4",
+          "sourceStart": 1,
+          "rate": 1,
+          "excerptSeconds": 10
+        }
+      ],
+      "source": "assets/media/pour-human.mp4"
+    },
+    {
+      "id": "sim-mug",
+      "title": "Human demonstration to robot execution",
+      "kind": "simulation",
+      "section": "03 / SIMULATION RESULTS",
+      "start": 156.29999999999998,
+      "end": 166.29999999999998,
+      "media": [
+        {
+          "source": "assets/media/mug-human.mp4",
+          "sourceStart": 0,
+          "rate": 1,
+          "excerptSeconds": 1.933333,
+          "holdFinalFrameSeconds": 8.066667
+        },
+        {
+          "source": "assets/media/mug-with.mp4",
+          "sourceStart": 4,
+          "rate": 1,
+          "excerptSeconds": 10
+        }
+      ],
+      "source": "assets/media/mug-human.mp4"
+    },
+    {
+      "id": "sim-fold",
+      "title": "Human demonstration to robot execution",
+      "kind": "simulation",
+      "section": "03 / SIMULATION RESULTS",
+      "start": 166.29999999999998,
+      "end": 176.29999999999998,
+      "media": [
+        {
+          "source": "assets/media/fold-human.mp4",
+          "sourceStart": 0,
+          "rate": 1,
+          "excerptSeconds": 3.833333,
+          "holdFinalFrameSeconds": 6.166667
+        },
+        {
+          "source": "assets/media/fold-with.mp4",
+          "sourceStart": 14,
+          "rate": 1,
+          "excerptSeconds": 10
+        }
+      ],
+      "source": "assets/media/fold-human.mp4"
+    },
+    {
+      "id": "real-summary",
+      "title": "Real-world evaluation on AgiBot-G2",
+      "kind": "real-summary",
+      "section": "04 / REAL-WORLD RESULTS",
+      "start": 176.29999999999998,
+      "end": 185.39999999999998,
+      "media": [],
+      "source": "SVG research visual"
+    },
+    {
+      "id": "real-tabletop",
+      "title": "Tabletop organization",
       "kind": "real-robot",
-      "source": "assets/media/real/tabletop.mp4",
-      "sourceStart": 112,
-      "rate": 1
+      "section": "04 / REAL-WORLD RESULTS",
+      "start": 185.39999999999998,
+      "end": 195.39999999999998,
+      "media": [
+        {
+          "source": "assets/media/real/tabletop.mp4",
+          "sourceStart": 24,
+          "rate": 1,
+          "excerptSeconds": 10
+        }
+      ],
+      "source": "assets/media/real/tabletop.mp4"
+    },
+    {
+      "id": "real-cushion",
+      "title": "Sofa cushion arrangement",
+      "kind": "real-robot",
+      "section": "04 / REAL-WORLD RESULTS",
+      "start": 195.39999999999998,
+      "end": 205.39999999999998,
+      "media": [
+        {
+          "source": "assets/media/real/cushion.mp4",
+          "sourceStart": 31,
+          "rate": 1,
+          "excerptSeconds": 10
+        }
+      ],
+      "source": "assets/media/real/cushion.mp4"
+    },
+    {
+      "id": "real-pouring",
+      "title": "Bottle-to-cup pouring",
+      "kind": "real-robot",
+      "section": "04 / REAL-WORLD RESULTS",
+      "start": 205.39999999999998,
+      "end": 215.39999999999998,
+      "media": [
+        {
+          "source": "assets/media/real/pouring.mp4",
+          "sourceStart": 36,
+          "rate": 1,
+          "excerptSeconds": 10
+        }
+      ],
+      "source": "assets/media/real/pouring.mp4"
+    },
+    {
+      "id": "real-lighting",
+      "title": "Tabletop organization",
+      "kind": "real-robot",
+      "section": "04 / REAL-WORLD RESULTS",
+      "start": 215.39999999999998,
+      "end": 225.39999999999998,
+      "media": [
+        {
+          "source": "assets/media/real/lighting.mp4",
+          "sourceStart": 36,
+          "rate": 1,
+          "excerptSeconds": 10
+        }
+      ],
+      "source": "assets/media/real/lighting.mp4"
+    },
+    {
+      "id": "real-background",
+      "title": "Tabletop organization",
+      "kind": "real-robot",
+      "section": "04 / REAL-WORLD RESULTS",
+      "start": 225.39999999999998,
+      "end": 235.39999999999998,
+      "media": [
+        {
+          "source": "assets/media/real/background.mp4",
+          "sourceStart": 46,
+          "rate": 1,
+          "excerptSeconds": 10
+        }
+      ],
+      "source": "assets/media/real/background.mp4"
+    },
+    {
+      "id": "real-new-scene",
+      "title": "Tabletop organization",
+      "kind": "real-robot",
+      "section": "04 / REAL-WORLD RESULTS",
+      "start": 235.39999999999998,
+      "end": 245.39999999999998,
+      "media": [
+        {
+          "source": "assets/media/real/new-scene.mp4",
+          "sourceStart": 18,
+          "rate": 1,
+          "excerptSeconds": 10
+        }
+      ],
+      "source": "assets/media/real/new-scene.mp4"
+    },
+    {
+      "id": "closing",
+      "title": "Preserve demonstration intent. Track execution progress.",
+      "kind": "closing",
+      "section": "ROBODEMO",
+      "start": 245.39999999999998,
+      "end": 253.96666666666664,
+      "media": [],
+      "source": "SVG research visual"
+    }
+  ],
+  "radar": [
+    {
+      "group": "Cleaning",
+      "task_count": 3,
+      "success_rate": {
+        "DP": 40.833333333333336,
+        "ACT": 58.333333333333336,
+        "RoboDemo": 67.5
+      },
+      "relative": {
+        "DP": 60.49382716049383,
+        "ACT": 86.41975308641976,
+        "RoboDemo": 100
+      }
+    },
+    {
+      "group": "Folding",
+      "task_count": 2,
+      "success_rate": {
+        "DP": 68.75,
+        "ACT": 97.5,
+        "RoboDemo": 100
+      },
+      "relative": {
+        "DP": 68.75,
+        "ACT": 97.5,
+        "RoboDemo": 100
+      }
+    },
+    {
+      "group": "Opening",
+      "task_count": 3,
+      "success_rate": {
+        "DP": 65,
+        "ACT": 78.33333333333333,
+        "RoboDemo": 85.83333333333333
+      },
+      "relative": {
+        "DP": 75.72815533980582,
+        "ACT": 91.2621359223301,
+        "RoboDemo": 100
+      }
+    },
+    {
+      "group": "Food-tool handling",
+      "task_count": 4,
+      "success_rate": {
+        "DP": 57.5,
+        "ACT": 65.625,
+        "RoboDemo": 88.75
+      },
+      "relative": {
+        "DP": 64.7887323943662,
+        "ACT": 73.94366197183099,
+        "RoboDemo": 100
+      }
+    },
+    {
+      "group": "Picking & sorting",
+      "task_count": 8,
+      "success_rate": {
+        "DP": 73.125,
+        "ACT": 75.9375,
+        "RoboDemo": 86.5625
+      },
+      "relative": {
+        "DP": 84.47653429602889,
+        "ACT": 87.72563176895306,
+        "RoboDemo": 100
+      }
+    },
+    {
+      "group": "Placement & storage",
+      "task_count": 17,
+      "success_rate": {
+        "DP": 67.3529411764706,
+        "ACT": 80.1470588235294,
+        "RoboDemo": 82.94117647058823
+      },
+      "relative": {
+        "DP": 81.20567375886526,
+        "ACT": 96.63120567375886,
+        "RoboDemo": 100
+      }
+    },
+    {
+      "group": "Pouring",
+      "task_count": 6,
+      "success_rate": {
+        "DP": 49.166666666666664,
+        "ACT": 66.25,
+        "RoboDemo": 82.91666666666667
+      },
+      "relative": {
+        "DP": 59.29648241206029,
+        "ACT": 79.89949748743717,
+        "RoboDemo": 100
+      }
+    },
+    {
+      "group": "Pressing",
+      "task_count": 2,
+      "success_rate": {
+        "DP": 75,
+        "ACT": 55,
+        "RoboDemo": 83.75
+      },
+      "relative": {
+        "DP": 89.55223880597015,
+        "ACT": 65.67164179104478,
+        "RoboDemo": 100
+      }
+    },
+    {
+      "group": "Measuring & scanning",
+      "task_count": 5,
+      "success_rate": {
+        "DP": 68.5,
+        "ACT": 79.5,
+        "RoboDemo": 89.5
+      },
+      "relative": {
+        "DP": 76.53631284916202,
+        "ACT": 88.8268156424581,
+        "RoboDemo": 100
+      }
     }
   ]
 }

@@ -49,26 +49,64 @@ test('retrieval shares the method palette and writes only after selection',()=>{
     assert.ok(fs.existsSync(new URL(`../assets/retrieval/${file}`,import.meta.url)));
   }
 });
-test('recut film shows sequential footage rather than a figure slideshow',()=>{
+test('research film follows the paper narrative before showing experiments',()=>{
   const film=JSON.parse(fs.readFileSync(new URL('../data/summary-film-en.json',import.meta.url)));
-  assert.ok(film.duration>=90&&film.duration<=105);
-  assert.ok(film.edit.some(s=>s.kind==='human'&&s.start<5));
-  assert.ok(film.edit.some(s=>s.kind==='simulation'&&s.start<10));
-  assert.ok(film.edit.some(s=>s.kind==='real-robot'&&s.start<10));
-  assert.ok(film.edit.filter(s=>s.kind==='real-robot').reduce((n,s)=>n+s.end-s.start,0)>35);
+  assert.ok(film.duration>=220&&film.duration<=280);
+  assert.equal(film.edit[0].kind,'title');
+  assert.equal(film.title,'RoboDemo: Reconciling Demonstration Intent and Execution Progress for Long-Horizon Manipulation');
+  const ids=film.edit.map(scene=>scene.id);
+  for(const [before,after] of [['title','human'],['motivation','intent'],['intent','progress'],
+    ['progress','cascade'],['retrieval','full50'],['full50','scales'],['scales','ablation'],
+    ['ablation','profiles'],['profiles','sim-pour'],['sim-fold','real-summary'],
+    ['real-summary','real-tabletop']]){
+    assert.ok(ids.indexOf(before)<ids.indexOf(after),`${before} before ${after}`);
+  }
   assert.ok(film.edit.every((s,i)=>!i||Math.abs(s.start-film.edit[i-1].end)<.001));
-  assert.ok(film.edit.filter(s=>s.source.endsWith('.mp4')).every(s=>s.rate===1));
+  assert.ok(film.edit.flatMap(s=>s.media).every(s=>s.rate===1));
 });
-test('English captions stay short and in the reserved lower band',()=>{
+test('research film ends with six distinct ten-second real-robot excerpts',()=>{
+  const film=JSON.parse(fs.readFileSync(new URL('../data/summary-film-en.json',import.meta.url)));
+  const real=film.edit.filter(scene=>scene.kind==='real-robot');
+  assert.equal(real.length,6);
+  assert.equal(new Set(real.flatMap(scene=>scene.media.map(m=>m.source))).size,6);
+  for(const scene of real){
+    assert.ok(Math.abs(scene.end-scene.start-10)<.001);
+    assert.equal(scene.media.length,1);
+    assert.equal(scene.media[0].excerptSeconds,10);
+    assert.ok(!scene.media[0].holdFinalFrameSeconds);
+  }
+  assert.equal(film.edit.at(-1).kind,'closing');
+});
+test('research film polygons reproduce the released full50 data without changing scales',()=>{
+  const film=JSON.parse(fs.readFileSync(new URL('../data/summary-film-en.json',import.meta.url)));
+  const full=JSON.parse(fs.readFileSync(new URL('../data/full50.json',import.meta.url)));
+  assert.equal(film.radar.length,9);
+  for(const [i,group] of full.groups.entries()){
+    const means=Object.fromEntries(['DP','ACT','RoboDemo'].map(model=>[model,
+      group.tasks.reduce((sum,task)=>sum+full.tasks.find(row=>row.task===task)[model][4],0)/group.tasks.length]));
+    assert.equal(film.radar[i].group,group.name);
+    for(const model of Object.keys(means)){
+      assert.equal(film.radar[i].success_rate[model],means[model]);
+      assert.equal(film.radar[i].relative[model],means[model]/Math.max(...Object.values(means))*100);
+    }
+  }
+});
+test('English captions stay short and snap above native player controls',()=>{
   const vtt=fs.readFileSync(new URL('../assets/subtitles/summary-en.vtt',import.meta.url),'utf8');
+  const srt=fs.readFileSync(new URL('../assets/subtitles/summary-en.srt',import.meta.url),'utf8');
   const blocks=vtt.trim().split('\n\n').slice(1);
   assert.ok(blocks.length>25);
   for(const block of blocks){
     const lines=block.split('\n');
-    assert.match(lines[1],/line:85%/);
-    assert.ok(lines[2].length<=70);
+    assert.match(lines[1],/line:-2 /);
+    assert.ok(lines[2].length<=50);
     assert.equal(lines.length,3);
   }
+  const expectedSrt=blocks.map(block=>{
+    const [id,timing,text]=block.split('\n');
+    return `${id}\n${timing.split(' line:')[0].replaceAll('.',',')}\n${text}`;
+  }).join('\n\n');
+  assert.equal(srt.trim(),expectedSrt);
   const css=fs.readFileSync(new URL('../refinement.css',import.meta.url),'utf8');
   assert.match(css,/#overview::cue[^}]*font-size:18px/);
   assert.match(css,/#overview::cue \{font-size:11px\}/);

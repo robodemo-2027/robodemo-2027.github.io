@@ -1,129 +1,325 @@
 WEBVTT
 
 1
-00:00:00.000 --> 00:00:03.005 line:85% position:50% align:center size:90%
-A human demonstration contains more than a goal.
+00:00:00.350 --> 00:00:02.789 line:-2 position:50% align:center size:88%
+RoboDemo. Reconciling demonstration
 
 2
-00:00:03.005 --> 00:00:06.009 line:85% position:50% align:center size:90%
-It shows a procedure: how to approach an object,
+00:00:02.789 --> 00:00:04.809 line:-2 position:50% align:center size:88%
+intent and execution progress
 
 3
-00:00:06.009 --> 00:00:08.576 line:85% position:50% align:center size:90%
-coordinate movement, and complete a task.
+00:00:04.809 --> 00:00:06.899 line:-2 position:50% align:center size:88%
+for long-horizon manipulation.
 
 4
-00:00:08.933 --> 00:00:11.960 line:85% position:50% align:center size:90%
-But a robot does not follow exactly the same path.
+00:00:08.350 --> 00:00:10.759 line:-2 position:50% align:center size:88%
+A human demonstration shows a procedure,
 
 5
-00:00:11.960 --> 00:00:14.321 line:85% position:50% align:center size:90%
-It also needs to remember what actually
+00:00:10.759 --> 00:00:12.083 line:-2 position:50% align:center size:88%
+not just a final goal.
 
 6
-00:00:14.321 --> 00:00:16.379 line:85% position:50% align:center size:90%
-happened during its own execution.
+00:00:15.450 --> 00:00:17.512 line:-2 position:50% align:center size:88%
+The reference shows what should happen.
 
 7
-00:00:16.733 --> 00:00:20.547 line:85% position:50% align:center size:90%
-The reference video builds a persistent demonstration-intent
+00:00:17.512 --> 00:00:19.204 line:-2 position:50% align:center size:88%
+It cannot tell us what the robot
 
 8
-00:00:20.547 --> 00:00:23.344 line:85% position:50% align:center size:90%
-memory. Semantic and motion features capture
+00:00:19.204 --> 00:00:20.421 line:-2 position:50% align:center size:88%
+has actually completed.
 
 9
-00:00:23.344 --> 00:00:26.141 line:85% position:50% align:center size:90%
-what the procedure means and how it unfolds.
+00:00:20.821 --> 00:00:22.984 line:-2 position:50% align:center size:88%
+We preserve the procedure in one memory,
 
 10
-00:00:26.591 --> 00:00:28.746 line:85% position:50% align:center size:90%
-A second memory tracks interaction
+00:00:22.984 --> 00:00:25.365 line:-2 position:50% align:center size:88%
+and track completed interactions in another.
 
 11
-00:00:28.746 --> 00:00:31.408 line:85% position:50% align:center size:90%
-progress using robot observations, states,
+00:00:28.450 --> 00:00:31.211 line:-2 position:50% align:center size:88%
+Hierarchical sampling combines sparse global
 
 12
-00:00:31.408 --> 00:00:34.197 line:85% position:50% align:center size:90%
-and actions that have already been executed.
+00:00:31.211 --> 00:00:33.847 line:-2 position:50% align:center size:88%
+and event frames with a dense motion clip.
 
 13
-00:00:34.197 --> 00:00:37.493 line:85% position:50% align:center size:90%
-Each action block reads intent first, then progress.
+00:00:34.247 --> 00:00:36.772 line:-2 position:50% align:center size:88%
+Frozen semantic and motion encoders
 
 14
-00:00:38.300 --> 00:00:42.142 line:85% position:50% align:center size:90%
-On Imitator Game, the Full50 checkpoint reaches eighty-four
+00:00:36.772 --> 00:00:38.792 line:-2 position:50% align:center size:88%
+produce fused memory tokens.
 
 15
-00:00:42.142 --> 00:00:45.724 line:85% position:50% align:center size:90%
-point six percent success across two thousand episodes.
+00:00:38.792 --> 00:00:42.183 line:-2 position:50% align:center size:88%
+These write Retrieval TTT once, before rollout.
 
 16
-00:00:46.100 --> 00:00:50.041 line:85% position:50% align:center size:90%
-We also evaluate RoboDemo on real household manipulation:
+00:00:44.450 --> 00:00:47.042 line:-2 position:50% align:center size:88%
+The execution branch encodes the new image,
 
 17
-00:00:50.041 --> 00:00:53.291 line:85% position:50% align:center size:90%
-organizing a tabletop, arranging sofa cushions,
+00:00:47.042 --> 00:00:49.333 line:-2 position:50% align:center size:88%
+conditioned on the current robot state
 
 18
-00:00:53.291 --> 00:00:55.849 line:85% position:50% align:center size:90%
-and pouring from a bottle into a cup.
+00:00:49.333 --> 00:00:51.383 line:-2 position:50% align:center size:88%
+and the preceding executed action.
 
 19
-00:00:56.299 --> 00:00:59.337 line:85% position:50% align:center size:90%
-Across these three tasks, the model achieves a mean
+00:00:51.783 --> 00:00:53.747 line:-2 position:50% align:center size:88%
+It updates progress memory causally,
 
 20
-00:00:59.337 --> 00:01:02.316 line:85% position:50% align:center size:90%
-success rate of seventy-three point three percent.
+00:00:53.747 --> 00:00:55.602 line:-2 position:50% align:center size:88%
+without overwriting the reference.
 
 21
-00:01:02.316 --> 00:01:05.473 line:85% position:50% align:center size:90%
-Here are excerpts from the recorded robot executions.
+00:00:58.450 --> 00:01:00.724 line:-2 position:50% align:center size:88%
+Context tokens write to fast weights.
 
 22
-00:01:06.300 --> 00:01:08.858 line:85% position:50% align:center size:90%
-The same memory separation is useful when
+00:01:00.724 --> 00:01:02.567 line:-2 position:50% align:center size:88%
+Action-side queries read them.
 
 23
-00:01:08.858 --> 00:01:11.728 line:85% position:50% align:center size:90%
-the environment changes. These recordings show
+00:01:02.967 --> 00:01:04.616 line:-2 position:50% align:center size:88%
+Inside each action block,
 
 24
-00:01:11.728 --> 00:01:14.535 line:85% position:50% align:center size:90%
-tabletop organization under altered lighting,
+00:01:04.616 --> 00:01:07.452 line:-2 position:50% align:center size:88%
+the expert reads intent first, then refines
 
 25
-00:01:14.535 --> 00:01:17.031 line:85% position:50% align:center size:90%
-a different background, and a new scene.
+00:01:07.452 --> 00:01:10.157 line:-2 position:50% align:center size:88%
+that representation with actual progress.
 
 26
-00:01:17.400 --> 00:01:19.620 line:85% position:50% align:center size:90%
-When a human video is unavailable,
+00:01:10.557 --> 00:01:11.963 line:-2 position:50% align:center size:88%
+Both memory states remain
 
 27
-00:01:19.620 --> 00:01:22.950 line:85% position:50% align:center size:90%
-Refreward ranks robot demonstrations using the task
+00:01:11.963 --> 00:01:13.650 line:-2 position:50% align:center size:88%
+fixed during action denoising.
 
 28
-00:01:22.950 --> 00:01:26.018 line:85% position:50% align:center size:90%
-instruction and the initial image. The selected
+00:01:16.450 --> 00:01:18.527 line:-2 position:50% align:center size:88%
+When a human video is unavailable,
 
 29
-00:01:26.018 --> 00:01:29.283 line:85% position:50% align:center size:90%
-procedure enters the same intent-memory interface.
+00:01:18.527 --> 00:01:20.726 line:-2 position:50% align:center size:88%
+Refreward ranks robot demonstrations
 
 30
-00:01:29.633 --> 00:01:32.878 line:85% position:50% align:center size:90%
-Explore the model architecture, five checkpoints,
+00:01:20.726 --> 00:01:23.170 line:-2 position:50% align:center size:88%
+using the instruction and initial image.
 
 31
-00:01:32.878 --> 00:01:35.461 line:85% position:50% align:center size:90%
-evaluation tools, and minimal examples.
+00:01:23.570 --> 00:01:25.106 line:-2 position:50% align:center size:88%
+The selected video enters
 
 32
-00:01:35.461 --> 00:01:39.169 line:85% position:50% align:center size:90%
-Learn the intent. Track the progress. Build on RoboDemo.
+00:01:25.106 --> 00:01:27.133 line:-2 position:50% align:center size:88%
+the same intent-memory interface.
+
+33
+00:01:28.083 --> 00:01:30.245 line:-2 position:50% align:center size:88%
+We first evaluate in simulation.
+
+34
+00:01:30.245 --> 00:01:33.285 line:-2 position:50% align:center size:88%
+Across fifty tasks and two thousand episodes,
+
+35
+00:01:33.285 --> 00:01:35.244 line:-2 position:50% align:center size:88%
+RoboDemo achieves eighty-four
+
+36
+00:01:35.244 --> 00:01:37.001 line:-2 position:50% align:center size:88%
+point six percent success.
+
+37
+00:01:37.401 --> 00:01:39.060 line:-2 position:50% align:center size:88%
+The table shows the overall
+
+38
+00:01:39.060 --> 00:01:40.473 line:-2 position:50% align:center size:88%
+and level-wise results.
+
+39
+00:01:41.450 --> 00:01:44.743 line:-2 position:50% align:center size:88%
+Across C15, C30, and C45, mean Seen-task
+
+40
+00:01:44.743 --> 00:01:47.871 line:-2 position:50% align:center size:88%
+success is ninety point seven percent.
+
+41
+00:01:48.271 --> 00:01:50.490 line:-2 position:50% align:center size:88%
+The robot-reference variant reaches
+
+42
+00:01:50.490 --> 00:01:52.328 line:-2 position:50% align:center size:88%
+ninety percent on Seen tasks.
+
+43
+00:01:52.328 --> 00:01:54.799 line:-2 position:50% align:center size:88%
+Unseen results are reported separately.
+
+44
+00:01:57.450 --> 00:02:00.473 line:-2 position:50% align:center size:88%
+On C15 Seen tasks, mixing both contexts in
+
+45
+00:02:00.473 --> 00:02:03.423 line:-2 position:50% align:center size:88%
+one memory reaches seventy-three percent.
+
+46
+00:02:03.823 --> 00:02:06.108 line:-2 position:50% align:center size:88%
+Separate memories with cascaded reads
+
+47
+00:02:06.108 --> 00:02:08.393 line:-2 position:50% align:center size:88%
+reach eighty-nine point five percent,
+
+48
+00:02:08.393 --> 00:02:09.690 line:-2 position:50% align:center size:88%
+above parallel reads.
+
+49
+00:02:10.650 --> 00:02:12.711 line:-2 position:50% align:center size:88%
+These polygons compare the methods
+
+50
+00:02:12.711 --> 00:02:14.469 line:-2 position:50% align:center size:88%
+across nine operation groups.
+
+51
+00:02:14.869 --> 00:02:17.234 line:-2 position:50% align:center size:88%
+The left chart normalizes each group
+
+52
+00:02:17.234 --> 00:02:19.928 line:-2 position:50% align:center size:88%
+to its best method. The right chart shows
+
+53
+00:02:19.928 --> 00:02:22.359 line:-2 position:50% align:center size:88%
+actual success rates. All values come
+
+54
+00:02:22.359 --> 00:02:24.725 line:-2 position:50% align:center size:88%
+from the complete Full50 evaluation.
+
+55
+00:02:26.650 --> 00:02:29.041 line:-2 position:50% align:center size:88%
+The qualitative examples pair the human
+
+56
+00:02:29.041 --> 00:02:31.739 line:-2 position:50% align:center size:88%
+reference with its recorded robot execution.
+
+57
+00:02:31.739 --> 00:02:33.455 line:-2 position:50% align:center size:88%
+First, pouring between cups.
+
+58
+00:02:36.650 --> 00:02:38.944 line:-2 position:50% align:center size:88%
+The same architecture also transfers
+
+59
+00:02:38.944 --> 00:02:41.749 line:-2 position:50% align:center size:88%
+the demonstrated procedure to hanging a mug.
+
+60
+00:02:46.650 --> 00:02:49.083 line:-2 position:50% align:center size:88%
+Folding and stowing requires multiple
+
+61
+00:02:49.083 --> 00:02:51.450 line:-2 position:50% align:center size:88%
+manipulation stages within one task.
+
+62
+00:02:56.650 --> 00:02:59.429 line:-2 position:50% align:center size:88%
+Finally, RoboDemo achieves seventy-three
+
+63
+00:02:59.429 --> 00:03:02.138 line:-2 position:50% align:center size:88%
+point three percent mean success across
+
+64
+00:03:02.138 --> 00:03:04.778 line:-2 position:50% align:center size:88%
+three household tasks on AgiBot G two.
+
+65
+00:03:05.750 --> 00:03:07.252 line:-2 position:50% align:center size:88%
+Tabletop organization:
+
+66
+00:03:07.252 --> 00:03:10.187 line:-2 position:50% align:center size:88%
+moving objects to their intended locations.
+
+67
+00:03:15.750 --> 00:03:17.388 line:-2 position:50% align:center size:88%
+Sofa cushion arrangement:
+
+68
+00:03:17.388 --> 00:03:20.401 line:-2 position:50% align:center size:88%
+grasping and repositioning deformable objects.
+
+69
+00:03:25.750 --> 00:03:26.975 line:-2 position:50% align:center size:88%
+Bottle-to-cup pouring:
+
+70
+00:03:26.975 --> 00:03:29.313 line:-2 position:50% align:center size:88%
+coordinating the bottle and receiving cup.
+
+71
+00:03:35.750 --> 00:03:38.088 line:-2 position:50% align:center size:88%
+We also test visual changes without
+
+72
+00:03:38.088 --> 00:03:40.026 line:-2 position:50% align:center size:88%
+target-condition fine-tuning.
+
+73
+00:03:40.026 --> 00:03:41.830 line:-2 position:50% align:center size:88%
+Here, the lighting changes.
+
+74
+00:03:45.750 --> 00:03:47.981 line:-2 position:50% align:center size:88%
+Here, the tabletop background changes
+
+75
+00:03:47.981 --> 00:03:49.910 line:-2 position:50% align:center size:88%
+while the task remains the same.
+
+76
+00:03:55.750 --> 00:03:58.087 line:-2 position:50% align:center size:88%
+An additional recording shows tabletop
+
+77
+00:03:58.087 --> 00:03:59.931 line:-2 position:50% align:center size:88%
+organization in another scene.
+
+78
+00:04:05.750 --> 00:04:07.671 line:-2 position:50% align:center size:88%
+RoboDemo. Model architecture,
+
+79
+00:04:07.671 --> 00:04:09.591 line:-2 position:50% align:center size:88%
+evaluation code, checkpoints,
+
+80
+00:04:09.591 --> 00:04:11.181 line:-2 position:50% align:center size:88%
+and complete results are
+
+81
+00:04:11.181 --> 00:04:13.366 line:-2 position:50% align:center size:88%
+available on the project website.

@@ -1,15 +1,68 @@
-A human demonstration contains more than a goal. It shows a procedure: how to approach an object, coordinate movement, and complete a task.
+RoboDemo: Reconciling Demonstration Intent and Execution Progress for Long-Horizon Manipulation
+Anonymous CVPR submission
 
-But a robot does not follow exactly the same path. It also needs to remember what actually happened during its own execution.
+00:00:00.000 / TITLE / RoboDemo
+RoboDemo. Reconciling demonstration intent and execution progress for long-horizon manipulation.
 
-The reference video builds a persistent demonstration-intent memory. Semantic and motion features capture what the procedure means and how it unfolds. A second memory tracks interaction progress using robot observations, states, and actions that have already been executed. Each action block reads intent first, then progress.
+00:00:08.000 / 01 / MOTIVATION / A demonstration specifies a procedure
+A human demonstration shows a procedure, not just a final goal.
 
-On Imitator Game, the Full50 checkpoint reaches eighty-four point six percent success across two thousand episodes.
+00:00:15.100 / 01 / MOTIVATION / Intended progress is not realized progress
+The reference shows what should happen. It cannot tell us what the robot has actually completed. We preserve the procedure in one memory, and track completed interactions in another.
 
-We also evaluate RoboDemo on real household manipulation: organizing a tabletop, arranging sofa cushions, and pouring from a bottle into a cup. Across these three tasks, the model achieves a mean success rate of seventy-three point three percent. Here are excerpts from the recorded robot executions.
+00:00:28.100 / 02 / METHOD / Encode the reference. Write the intent once.
+Hierarchical sampling combines sparse global and event frames with a dense motion clip. Frozen semantic and motion encoders produce fused memory tokens. These write Retrieval T T T once, before rollout.
 
-The same memory separation is useful when the environment changes. These recordings show tabletop organization under altered lighting, a different background, and a new scene.
+00:00:44.100 / 02 / METHOD / Update memory after each completed interaction
+The execution branch encodes the new image, conditioned on the current robot state and the preceding executed action. It updates progress memory causally, without overwriting the reference.
 
-When a human video is unavailable, Refreward ranks robot demonstrations using the task instruction and the initial image. The selected procedure enters the same intent-memory interface.
+00:00:58.100 / 02 / METHOD / Cross-Memorization with cascaded reads
+Context tokens write to fast weights. Action-side queries read them. Inside each action block, the expert reads intent first, then refines that representation with actual progress. Both memory states remain fixed during action denoising.
 
-Explore the model architecture, five checkpoints, evaluation tools, and minimal examples. Learn the intent. Track the progress. Build on RoboDemo.
+00:01:16.100 / 02 / METHOD / Optional input: a retrieved robot demonstration
+When a human video is unavailable, Refreward ranks robot demonstrations using the instruction and initial image. The selected video enters the same intent-memory interface.
+
+00:01:27.733 / 03 / SIMULATION RESULTS / Imitator Game: the complete 50-task suite
+We first evaluate in simulation. Across fifty tasks and two thousand episodes, RoboDemo achieves eighty-four point six percent success. The table shows the overall and level-wise results.
+
+00:01:41.100 / 03 / SIMULATION RESULTS / Training scales and reference sources
+Across C fifteen, C thirty, and C forty-five, mean Seen-task success is ninety point seven percent. The robot-reference variant reaches ninety percent on Seen tasks. Unseen results are reported separately.
+
+00:01:57.100 / 03 / SIMULATION RESULTS / Why separate memories and read them in order?
+On C fifteen Seen tasks, mixing both contexts in one memory reaches seventy-three percent. Separate memories with cascaded reads reach eighty-nine point five percent, above parallel reads.
+
+00:02:10.300 / 03 / SIMULATION RESULTS / Performance across nine operation groups
+These polygons compare the methods across nine operation groups. The left chart normalizes each group to its best method. The right chart shows actual success rates. All values come from the complete Full fifty evaluation.
+
+00:02:26.300 / 03 / SIMULATION RESULTS / Human demonstration to robot execution
+The qualitative examples pair the human reference with its recorded robot execution. First, pouring between cups.
+
+00:02:36.300 / 03 / SIMULATION RESULTS / Human demonstration to robot execution
+The same architecture also transfers the demonstrated procedure to hanging a mug.
+
+00:02:46.300 / 03 / SIMULATION RESULTS / Human demonstration to robot execution
+Folding and stowing requires multiple manipulation stages within one task.
+
+00:02:56.300 / 04 / REAL-WORLD RESULTS / Real-world evaluation on AgiBot-G2
+Finally, RoboDemo achieves seventy-three point three percent mean success across three household tasks on AgiBot G two.
+
+00:03:05.400 / 04 / REAL-WORLD RESULTS / Tabletop organization
+Tabletop organization: moving objects to their intended locations.
+
+00:03:15.400 / 04 / REAL-WORLD RESULTS / Sofa cushion arrangement
+Sofa cushion arrangement: grasping and repositioning deformable objects.
+
+00:03:25.400 / 04 / REAL-WORLD RESULTS / Bottle-to-cup pouring
+Bottle-to-cup pouring: coordinating the bottle and receiving cup.
+
+00:03:35.400 / 04 / REAL-WORLD RESULTS / Tabletop organization
+We also test visual changes without target-condition fine-tuning. Here, the lighting changes.
+
+00:03:45.400 / 04 / REAL-WORLD RESULTS / Tabletop organization
+Here, the tabletop background changes while the task remains the same.
+
+00:03:55.400 / 04 / REAL-WORLD RESULTS / Tabletop organization
+An additional recording shows tabletop organization in another scene.
+
+00:04:05.400 / ROBODEMO / Preserve demonstration intent. Track execution progress.
+RoboDemo. Model architecture, evaluation code, checkpoints, and complete results are available on the project website.
