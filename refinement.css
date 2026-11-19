@@ -70,3 +70,27 @@
 
 .hero-meta{text-align:center}
 html[data-theme=dark] .resource-icon[src$="arxiv.svg"]{filter:brightness(2)}
+
+.evaluation-starter {margin:36px 0 42px;border:1px solid var(--line);border-radius:16px;overflow:hidden;background:var(--surface)}
+.starter-heading {display:flex;justify-content:space-between;align-items:center;gap:24px;padding:26px 28px 18px}
+.starter-heading h3 {font-size:27px;margin:8px 0}
+.starter-heading p {max-width:720px;font-size:15px;color:var(--muted);line-height:1.6}
+.starter-options {display:grid;grid-template-columns:1.3fr 1fr 1fr;gap:18px;padding:0 28px 20px}
+.starter-options label {display:flex;flex-direction:column;gap:8px;font:11px var(--mono);color:var(--muted)}
+.starter-options select {width:100%;min-width:0;padding:11px 12px;border:1px solid var(--line);border-radius:7px;background:var(--paper);color:var(--ink);font:14px var(--body)}
+.starter-terminal {background:#251e24;color:#f7eae2;border-top:1px solid var(--line)}
+.starter-terminal>div {display:flex;justify-content:space-between;align-items:center;gap:16px;padding:12px 24px;border-bottom:1px solid #67515d;font:11px var(--mono);color:#ddc5cd}
+.starter-terminal button {padding:7px 13px;border:1px solid #987481;border-radius:5px;background:transparent;color:#fff4ee;font:11px var(--mono)}
+.starter-terminal pre {margin:0;padding:24px 28px;overflow-x:auto;background:transparent;color:inherit;font:12px/1.8 var(--mono)}
+.starter-terminal code {background:transparent;color:inherit;padding:0}
+.starter-foot {padding:16px 28px;display:flex;flex-wrap:wrap;gap:12px 28px;font-size:13px;color:var(--muted);line-height:1.6}
+.starter-foot a {color:var(--ink)}
+@media(max-width:680px) {
+  .starter-heading {padding:20px;align-items:flex-start;flex-direction:column;gap:10px}
+  .starter-heading h3 {font-size:23px}
+  .starter-options {padding:0 20px 20px;grid-template-columns:1fr 1fr;gap:14px}
+  .starter-options label:first-child {grid-column:1/-1}
+  .starter-terminal>div {padding:12px 16px;align-items:flex-start}
+  .starter-terminal pre {padding:18px 16px;font-size:10px}
+  .starter-foot {padding:16px 20px}
+}
