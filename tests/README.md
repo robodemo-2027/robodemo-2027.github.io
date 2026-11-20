@@ -11,4 +11,5 @@ evaluation-command builder.
 
 The [active GitHub Actions workflow](https://github.com/robodemo-2027/robodemo-2027.github.io/actions/workflows/site-checks.yml)
 runs these tests on every push and pull request. `workflow-template.yml` is
-the reusable copy. The first hosted run passed all 16 tests.
+the reusable copy. The suite includes versioned release links, checkpoint
+download commands and bilingual release announcements.

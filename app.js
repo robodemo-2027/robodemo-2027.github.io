@@ -7,7 +7,7 @@ import {initDemos} from './demos.js';
 import {publication} from './content/config.js';
 import {initSummaryFilm} from './summary-film.js';
 import {initRetrievalGallery} from './retrieval-gallery.js';
-import {initEvaluationStarter} from './evaluation-starter.js?v=20261119-start';
+import {initEvaluationStarter} from './evaluation-starter.js?v=20261120-release';
 function language(lang){
   document.documentElement.lang=lang;
   $$('[data-en][data-zh]').forEach(el=>el.innerHTML=el.dataset[lang==='zh'?'zh':'en']);

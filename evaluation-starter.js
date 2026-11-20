@@ -15,6 +15,7 @@ export function evaluationCommand({model = 'c15', gpus = '1', memory = '32', pla
 export CUDA_VISIBLE_DEVICES=${devices}
 
 hf download "mxk1998/RoboDemo-\${MODEL}" \\
+  --revision v0.1-evaluation \\
   pytorch_model.pt policy.yaml normalization.json \\
   --local-dir "checkpoints/RoboDemo-\${MODEL}" &&
 
@@ -41,7 +42,7 @@ export function initEvaluationStarter() {
     const plan = form.querySelector('#starter-plan').value;
     const workers = memory === '80' ? 2 : 1;
     command.textContent = evaluationCommand({model, gpus, memory, plan});
-    form.querySelector('#starter-weights').href = `https://huggingface.co/mxk1998/RoboDemo-${model}`;
+    form.querySelector('#starter-weights').href = `https://huggingface.co/mxk1998/RoboDemo-${model}/tree/v0.1-evaluation`;
     const count = plan === 'smoke' ? Number(gpus) * workers : (model === 'full50' ? 2000 : 400);
     message.textContent = `${count.toLocaleString('en-US')} episode${count === 1 ? '' : 's'} total, 500 steps each; ${workers} worker${workers === 1 ? '' : 's'}/GPU.`;
   }
