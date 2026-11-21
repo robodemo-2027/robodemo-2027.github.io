@@ -1,0 +1,79 @@
+{
+  "source": "https://github.com/robodemo-2027/RoboDemo/blob/main/results/c15-wo/episodes.jsonl",
+  "source_sha256": "36d11cb7f4fe75e38cfdbd36c8717f59489842168ae1a2f923bc259b89f66bf1",
+  "selection": "Selected final-success recordings only. Full benchmark records remain unchanged.",
+  "records": [
+    {
+      "model": "RoboDemo-c15-wo",
+      "checkpoint_step": 100000,
+      "trial_id": "L0_TwoRobotFoldTowel-v1_trial00",
+      "task": "FoldTowel",
+      "level": "L0",
+      "trial_index": 0,
+      "split": "seen",
+      "reset_seed": 20261407,
+      "policy_seed": 202650070,
+      "reference_uid": "L0_TwoRobotFoldTowel-v1:34",
+      "reference_type": "robot",
+      "status": "completed",
+      "success": true,
+      "first_success_step": 342,
+      "horizon": 500,
+      "recorded_steps": 500,
+      "policy_calls": 500,
+      "memory_updates": 499,
+      "control_frequency": 20,
+      "physics_frequency": 100,
+      "phase_names": [
+        "reach_first_fold",
+        "grasp_first_fold",
+        "fold_towel",
+        "reach_second_fold",
+        "transport_towel",
+        "place_towel"
+      ],
+      "elapsed_seconds": 324.60102478880435,
+      "inference_seconds": 304.45861577265896,
+      "simulator_seconds": 14.638359911739826,
+      "media_sha256": {
+        "reference": "31e44c6146bc15b3680c9f80e9cdfba7461141c30cb635478e3a17937b11bcec",
+        "execution": "640d85152815bc7536d361ed9c207976bd4d798a510a8082f5e94b3d8c779b56"
+      }
+    },
+    {
+      "model": "RoboDemo-c15-wo",
+      "checkpoint_step": 100000,
+      "trial_id": "L0_TwoRobotPlaceMugRack-v1_trial00",
+      "task": "PlaceMugRack",
+      "level": "L0",
+      "trial_index": 0,
+      "split": "seen",
+      "reset_seed": 20264007,
+      "policy_seed": 202910070,
+      "reference_uid": "L1_TwoRobotPlaceMugRack-v1:15",
+      "reference_type": "robot",
+      "status": "completed",
+      "success": true,
+      "first_success_step": 147,
+      "horizon": 500,
+      "recorded_steps": 500,
+      "policy_calls": 500,
+      "memory_updates": 499,
+      "control_frequency": 20,
+      "physics_frequency": 100,
+      "phase_names": [
+        "reach_mug",
+        "grasp_mug",
+        "transport_mug",
+        "place_mug"
+      ],
+      "elapsed_seconds": 311.41384158609435,
+      "inference_seconds": 299.76118738297373,
+      "simulator_seconds": 6.875125032616779,
+      "media_sha256": {
+        "reference": "3682d7a9a3af9843fad19c57afa8c04cde023a679e313643b0d059161b8ededc",
+        "execution": "2b2c6b32775e0d9ae3c0b9efdf5953f5a3974011801d6f7284cfc3e04c98bc6b"
+      }
+    }
+  ]
+}
