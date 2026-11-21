@@ -1,6 +1,6 @@
 import {$,$$,tr,escapeHTML as e,clamp,guardVisible,expand} from './lib.js';
 import {MediaSession} from './media-session.js';
-import {successfulHumanCases} from './successful-demos.js';
+import {successfulHumanCases} from './successful-demos.js?v=20261121-six';
 export function initDemos(data){
   const tasks=successfulHumanCases(data);
   if(!tasks.length)throw new Error('No verified successful human-guided recordings.');

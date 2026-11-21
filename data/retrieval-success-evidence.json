@@ -1,7 +1,7 @@
 {
   "source": "https://github.com/robodemo-2027/RoboDemo/blob/main/results/c15-wo/episodes.jsonl",
   "source_sha256": "36d11cb7f4fe75e38cfdbd36c8717f59489842168ae1a2f923bc259b89f66bf1",
-  "selection": "Selected final-success recordings only. Full benchmark records remain unchanged.",
+  "selection": "Six selected complete rollouts with final-step success independently verified in their saved trajectories. Five task families plus an additional L3 scene. Full benchmark records remain unchanged.",
   "records": [
     {
       "model": "RoboDemo-c15-wo",
@@ -35,6 +35,19 @@
       "elapsed_seconds": 324.60102478880435,
       "inference_seconds": 304.45861577265896,
       "simulator_seconds": 14.638359911739826,
+      "success_at_end": true,
+      "trajectory_complete": true,
+      "trajectory_terminal_success": true,
+      "trajectory_steps": 500,
+      "video_frames": 501,
+      "reference_start_frame": 14688,
+      "reference_frames": 429,
+      "reference_fps": 30,
+      "source_sha256": {
+        "rollout": "ef3dc01a812279af0c4228cc54f24faad77d72093f72ed380e32a46a712f10d1",
+        "trajectory": "860ae5252d677f8267ee7d5c745389e9aef9d27d28847b63e65f0b510fc3c5e4",
+        "reference_video": "15d03798d1c86109dd1c58fd247c40ec7b4b5f29811acff204442af02f8a3dee"
+      },
       "media_sha256": {
         "reference": "31e44c6146bc15b3680c9f80e9cdfba7461141c30cb635478e3a17937b11bcec",
         "execution": "640d85152815bc7536d361ed9c207976bd4d798a510a8082f5e94b3d8c779b56"
@@ -70,10 +83,226 @@
       "elapsed_seconds": 311.41384158609435,
       "inference_seconds": 299.76118738297373,
       "simulator_seconds": 6.875125032616779,
+      "success_at_end": true,
+      "trajectory_complete": true,
+      "trajectory_terminal_success": true,
+      "trajectory_steps": 500,
+      "video_frames": 501,
+      "reference_start_frame": 3633,
+      "reference_frames": 238,
+      "reference_fps": 30,
+      "source_sha256": {
+        "rollout": "69473f6839e09c2ffc6e72ce36c9f52bd0371c185a4a7045ca0903b5b1553b46",
+        "trajectory": "4872036d571f04b8dec933bdd0b88b6b5e60e127d9971471549dbac37690173a",
+        "reference_video": "e146f871c7b7ab3321d68ecdf987491566399a7ccf82b70573259a5e21cf712d"
+      },
       "media_sha256": {
         "reference": "3682d7a9a3af9843fad19c57afa8c04cde023a679e313643b0d059161b8ededc",
         "execution": "2b2c6b32775e0d9ae3c0b9efdf5953f5a3974011801d6f7284cfc3e04c98bc6b"
       }
+    },
+    {
+      "model": "RoboDemo-c15-wo",
+      "checkpoint_step": 100000,
+      "trial_id": "L0_TwoRobotPlaceFileFolder-v1_trial00",
+      "task": "PlaceFileFolder",
+      "level": "L0",
+      "trial_index": 0,
+      "split": "seen",
+      "reset_seed": 20263607,
+      "policy_seed": 202870070,
+      "reference_uid": "L1_TwoRobotPlaceFileFolder-v1:24",
+      "reference_type": "robot",
+      "status": "completed",
+      "success": true,
+      "first_success_step": 316,
+      "horizon": 500,
+      "recorded_steps": 500,
+      "policy_calls": 500,
+      "memory_updates": 499,
+      "control_frequency": 20,
+      "physics_frequency": 100,
+      "phase_names": [
+        "reach_file",
+        "grasp_file",
+        "transport_file",
+        "place_file",
+        "open_folder"
+      ],
+      "elapsed_seconds": 313.6155434558168,
+      "inference_seconds": 302.2733567652758,
+      "simulator_seconds": 6.595255142543465,
+      "success_at_end": true,
+      "trajectory_complete": true,
+      "trajectory_terminal_success": true,
+      "trajectory_steps": 500,
+      "video_frames": 501,
+      "reference_start_frame": 10446,
+      "reference_frames": 444,
+      "reference_fps": 30,
+      "source_sha256": {
+        "rollout": "db9ffbb4eaafc0f326a6fc6fb7d8d5d5ed6d4f2bebe7cb92bf04ce8552d08566",
+        "trajectory": "eccada18dc4b76d4ee281e8a926010486149332ce59db6aa12bb10feaa7298cd",
+        "reference_video": "3bf7ab009d59e07f2a451a43bf4613d2bd44a76a3f012be2617d030a160044b3"
+      },
+      "media_sha256": {
+        "reference": "5d1d184fc5ea0c249eb196fba90d898e0e77805b14bcdabc64830e0b73a06d8f",
+        "execution": "4e56266b15031485be74383af689400b4312b4bffdb303266754500129f2de2f"
+      }
+    },
+    {
+      "model": "RoboDemo-c15-wo",
+      "checkpoint_step": 100000,
+      "trial_id": "L0_TwoRobotPlacePlateRack-v1_trial01",
+      "task": "PlacePlateRack",
+      "level": "L0",
+      "trial_index": 1,
+      "split": "seen",
+      "reset_seed": 20264208,
+      "policy_seed": 202930570,
+      "reference_uid": "L1_TwoRobotPlacePlateRack-v1:46",
+      "reference_type": "robot",
+      "status": "completed",
+      "success": true,
+      "first_success_step": 169,
+      "horizon": 500,
+      "recorded_steps": 500,
+      "policy_calls": 500,
+      "memory_updates": 499,
+      "control_frequency": 20,
+      "physics_frequency": 100,
+      "phase_names": [
+        "reach",
+        "grasp",
+        "transport",
+        "place"
+      ],
+      "elapsed_seconds": 343.63538588094525,
+      "inference_seconds": 304.33062352240086,
+      "simulator_seconds": 35.78090810147114,
+      "success_at_end": true,
+      "trajectory_complete": true,
+      "trajectory_terminal_success": true,
+      "trajectory_steps": 500,
+      "video_frames": 501,
+      "reference_start_frame": 14877,
+      "reference_frames": 323,
+      "reference_fps": 30,
+      "source_sha256": {
+        "rollout": "2351895d75a8c130f6216d7f35dcf7bac1d6f0e7911bb14590d1b57145bac978",
+        "trajectory": "a63db0dc15e11039322b55298e5122c7471459c7f76cf4138ea024972040df4b",
+        "reference_video": "fdf435d53595e89c888d511be03c675288330bf3593599b8ae0a4a7b602c3766"
+      },
+      "media_sha256": {
+        "reference": "03c3364202dd2e9203aeaf4439081a22c4ec5ad03d3a74617919497c9b469f68",
+        "execution": "bac28e0c8bd979675ee699674a752cdf2b689be7329deaec2c74a6ca03fcf98d"
+      }
+    },
+    {
+      "model": "RoboDemo-c15-wo",
+      "checkpoint_step": 100000,
+      "trial_id": "L0_TwoRobotStirSpoon-v1_trial01",
+      "task": "StirSpoon",
+      "level": "L0",
+      "trial_index": 1,
+      "split": "seen",
+      "reset_seed": 20265708,
+      "policy_seed": 203080570,
+      "reference_uid": "L0_TwoRobotStirSpoon-v1:29",
+      "reference_type": "robot",
+      "status": "completed",
+      "success": true,
+      "first_success_step": 217,
+      "horizon": 500,
+      "recorded_steps": 500,
+      "policy_calls": 500,
+      "memory_updates": 499,
+      "control_frequency": 20,
+      "physics_frequency": 100,
+      "phase_names": [
+        "reach",
+        "grasp",
+        "lift",
+        "approach_bowl",
+        "stir",
+        "return"
+      ],
+      "elapsed_seconds": 323.8745880080387,
+      "inference_seconds": 304.1734794024378,
+      "simulator_seconds": 15.886990295024589,
+      "success_at_end": true,
+      "trajectory_complete": true,
+      "trajectory_terminal_success": true,
+      "trajectory_steps": 500,
+      "video_frames": 501,
+      "reference_start_frame": 18720,
+      "reference_frames": 648,
+      "reference_fps": 30,
+      "source_sha256": {
+        "rollout": "fdb39ccb48190933fa480d4e670ad1e667a31269f2263ce9b9bc39c7bb3db46a",
+        "trajectory": "418928d0e83976e024239991bb9b30a615f9bc1af9b5ba38d082f0800156a08d",
+        "reference_video": "be6b83bb12bd8753698a66e9569ce2ff95f054a8ad1c0ed7c59f525f1ef0dbc6"
+      },
+      "media_sha256": {
+        "reference": "359f1bb1721dc7a1be2be6d32798d3fecf2da77780ae6c0e508ed98a04340e1b",
+        "execution": "c7c124ea1f7e89d6ca2b53085d805f2e96b471b5e2723e3164e55c7ce09cd233"
+      }
+    },
+    {
+      "model": "RoboDemo-c15-wo",
+      "checkpoint_step": 100000,
+      "trial_id": "L3_TwoRobotPlaceMugRack-v1_trial00",
+      "task": "PlaceMugRack",
+      "level": "L3",
+      "trial_index": 0,
+      "split": "seen",
+      "reset_seed": 20264007,
+      "policy_seed": 202910070,
+      "reference_uid": "L3_TwoRobotPlaceMugRack-v1:19",
+      "reference_type": "robot",
+      "status": "completed",
+      "success": true,
+      "first_success_step": 120,
+      "horizon": 500,
+      "recorded_steps": 500,
+      "policy_calls": 500,
+      "memory_updates": 499,
+      "control_frequency": 20,
+      "physics_frequency": 100,
+      "phase_names": [
+        "reach",
+        "grasp",
+        "transport",
+        "place"
+      ],
+      "elapsed_seconds": 310.5736759370193,
+      "inference_seconds": 300.2365338993259,
+      "simulator_seconds": 5.870303720235825,
+      "success_at_end": true,
+      "trajectory_complete": true,
+      "trajectory_terminal_success": true,
+      "trajectory_steps": 500,
+      "video_frames": 501,
+      "reference_start_frame": 3703,
+      "reference_frames": 192,
+      "reference_fps": 30,
+      "source_sha256": {
+        "rollout": "d59a29ec786bded20ae97250efd634d4c680ac2c0496bb9461a901b33937f688",
+        "trajectory": "cc68523d79c46ecb29fac7653befa3c47d2200bbe7b1b7a29e3eef5af1239d4c",
+        "reference_video": "0507c4f94fbdce941410b3f8509dcec2bf18c7f943b38d76e298c30fee472125"
+      },
+      "media_sha256": {
+        "reference": "293c055931213e7aa86c2f82dc6ce35d6c8da97e5cc7b09f364ed94bf5b174c4",
+        "execution": "839a488449006d2d0096a1608668e4ea090ba1abe1f68ad416ae1166efe6fdc2"
+      }
     }
-  ]
+  ],
+  "terminal_evidence": {
+    "run_id": "20261115_012359_75558144d8b3",
+    "source_hashes": {
+      "episodes.jsonl": "07c631f295288a8a6c0334948dc03399ed43c87ab75fe798c28da365af8f9de1",
+      "wo_reference_manifest.jsonl": "43af4cee7be971d4c0503ea424c018e9f53856e5b1ebd58d2f337ac2e6c7e24d"
+    },
+    "criterion": "Completed 500-step trajectory; complete=true and success[-1]=true, with matching retrieved reference UID and episode frame boundaries."
+  }
 }

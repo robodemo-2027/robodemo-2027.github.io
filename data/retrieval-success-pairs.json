@@ -1,0 +1,128 @@
+[
+  {
+    "key": "foldtowel",
+    "title": "Fold and stow",
+    "titleZh": "折叠并收纳毛巾",
+    "reference": {
+      "uid": "L0_TwoRobotFoldTowel-v1:34",
+      "instruction": "Bring the laptop's lid toward its base, then place the laptop in the box and release it."
+    },
+    "execution": {
+      "trial_id": "L0_TwoRobotFoldTowel-v1_trial00",
+      "instruction": "Fold the towel, then stow it inside the basket",
+      "success": true,
+      "split": "seen",
+      "level": "L0",
+      "steps": 500
+    },
+    "media": {
+      "reference": "assets/media/retrieval-pairs/foldtowel-reference",
+      "execution": "assets/media/retrieval-pairs/foldtowel-execution"
+    }
+  },
+  {
+    "key": "placemugrack",
+    "title": "Place the mug",
+    "titleZh": "杯子上架",
+    "reference": {
+      "uid": "L1_TwoRobotPlaceMugRack-v1:15",
+      "instruction": "Place the mug on the rack."
+    },
+    "execution": {
+      "trial_id": "L0_TwoRobotPlaceMugRack-v1_trial00",
+      "instruction": "Suspend the handled water cup from the cup holder",
+      "success": true,
+      "split": "seen",
+      "level": "L0",
+      "steps": 500
+    },
+    "media": {
+      "reference": "assets/media/retrieval-pairs/placemugrack-reference",
+      "execution": "assets/media/retrieval-pairs/placemugrack-execution"
+    }
+  },
+  {
+    "key": "placefilefolder",
+    "title": "Organize the file folder",
+    "titleZh": "文件夹收纳",
+    "reference": {
+      "uid": "L1_TwoRobotPlaceFileFolder-v1:24",
+      "instruction": "Retrieved robot demonstration (L1)."
+    },
+    "execution": {
+      "trial_id": "L0_TwoRobotPlaceFileFolder-v1_trial00",
+      "instruction": "Organize and stack medical paperwork",
+      "success": true,
+      "split": "seen",
+      "level": "L0",
+      "steps": 500
+    },
+    "media": {
+      "reference": "assets/media/retrieval-successes/placefilefolder-reference",
+      "execution": "assets/media/retrieval-successes/placefilefolder-execution"
+    }
+  },
+  {
+    "key": "placeplaterack",
+    "title": "Place the plate",
+    "titleZh": "盘子上架",
+    "reference": {
+      "uid": "L1_TwoRobotPlacePlateRack-v1:46",
+      "instruction": "Retrieved robot demonstration (L1)."
+    },
+    "execution": {
+      "trial_id": "L0_TwoRobotPlacePlateRack-v1_trial01",
+      "instruction": "Load the plate onto the plate rack",
+      "success": true,
+      "split": "seen",
+      "level": "L0",
+      "steps": 500
+    },
+    "media": {
+      "reference": "assets/media/retrieval-successes/placeplaterack-reference",
+      "execution": "assets/media/retrieval-successes/placeplaterack-execution"
+    }
+  },
+  {
+    "key": "stirspoon-success",
+    "title": "Stir with a spoon",
+    "titleZh": "使用汤匙搅拌",
+    "reference": {
+      "uid": "L0_TwoRobotStirSpoon-v1:29",
+      "instruction": "Retrieved robot demonstration (L0)."
+    },
+    "execution": {
+      "trial_id": "L0_TwoRobotStirSpoon-v1_trial01",
+      "instruction": "Use the spoon to mix the soup in the bowl",
+      "success": true,
+      "split": "seen",
+      "level": "L0",
+      "steps": 500
+    },
+    "media": {
+      "reference": "assets/media/retrieval-successes/stirspoon-success-reference",
+      "execution": "assets/media/retrieval-successes/stirspoon-success-execution"
+    }
+  },
+  {
+    "key": "placemugrack-l3",
+    "title": "Place the mug: L3 scene",
+    "titleZh": "杯子上架：L3 场景",
+    "reference": {
+      "uid": "L3_TwoRobotPlaceMugRack-v1:19",
+      "instruction": "Retrieved robot demonstration (L3)."
+    },
+    "execution": {
+      "trial_id": "L3_TwoRobotPlaceMugRack-v1_trial00",
+      "instruction": "Suspend the handled water cup from the cup holder",
+      "success": true,
+      "split": "seen",
+      "level": "L3",
+      "steps": 500
+    },
+    "media": {
+      "reference": "assets/media/retrieval-successes/placemugrack-l3-reference",
+      "execution": "assets/media/retrieval-successes/placemugrack-l3-execution"
+    }
+  }
+]
