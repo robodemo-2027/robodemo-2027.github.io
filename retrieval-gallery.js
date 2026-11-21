@@ -1,6 +1,6 @@
 import {loadJSON} from './lib.js';
 import {successfulRetrievedCases} from './successful-demos.js?v=20261121-six';
-import {mountPairedGallery} from './paired-gallery.js?v=20261121-native';
+import {mountPairedGallery} from './paired-gallery.js?v=20261121-native-stream';
 
 export function retrievedCards(allRows,evidence) {
   return successfulRetrievedCases(allRows,evidence).map(row=>({

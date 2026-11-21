@@ -1,9 +1,11 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import fs from 'node:fs';
+import crypto from 'node:crypto';
 import {humanCards} from '../demos.js';
 import {retrievedCards} from '../retrieval-gallery.js';
 import {pairedGalleryMarkup} from '../paired-gallery.js';
+import {streamingSources} from '../content/streaming-media.js';
 
 const read=name=>JSON.parse(fs.readFileSync(new URL(`../data/${name}`,import.meta.url)));
 const galleries=[
@@ -11,7 +13,7 @@ const galleries=[
   retrievedCards(read('retrieval-success-pairs.json'),read('retrieval-success-evidence.json'))
 ];
 
-test('both six-pair galleries bind all 24 original videos immediately with native controls',()=>{
+test('both six-pair galleries bind 24 real sources and load on native play, not on scroll',()=>{
   const sources=[];
   for(const rows of galleries){
     assert.equal(rows.length,6);
@@ -20,10 +22,11 @@ test('both six-pair galleries bind all 24 original videos immediately with nativ
     const videos=[...html.matchAll(/<video ([^>]+)>/g)];
     assert.equal(videos.length,12);
     for(const [i,[,attrs]] of videos.entries()){
-      assert.match(attrs,/controls muted playsinline preload="metadata"/);
+      assert.match(attrs,/controls muted playsinline preload="none"/);
       assert.doesNotMatch(attrs,/data-(?:pair|lazy)-src|autoplay/);
       const src=attrs.match(/(?:^| )src="([^"]+)"/)[1];
-      assert.equal(src,rows[Math.floor(i/2)][i%2?'execution':'reference'].src);
+      const original=rows[Math.floor(i/2)][i%2?'execution':'reference'].src;
+      assert.equal(src,streamingSources[original]?.src||original);
       assert.ok(fs.existsSync(new URL(`../${src}`,import.meta.url)));
       sources.push(src);
     }
@@ -39,8 +42,35 @@ test('gallery translations have the same media, ordering and recording identitie
     assert.ok(en.includes(rows[0].title[0]));
     assert.equal((en.match(/class="video-error" role="status" hidden/g)||[]).length,12);
     for(const row of rows)for(const kind of ['reference','execution']){
-      assert.ok(en.includes(`href="${row[kind].src}"`));
+      const src=streamingSources[row[kind].src]?.src||row[kind].src;
+      assert.ok(en.includes(`href="${src}"`));
     }
+  }
+});
+
+test('all 24 delivery videos have fast-start indexes and six lossless copies preserve original files',()=>{
+  assert.equal(Object.keys(streamingSources).length,6);
+  const readFile=src=>fs.readFileSync(new URL(`../${src}`,import.meta.url));
+  const hash=src=>crypto.createHash('sha256').update(readFile(src)).digest('hex');
+  for(const [original,delivery] of Object.entries(streamingSources)){
+    assert.equal(hash(original),delivery.originalSha256);
+    assert.equal(hash(delivery.src),delivery.sha256);
+    assert.equal(delivery.nb_frames,'501');
+    assert.equal(delivery.duration,'25.050000');
+    assert.equal(delivery.codec_name,'h264');
+    assert.match(delivery.videoPacketSha256,/^[a-f0-9]{64}$/);
+  }
+  for(const rows of galleries)for(const row of rows)for(const kind of ['reference','execution']){
+    const src=streamingSources[row[kind].src]?.src||row[kind].src;
+    const bytes=readFile(src),atoms=[];
+    for(let offset=0;offset<bytes.length;){
+      let size=bytes.readUInt32BE(offset);
+      if(size===1)size=Number(bytes.readBigUInt64BE(offset+8));
+      assert.ok(size>=8&&offset+size<=bytes.length,`Invalid MP4 atom: ${src}`);
+      atoms.push(bytes.toString('ascii',offset+4,offset+8));offset+=size;
+    }
+    assert.ok(atoms.includes('moov')&&atoms.includes('mdat'),src);
+    assert.ok(atoms.indexOf('moov')<atoms.indexOf('mdat'),`Index must precede video data: ${src}`);
   }
 });
 

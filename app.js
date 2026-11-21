@@ -3,10 +3,10 @@ import {initMethod} from './method.js';
 import {initMethodDetails} from './method-details.js';
 import {initPerformance} from './performance.js';
 import {initRelease} from './release-2026.js?v=20261119-recut';
-import {initDemos} from './demos.js?v=20261121-native';
+import {initDemos} from './demos.js?v=20261121-native-stream';
 import {publication} from './content/config.js';
 import {initSummaryFilm} from './summary-film.js';
-import {initRetrievalGallery} from './retrieval-gallery.js?v=20261121-native';
+import {initRetrievalGallery} from './retrieval-gallery.js?v=20261121-native-stream';
 import {initEvaluationStarter} from './evaluation-starter.js?v=20261120-release';
 function language(lang){
   document.documentElement.lang=lang;

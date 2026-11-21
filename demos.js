@@ -1,5 +1,5 @@
 import {successfulHumanCases} from './successful-demos.js?v=20261121-six';
-import {mountPairedGallery} from './paired-gallery.js?v=20261121-native';
+import {mountPairedGallery} from './paired-gallery.js?v=20261121-native-stream';
 
 export function humanCards(data) {
   return successfulHumanCases(data).map(task=>({

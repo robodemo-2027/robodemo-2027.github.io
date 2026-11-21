@@ -1,4 +1,5 @@
 import {escapeHTML as escape} from './lib.js';
+import {streamingSources} from './content/streaming-media.js';
 
 export function pairedGalleryMarkup(rows,lang='en') {
   const text=([en,zh])=>lang==='zh'?zh:en;
@@ -7,9 +8,10 @@ export function pairedGalleryMarkup(rows,lang='en') {
   return rows.map(row=>{
     const clip=kind=>{
       const media=row[kind];
+      const src=streamingSources[media.src]?.src||media.src;
       return `<figure>${translated('figcaption',media.label)}
-        <video controls muted playsinline preload="metadata" src="${escape(media.src)}" poster="${escape(media.poster)}" data-identity="${escape(media.identity)}" aria-label="${escape(text(row.title)+' / '+text(media.label))}"></video>
-        <p class="video-error" role="status" hidden>${translated('span',['This recording could not load.','此录像暂时无法加载。'])} <a href="${escape(media.src)}" target="_blank" rel="noopener">${translated('span',['Open video file','打开视频文件'])}</a></p>
+        <video controls muted playsinline preload="none" src="${escape(src)}" poster="${escape(media.poster)}" data-identity="${escape(media.identity)}" aria-label="${escape(text(row.title)+' / '+text(media.label))}"></video>
+        <p class="video-error" role="status" hidden>${translated('span',['This recording could not load.','此录像暂时无法加载。'])} <a href="${escape(src)}" target="_blank" rel="noopener">${translated('span',['Open video file','打开视频文件'])}</a></p>
         <p>${escape(media.instruction)}</p></figure>`;
     };
     return `<article class="retrieval-case" data-outcome="success" data-case="${escape(row.key)}">
