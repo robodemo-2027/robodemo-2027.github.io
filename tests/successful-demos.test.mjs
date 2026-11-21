@@ -102,6 +102,8 @@ test('gallery uses the six-success manifest and derives the visible count from v
   const html=fs.readFileSync(new URL('../index.html',import.meta.url),'utf8');
   assert.match(renderer,/loadJSON\('data\/retrieval-success-pairs\.json'\)/);
   assert.ok(!renderer.includes("loadJSON('data/retrieval-pairs.json')"));
-  assert.match(renderer,/\$\{rows.length\} SUCCESSFUL CASES/);
+  assert.match(renderer,/mountPairedGallery\('#retrieval-gallery',rows,'#retrieval-success-count'\)/);
+  const shared=fs.readFileSync(new URL('../paired-gallery.js',import.meta.url),'utf8');
+  assert.match(shared,/\$\{rows.length\} SUCCESSFUL CASES/);
   assert.match(html,/id="retrieval-success-count"[^>]+data-en="6 SUCCESSFUL CASES"/);
 });
