@@ -2,6 +2,8 @@
 
 Website: https://robodemo-2027.github.io/
 
+Paper: https://arxiv.org/abs/2611.32256
+
 Static HTML, CSS, JavaScript, SVG illustrations and selected research media.
 GitHub Pages serves the repository root from the main branch; .nojekyll
 disables Jekyll processing. No model, robot, API backend or training service
@@ -15,8 +17,9 @@ blanket license to redistribute recorded media.
 
 Scientific values and recorded outcomes are unchanged from the local website.
 Current method illustrations and historical evaluation protocols remain
-explicitly distinguished. Unverified author, paper and model links are omitted.
-Search-engine indexing remains disabled for this anonymous research version.
+explicitly distinguished. The paper link and citation follow the public arXiv
+record. Search-engine indexing remains disabled; this link update does not
+change the existing indexing policy.
 
 Only the website is published here. Experiment directories, private provenance,
 QA receipts, local paths, runtime dependencies, model weights and backups
