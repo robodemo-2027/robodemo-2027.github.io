@@ -71,9 +71,14 @@ html[data-theme=dark]{color-scheme:dark;--ink:#f3e7e1;--paper:#211b20;--surface:
 .explorer-table td,.explorer-table th{font-size:13px;padding-block:10px}
 .sr-value{display:inline-block;min-width:75px;background:linear-gradient(90deg,#ebb3c640 var(--sr),transparent var(--sr));padding:3px 8px;border-radius:3px;font-variant-numeric:tabular-nums}
 #result-count{margin-top:15px}
-.benchmark-details{margin-top:45px}
-.benchmark-details>summary{font-size:19px}
-.benchmark-details .result-heading{margin-top:25px}
+.performance-comparison{margin-top:40px}
+.performance-heading{display:flex;justify-content:space-between;align-items:end;gap:24px}
+.performance-heading .eyebrow{margin-bottom:12px}
+.performance-heading h3{font-size:clamp(26px,3vw,34px);letter-spacing:-.035em}
+.performance-heading>a{flex-shrink:0;color:var(--muted);text-decoration:underline;text-underline-offset:4px}
+.performance-intro{max-width:790px;margin:18px 0 28px;color:var(--muted);font-size:16px}
+.performance-comparison .result-workbench{padding-top:24px;border-top:1px solid var(--line)}
+@media(max-width:800px){.performance-heading{align-items:start;flex-direction:column;gap:14px}.performance-comparison{margin-top:30px}.performance-intro{font-size:15px}}
 .real-world,.retrieval-pair{margin-top:75px;padding-top:40px;border-top:1px solid var(--line)}
 .real-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:25px 20px;margin:28px 0 20px}
 .real-card{background:var(--surface-soft);border:1px solid var(--line);border-radius:11px;overflow:hidden}
