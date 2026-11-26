@@ -1,0 +1,36 @@
+{
+  "revision": "2026-11-26",
+  "video": "assets/video/summary-public-authors-1080p.mp4",
+  "sourceSha256": "b9e3489d199d7ab7c56fee5498fbd659a7a9d479297c5a44df802d6b4a0c4dcd",
+  "sha256": "59b85ed682c62f5dd3ce49664ba8c71d7c4ca8e38b6e8c4ceb13f3db68881bbe",
+  "frames": 7619,
+  "duration": 253.96666666666667,
+  "changedIntervals": [
+    {
+      "start": 0,
+      "end": 8,
+      "svg": "assets/svg/film-title-authors.svg"
+    },
+    {
+      "start": 245.4,
+      "end": 253.96666666666667,
+      "svg": "assets/svg/film-closing-authors.svg"
+    }
+  ],
+  "middleVideo": {
+    "start": 8,
+    "end": 245.4,
+    "packets": 7122,
+    "packetAndTimestampSha256": "7955ae8569c95268a00d865a20e44a75540488da68cae9ef30aba542a594228e",
+    "unchanged": true
+  },
+  "narration": {
+    "packets": 11906,
+    "packetAndTimestampSha256": "faac50cc499c0e0c7ed24186032abb63316b5546348cad036e07dddc7bd55b61",
+    "unchanged": true
+  },
+  "captions": {
+    "path": "assets/subtitles/summary-en.vtt",
+    "sha256": "968930d370d6b24823a7af1e6260d007e60e71b104bf94d36d3ced614111392b"
+  }
+}

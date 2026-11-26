@@ -53,11 +53,7 @@ try{
       }
       shapes.push(polygons.map(p=>p.points).join('|'));
       assert.match(await page.locator('#radar-title').innerText(),new RegExp(data.metrics[level]));
-      if(scale==='relative'){
-        assert.match(await page.locator('#radar-scale-note').innerText(),/not 100% success/);
-      }else{
-        assert.match(await page.locator('#radar-scale-note').innerText(),/No raw values are clipped/);
-      }
+      assert.equal(await page.locator('#radar-scale-note').count(),0);
     }
     assert.equal(new Set(shapes).size,10,'Every level and scale must redraw the polygons');
     await page.locator('#radar g[data-group="8"]').focus();
@@ -79,12 +75,10 @@ try{
     assert.equal(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth+1),true,
       'No horizontal page overflow');
     if(width===1440){
-      const tableDetails=page.locator('#full-table').locator('..');
-      await tableDetails.locator(':scope > summary').click();
-      assert.equal(await page.locator('#full-table [data-task]').count(),50);
-      await page.locator('#full-table-search').fill('CleanCup');
-      await page.locator('.table-locator button[type="submit"]').click();
-      assert.match(await page.locator('#full-table-status').innerText(),/CleanCup/);
+      assert.equal(await page.locator('#full-table').count(),0);
+      const text=await page.locator('#full50-comparison').innerText();
+      for(const removed of ['Relative 100 means','Nine group means lead','Evaluation protocol and chart guide',
+        "All 50 tasks and the paper's five reporting groups"])assert.ok(!text.includes(removed));
       await page.selectOption('#filter-model','full50');
       assert.match(await page.locator('#result-count').innerText(),/200/);
     }

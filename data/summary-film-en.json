@@ -21,7 +21,8 @@
       "section": "TITLE",
       "start": 0,
       "end": 8,
-      "media": []
+      "media": [],
+      "svg": "assets/svg/film-title-authors.svg"
     },
     {
       "id": "human",
@@ -301,7 +302,8 @@
       "section": "ROBODEMO",
       "start": 245.39999999999998,
       "end": 253.96666666666664,
-      "media": []
+      "media": [],
+      "svg": "assets/svg/film-closing-authors.svg"
     }
   ],
   "edit": [
@@ -313,7 +315,8 @@
       "start": 0,
       "end": 8,
       "media": [],
-      "source": "SVG research visual"
+      "source": "SVG research visual",
+      "svg": "assets/svg/film-title-authors.svg"
     },
     {
       "id": "human",
@@ -614,7 +617,8 @@
       "start": 245.39999999999998,
       "end": 253.96666666666664,
       "media": [],
-      "source": "SVG research visual"
+      "source": "SVG research visual",
+      "svg": "assets/svg/film-closing-authors.svg"
     }
   ],
   "radar": [
@@ -744,5 +748,46 @@
         "RoboDemo": 100
       }
     }
-  ]
+  ],
+  "credits": {
+    "authors": [
+      "Xiangkai Ma",
+      "Zhihao Yuan",
+      "Linbo Zhai",
+      "Xinyi Wang",
+      "Junjie Wang",
+      "Sheng Xu",
+      "Guiliang Liu",
+      "Han Zhang",
+      "Chuyi Chen",
+      "Jifeng Gao",
+      "Wenzhong Li"
+    ],
+    "authorAffiliations": [
+      1,
+      2,
+      3,
+      1,
+      4,
+      4,
+      4,
+      1,
+      1,
+      1,
+      1
+    ],
+    "affiliations": [
+      "Nanjing University",
+      "Joy Future Academy, JD",
+      "South China University of Technology",
+      "The Chinese University of Hong Kong, Shenzhen"
+    ],
+    "equalContribution": [
+      "Xiangkai Ma",
+      "Zhihao Yuan"
+    ]
+  },
+  "video": "assets/video/summary-public-authors-1080p.mp4",
+  "poster": "assets/posters/summary-public-authors.jpg",
+  "creditRevision": "2026-11-26"
 }

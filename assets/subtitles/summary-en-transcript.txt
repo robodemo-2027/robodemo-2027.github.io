@@ -1,5 +1,10 @@
 RoboDemo: Reconciling Demonstration Intent and Execution Progress for Long-Horizon Manipulation
-Anonymous CVPR submission
+Xiangkai Ma1,*; Zhihao Yuan2,*; Linbo Zhai3; Xinyi Wang1; Junjie Wang4; Sheng Xu4; Guiliang Liu4; Han Zhang1; Chuyi Chen1; Jifeng Gao1; Wenzhong Li1
+1 Nanjing University
+2 Joy Future Academy, JD
+3 South China University of Technology
+4 The Chinese University of Hong Kong, Shenzhen
+* Equal contribution
 
 00:00:00.000 / TITLE / RoboDemo
 RoboDemo. Reconciling demonstration intent and execution progress for long-horizon manipulation.

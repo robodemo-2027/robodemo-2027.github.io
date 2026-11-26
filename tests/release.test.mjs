@@ -23,7 +23,7 @@ test('Full50 result remains 1692/2000',()=>{
 });
 test('overview uses one native 1080p player and default English subtitles',()=>{
   const html=fs.readFileSync(new URL('../index.html',import.meta.url),'utf8');
-  assert.match(html,/<video id="overview"[^>]*controls[^>]*summary-en-1080p.mp4/);
+  assert.match(html,/<video id="overview"[^>]*controls[^>]*summary-public-authors-1080p.mp4/);
   assert.match(html,/<track[^>]*srclang="en"[^>]*default>/);
   for(const id of ['hero-index','film-toolbar','film-chapter','film-transcript','demo-timing']){
     assert.ok(!html.includes(`"${id}"`),id);

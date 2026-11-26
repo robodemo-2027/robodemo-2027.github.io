@@ -16,10 +16,20 @@ test('polygon comparison is a visible section before the long result tables',()=
   assert.ok(!html.includes('class="benchmark-details"'));
   assert.ok(html.indexOf('id="full50-comparison"')<html.indexOf('id="released-results"'));
   assert.ok(html.indexOf('id="full50-comparison"')<html.indexOf('id="result-explorer"'));
-  for(const id of ['result-level','result-scale','radar','group-info','full-table']){
+  for(const id of ['result-level','result-scale','radar','group-info']){
     assert.equal(html.split(`id="${id}"`).length-1,1,`${id} must remain unique`);
   }
   assert.match(panel,/<h3 id="full50-title" data-en="[^"]+" data-zh="[^"]+"/);
+});
+
+test('requested chart notes and appendix panels are removed without deleting exact data',()=>{
+  for(const text of ['Relative 100 means group-best','Nine group means lead under this post-hoc grouping',
+    'Evaluation protocol and chart guide',"All 50 tasks and the paper's five reporting groups",
+    'id="full-table"','id="radar-scale-note"']){
+    assert.ok(!html.includes(text),text);
+  }
+  assert.equal(data.tasks.length,50);
+  assert.equal(data.paperTaxonomy.length,5);
 });
 
 test('approved nine operation groups cover all 50 tasks exactly once',()=>{
@@ -77,7 +87,7 @@ test('approved radial scales retain low and high actual-success values',()=>{
   for(let value=1;value<=100;value++)assert.ok(radius(value,false)>radius(value-1,false));
 });
 
-test('full task table retains the five paper groups and DP-ACT-Ours order',()=>{
+test('archived full table renderer retains five groups and DP-ACT-Ours order',()=>{
   const table=renderFullTable(data);
   assert.equal(fullTableGroups(data).length,5);
   assert.equal((table.match(/data-task=/g)||[]).length,50);

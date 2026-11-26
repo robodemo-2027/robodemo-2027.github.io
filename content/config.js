@@ -5,7 +5,14 @@ export const publication = {
     'Junjie Wang', 'Sheng Xu', 'Guiliang Liu', 'Han Zhang',
     'Chuyi Chen', 'Jifeng Gao', 'Wenzhong Li'
   ],
-  affiliations: [],
+  affiliations: [
+    'Nanjing University',
+    'Joy Future Academy, JD',
+    'South China University of Technology',
+    'The Chinese University of Hong Kong, Shenzhen'
+  ],
+  authorAffiliations: [1, 2, 3, 1, 4, 4, 4, 1, 1, 1, 1],
+  equalContribution: ['Xiangkai Ma', 'Zhihao Yuan'],
   paperURL: 'https://arxiv.org/abs/2611.32256',
   codeURL: 'https://github.com/robodemo-2027/RoboDemo',
   modelsURL: 'https://huggingface.co/collections/mxk1998/robodemo-6afc7693656d0965ce5466bc',

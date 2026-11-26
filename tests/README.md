@@ -27,4 +27,6 @@ SITE_URL=http://127.0.0.1:4193/ node tests/performance.browser.mjs
 module and Chrome executable. `QA_OUTPUT` selects the screenshot/report directory
 (default: `/tmp/robodemo-performance-qa`). The browser check covers desktop,
 tablet, and mobile widths, all ten level/scale combinations, group inspection,
-language switching, the full task table, and both six-pair video galleries.
+language switching, removal of the requested appendix panels, and both six-pair
+video galleries. `publication.browser.mjs` additionally checks the public author
+list and the new video, including seeking and English captions.

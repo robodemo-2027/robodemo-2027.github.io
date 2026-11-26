@@ -174,7 +174,6 @@ export function initPerformance(data){
     });
     $('#radar').innerHTML=svg+'</svg>'+(mobile?`<div class="radar-mobile-groups">${groups.map((g,i)=>`<button data-group="${i}">${g.id} · ${e(g.name)} (${g.n})</button>`).join('')}</div>`:'');
     $('#radar-title').textContent=`${data.metrics[level]} / ${tr(relative?'RELATIVE SCORE · GROUP BEST = 100':'RAW SUCCESS RATE (%)',relative?'相对分数 · 每组最佳 = 100':'原始成功率（%）')}`;
-    $('#radar-scale-note').textContent=relative?tr('Relative 100 means group-best, not 100% success. Display: 50–100 → 12–100% radius; below-50 values use inward triangles and dashed guides. Tooltips report uncapped values.','相对分数 100 代表该组最佳，不是成功率 100%。显示将 50–100 映射到 12–100% 半径；低于 50 用向内三角及虚线标记，提示保留原值。'):tr('Disclosed piecewise radius: 0–50% → 0–15%; 50–90% → 15–85%; 90–100% → 85–100%. No raw values are clipped.','公开的分段半径映射：0–50% → 0–15%；50–90% → 15–85%；90–100% → 85–100%。不截断原始值。');
     $$('[data-group]',$('#radar')).forEach(el=>{
       const select=()=>{selected=+el.dataset.group;showGroup();$$('g[data-group] text',$('#radar')).forEach(t=>t.setAttribute('fill',+t.parentElement.dataset.group===selected?'#B95775':'#75564E'));};
       el.onclick=select;el.onmouseenter=select;el.onfocus=select;
@@ -184,8 +183,11 @@ export function initPerformance(data){
   }
   $('#result-level').onchange=ev=>{level=+ev.target.value;draw();};
   $('#result-scale').onchange=ev=>{relative=ev.target.value==='relative';draw();};
-  $('#full-table').innerHTML=renderFullTable(data);
-  $('#full-table-notes').innerHTML=renderTableNotes(data);
-  initTableNavigation(data);
+  // The complete table renderer remains reusable, but is no longer on this page.
+  if($('#full-table')){
+    $('#full-table').innerHTML=renderFullTable(data);
+    $('#full-table-notes').innerHTML=renderTableNotes(data);
+    initTableNavigation(data);
+  }
   document.addEventListener('languagechange',draw);matchMedia('(max-width: 620px)').addEventListener('change',draw);draw();
 }
