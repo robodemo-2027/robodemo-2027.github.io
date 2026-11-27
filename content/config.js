@@ -18,6 +18,7 @@ export const publication = {
   modelsURL: 'https://huggingface.co/collections/mxk1998/robodemo-6afc7693656d0965ce5466bc',
   resultsURL: 'https://github.com/robodemo-2027/RoboDemo/blob/main/results/README.md',
   quickstartURL: 'https://github.com/robodemo-2027/RoboDemo/blob/main/docs/quickstart.md',
+  trainingURL: 'https://github.com/robodemo-2027/RoboDemo/blob/main/training/README.md',
   bibtex: `@misc{ma2026robodemoreconcilingdemonstrationintent,
   title = {RoboDemo: Reconciling Demonstration Intent and Execution
            Progress for Long-Horizon Manipulation},
@@ -30,6 +31,6 @@ export const publication = {
   primaryClass = {cs.RO},
   url = {https://arxiv.org/abs/2611.32256}
 }`,
-  status: 'Architecture, evaluation, five checkpoints and numerical results are released. Training code is next.',
+  status: 'Architecture, evaluation, five checkpoints, numerical results and complete policy/Refreward training code are released.',
   publicReleaseAuthorized: true
 };

@@ -2,19 +2,21 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 import fs from 'node:fs';
 import {evaluationCommand, checkpointSteps} from '../evaluation-starter.js';
+import {publication} from '../content/config.js';
 
 const html = fs.readFileSync(new URL('../index.html', import.meta.url), 'utf8');
 const gh = 'https://github.com/robodemo-2027/RoboDemo';
 const version = 'v0.1-evaluation';
 
-test('release announcement links the published version before motivation', () => {
+test('latest training announcement precedes motivation and retains the evaluation release', () => {
   const start = html.indexOf('id="release"');
   const end = html.indexOf('</aside>', start);
   assert.ok(start > 0 && end < html.indexOf('id="motivation"'));
   const announcement = html.slice(start, end);
   assert.ok(announcement.includes(`${gh}/releases/tag/${version}`));
-  assert.ok(announcement.includes(`${gh}/blob/${version}/docs/quickstart.md`));
-  assert.match(announcement, /datetime="2026-11-20"/);
+  assert.ok(announcement.includes(publication.trainingURL));
+  assert.ok(announcement.includes('href="#release-status"'));
+  assert.match(announcement, /datetime="2026-11-27"/);
   assert.match(announcement, /data-en=/);
   assert.match(announcement, /data-zh=/);
 });
@@ -25,7 +27,25 @@ test('release resources link asset setup, Apptainer and the measured validation'
   }
   assert.match(html, /113 CPU tests per policy variant/);
   assert.ok(html.includes(`https://huggingface.co/mxk1998/RoboDemo-Docker/tree/${version}`));
-  assert.match(html, /Training code is the next release/);
+  assert.doesNotMatch(html, /Training code is the next release|训练代码将在后续发布/);
+  assert.doesNotMatch(publication.status, /Training code is next/);
+});
+
+test('release checklist separates completed training from three pending hardware checks', () => {
+  const status = html.match(/<section id="release-status"[\s\S]*?<\/section>/)?.[0];
+  assert.ok(status);
+  const completed = status.match(/<div data-status="done">([\s\S]*?)<\/ul><\/div>/)?.[1];
+  const pending = status.match(/<div data-status="todo">([\s\S]*?)<\/ul><\/div>/)?.[1];
+  assert.ok(completed && pending);
+  assert.equal((completed.match(/<li /g) || []).length, 4);
+  assert.equal((pending.match(/<li /g) || []).length, 3);
+  assert.ok(completed.includes(publication.trainingURL));
+  assert.ok(completed.includes('actions/runs/45940672497'));
+  for (const item of ['eight-gpu', 'docker-gpu', 'training-container']) {
+    assert.ok(pending.includes(`data-item="${item}"`));
+  }
+  assert.equal((status.match(/data-en=/g) || []).length, 11);
+  assert.equal((status.match(/data-zh=/g) || []).length, 11);
 });
 
 test('all model command combinations download the published checkpoint revision', () => {
