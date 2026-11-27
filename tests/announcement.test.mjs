@@ -31,7 +31,7 @@ test('release resources link asset setup, Apptainer and the measured validation'
   assert.doesNotMatch(publication.status, /Training code is next/);
 });
 
-test('release checklist separates completed training from three pending hardware checks', () => {
+test('release checklist separates completed CPU training checks from deferred hardware checks', () => {
   const status = html.match(/<section id="release-status"[\s\S]*?<\/section>/)?.[0];
   assert.ok(status);
   const completed = status.match(/<div data-status="done">([\s\S]*?)<\/ul><\/div>/)?.[1];
@@ -41,6 +41,9 @@ test('release checklist separates completed training from three pending hardware
   assert.equal((pending.match(/<li /g) || []).length, 3);
   assert.ok(completed.includes(publication.trainingURL));
   assert.ok(completed.includes('actions/runs/45940672497'));
+  assert.match(completed, /413 passed/);
+  assert.match(completed, /CPU training-to-evaluation checks completed/);
+  assert.match(pending, /Deferred hardware checks/);
   for (const item of ['eight-gpu', 'docker-gpu', 'training-container']) {
     assert.ok(pending.includes(`data-item="${item}"`));
   }

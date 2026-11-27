@@ -9,7 +9,11 @@ Paper: https://arxiv.org/abs/2611.32256
 - [x] Complete [policy and Refreward training code](https://github.com/robodemo-2027/RoboDemo/tree/main/training), data preparation, environments and launchers.
 - [x] Five checkpoints, evaluation code, numerical results and worked examples.
 - [x] Evaluation image validated through Apptainer on H200; two-GPU evaluation and memory measurements.
-- [x] All five training/evaluation CI jobs passed; 395 public CPU tests passed, 1 historical-fixture test skipped.
+- [x] Static and CPU training-to-evaluation compatibility checks completed.
+- [x] All five source-release CI jobs passed; 413 public CPU tests passed, 1 historical-fixture test skipped.
+
+Additional hardware checks are deferred, separately from training-source validation:
+
 - [ ] End-to-end evaluation on eight physical GPUs.
 - [ ] Docker Engine/NVIDIA Container Toolkit GPU startup on a supported host.
 - [ ] Build and GPU-test the new training container recipe.
